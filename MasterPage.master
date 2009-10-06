@@ -1,4 +1,6 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<%@ Register Src="UserControl/LogIn.ascx" TagPrefix="ucl" TagName="LogIn" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -16,58 +18,22 @@
     <div id="header">
         <div class="inner">
             <div class="content">
-            <div id="logo">
-                Web Shop
+                <div id="logo">
+                    Web Shop
+                </div>
             </div>
-            <asp:Login ID="Login1" runat="server" CssClass="login">
-                <LayoutTemplate>
-                    <table class="login">
-                        <tr>
-                            <td>
-                                <asp:Label 
-                                    ID="UserNameLabel" 
-                                    runat="server" 
-                                    AssociatedControlID="UserName" CssClass="label">
-                                        User Name:
-                                </asp:Label>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" 
-                                    ControlToValidate="UserName" ErrorMessage="User Name is required." 
-                                    ToolTip="User Name is required." ValidationGroup="ctl00$Login1">*</asp:RequiredFieldValidator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>               
-                                <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password" 
-                                    CssClass="label">Password:</asp:Label>
-                            </td>
-                            <td>               
-                                <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" 
-                                    ControlToValidate="Password" ErrorMessage="Password is required." 
-                                    ToolTip="Password is required." ValidationGroup="ctl00$Login1">*</asp:RequiredFieldValidator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <asp:CheckBox ID="RememberMe" runat="server" Text=" Remember me" />
-                            </td>
-                            <td>
-                                <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Log In" 
-                                    ValidationGroup="ctl00$Login1" CssClass="login-button" />
-                            </td>
-                        </tr>
-                    </table>
-                </LayoutTemplate>
-            </asp:Login>
-        </div>
         </div>
     </div>
-    <div id="container">
-        <div id="content">
-            <asp:ContentPlaceHolder id="Content" runat="server"></asp:ContentPlaceHolder>
+    <div id="wrap">
+        <div id="containerleft">
+            <div id="content">
+                <asp:ContentPlaceHolder id="Content" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div id="containerright">
+            <div id="login">
+                <ucl:LogIn ID="LogIn1" runat="server" />
+            </div>
         </div>
     </div>
     <div id="footer">
