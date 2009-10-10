@@ -1,6 +1,6 @@
 <%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
-<%@ Register Src="UserControl/LogIn.ascx" TagPrefix="ucl" TagName="LogIn" %>
+<%@ Register src="UserControl/Login.ascx" tagname="Login" tagprefix="uc1" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -10,35 +10,31 @@
     <meta content="IE=EmulateIE7" http-equiv="X-UA-Compatible"/>
     <title>WebShop</title>
     <link media="screen" type="text/css" href="css/site.css" rel="stylesheet" />
+    <script type"text/javascript" src="./script/global.js"></script>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div id="header">
-        <div class="inner">
-            <div class="content">
-                <div id="logo">
-                    Web Shop
+        <div id="page">
+            <div id="header">
+                <div class="inner">
+                    <div class="content">
+                        <div id="logo">
+                            Web Shop
+                        </div> 
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div id="wrap">
-        <div id="containerleft">
-            <div id="content">
-                <asp:ContentPlaceHolder id="Content" runat="server"></asp:ContentPlaceHolder>
+            <div id="container">
+                    <asp:ContentPlaceHolder id="Content" runat="server"></asp:ContentPlaceHolder>
+                <div class="clear"></div>
             </div>
-        </div>
-        <div id="containerright">
-            <div id="login">
-                <ucl:LogIn ID="LogIn1" runat="server" />
+            <div id="footer">
+                &copy;2009 WebShop
             </div>
+            <uc1:Login ID="Login1" runat="server" />
         </div>
-    </div>
-    <div id="footer">
-        &copy;2009 WebShop
-    </div>
-</form>
+    </form>
 </body>
 </html>
