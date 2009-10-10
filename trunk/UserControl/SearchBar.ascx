@@ -2,6 +2,6 @@
 <div id="searchbar">
     <div class="content">
         <input type="text" id="search-text" />
-        <button type="submit" id="search">Search</button>
+        <input type="submit" value="Search" />
     </div>
 </div>
