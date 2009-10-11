@@ -283,3 +283,206 @@ a#more {
 a#more:hover {
     text-decoration: underline;
 }
+
+#requestnewpassword {
+	margin: 20px 0px 20px 20px;
+}
+
+#requestnewpasswordt {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#requestnewpasswordp {
+	font-size: 11px;
+	margin: 4px 0px 0px 0px;
+}
+
+#requestnewpasswordimg {
+	float: left;
+	margin: 20px 20px 20px 0px;
+}
+
+#requestnewpasswordform {
+	float: left;
+	margin: 20px 0px 0px 0px;
+}
+
+#requestnewpasswordemailt {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#requestnewpasswordemailp {
+	font-size: 10px;
+	margin: 2px 0px 2px 0px;
+}
+
+#requestnewpassword input[type="text"] {
+    width: 320px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-topright: 5px;
+    background: #FFF;
+    border-color: #EEE;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    font-family: Helvetica,Arial,Sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: normal;
+    margin: 0;
+    outline-width: 0;
+    padding: 8px 10px;
+}
+
+#requestnewpassword input[type="submit"] {
+	-moz-background-clip: border;
+	-moz-background-inline-policy: continuous;
+	-moz-background-origin: padding;
+	-moz-border-radius-bottomleft: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-x-system-font: none;
+	background: #DDDDDD url(../img/requestnewpasswordbtn.gif) repeat-x scroll 0 0;
+	border: 1px solid #CCCCCC;
+	border-style: solid;
+	border-width: 1px;
+	cursor: pointer;
+	font-size: medium;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: 20px;
+	margin: 6px 0px 0px 0px;
+	overflow: visible;
+	padding: 8px 8px;
+	text-shadow: 1px 1px 0 #FFFFFF;
+	vertical-align: top;
+	width: auto;
+}
+
+#requestnewpassword input[type="submit"]:hover, input[type="submit"]:focus {
+	background-color: #D5D5D5;
+	background-position: 0 -206px;
+	border-color: #999999 #999999 #888888;
+	color: #000000;
+}
+
+#studentregistration, #instituteregistrationrequest {
+	margin: 20px 0px 20px 20px;
+}
+
+#studentregistrationt, #instituteregistrationrequestt {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#studentregistrationp, #instituteregistrationrequestp {
+	font-size: 11px;
+	margin: 4px 0px 0px 0px;
+}
+
+#studentregistration a, #instituteregistrationrequest a {
+	color: #88BBD4;
+	text-decoration: none;
+}
+
+#studentregistration a:hover, #instituteregistrationrequest a:hover {
+	color: #88BBD4;
+	text-decoration: underline;
+}
+
+#studentregistration td, #instituteregistrationrequest td {
+	margin: 4px 4px 4px 4px;
+	padding: 4px 4px 4px 4px;
+}
+
+#studentregistration .formpart, #instituteregistrationrequest .formpart {
+	font-size: 16px;
+	font-weight: bold;
+	padding-left: 76px;
+}
+
+#studentregistration input[type="text"], input[type="password"], #instituteregistrationrequest input[type="text"], input[type="password"], textarea {
+    width: 320px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-topright: 5px;
+    background: #FFF;
+    border-color: #EEE;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    font-family: Helvetica,Arial,Sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: normal;
+    margin: 0;
+    outline-width: 0;
+    padding: 8px 10px;
+}
+
+#studentregistration input[type="text"].inputdate {
+	width: 40px;
+	margin-left: 4px;
+}
+
+#studentregistration td.label, #instituteregistrationrequest td.label {
+	text-align: right;
+	width: 250px;
+}
+
+#instituteregistrationrequest td.labeltextarea {
+	text-align: right;
+	vertical-align: top;
+	width: 250px;
+}
+
+#studentregistrationagreement, #instituteregistrationrequestagreement {
+	font-size: 11px;
+}
+
+#studentregistration input[type="submit"], #instituteregistrationrequest input[type="submit"] {
+	-moz-background-clip: border;
+	-moz-background-inline-policy: continuous;
+	-moz-background-origin: padding;
+	-moz-border-radius-bottomleft: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-x-system-font: none;
+	background: #DDDDDD url(../img/requestnewpasswordbtn.gif) repeat-x scroll 0 0;
+	border: 1px solid #CCCCCC;
+	border-style: solid;
+	border-width: 1px;
+	cursor: pointer;
+	font-size: medium;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: 20px;
+	margin: 6px 0px 0px 0px;
+	overflow: visible;
+	padding: 8px 8px;
+	text-shadow: 1px 1px 0 #FFFFFF;
+	vertical-align: top;
+	width: auto;
+}
+
+#studentregistration input[type="submit"]:hover, input[type="submit"]:focus, #instituteregistrationrequest input[type="submit"]:hover, input[type="submit"]:focus {
+	background-color: #D5D5D5;
+	background-position: 0 -206px;
+	border-color: #999999 #999999 #888888;
+	color: #000000;
+}

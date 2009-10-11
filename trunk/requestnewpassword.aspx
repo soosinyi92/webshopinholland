@@ -1,19 +1,33 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="requestnewpassword.aspx.cs" Inherits="requestnewpassword" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
+    CodeFile="requestnewpassword.aspx.cs" Inherits="requestnewpassword" Title="Untitled Page" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="Content" Runat="Server">
-    <div>Request New Password</div>
-    <div>
-        <table>
-            <tr>
-                <td>Email</td>
-                <td><asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
-            </tr>
-            <tr>
-                <td colspan="2"><asp:Button ID="Button1" runat="server" Text="Request New Password" /></td>
-            </tr>
-        </table>
+<asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="Server">
+    <div id="requestnewpassword">
+        <div>
+            <span id="requestnewpasswordt">Request New Password</span>
+            <p id="requestnewpasswordp">
+                Instruction on how to set your new password will be sent to email address associated
+                with your account.</p>
+        </div>
+        <div>
+            <div id="requestnewpasswordimg">
+                <img src="./img/requestnewpassword.jpg" />
+            </div>
+            <div id="requestnewpasswordform">
+                <div>
+                    <span id="requestnewpasswordemailt">Email</span>
+                    <p id="requestnewpasswordemailp">
+                        Please type your email address below.</p>
+                </div>
+                <div>
+                    <input type="text" />
+                </div>
+                <div>
+                    <input type="submit" value="Request New Password" />
+                </div>
+            </div>
+        </div>
     </div>
 </asp:Content>
-
