@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Login.ascx.cs" Inherits="LogInControl" %>
 <div id="login_button">
-    <a href="#" id="signup">
+    <a href="./studentregistration.aspx" id="signup">
         <span>Sign up</span>
     </a>
     <a href="#" id="login" >
@@ -23,9 +23,9 @@
     </p>
     <br />
     <p>
-        <a href="#" id="forgot">Forgot your password?</a>
+        <a href="./requestnewpassword.aspx" id="forgot">Forgot your password?</a>
     </p>
     <p>
-        <a href="#" id="signup">Sign up now</a>
+        <a href="./studentregistration.aspx" id="signup">Sign up now</a>
     </p>
 </div>
