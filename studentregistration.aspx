@@ -1,4 +1,9 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="studentregistration.aspx.cs" Inherits="studentregistration" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master"
+                        AutoEventWireup="true" 
+                        CodeFile="studentregistration.aspx.cs" 
+                        Inherits="studentregistration" 
+                        Title="Untitled Page" 
+                        StylesheetTheme="default"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -6,7 +11,7 @@
     <div id="studentregistration">
         <div>
             <span id="studentregistrationt">Student Registration</span>
-            <p id="studentregistrationp">Please fill the form below to register as a student. Do you want to request registration for institute? Please <a href="./instituteregistrationrequest.aspx">click here</a></p>
+            <p id="studentregistrationp">Please fill the form below to register as a student. Do you want to request registration for institute? Please <a href="/instituteregistrationrequest.aspx">click here</a></p>
         </div>
         <br />
         <div>

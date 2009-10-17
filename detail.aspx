@@ -1,4 +1,9 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="detail.aspx.cs" Inherits="detail" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" 
+                        AutoEventWireup="true" 
+                        CodeFile="detail.aspx.cs" 
+                        Inherits="detail" 
+                        Title="Untitled Page" 
+                        StylesheetTheme="default"%>
 
 <%@ Register src="UserControl/SearchBar.ascx" tagname="SearchBar" tagprefix="uc1" %>
 
