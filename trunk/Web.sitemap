@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="/default.aspx" title="Home Page"  description="Student Event Webshop Homepage" >
+    <siteMapNode url="/checkout.aspx" title="Checkout"  description="Checkout page" />
+    <!--<siteMapNode url="/detail.aspx" title="Detail"  description="Detail page" />-->
+    <siteMapNode url="/instituteregistrationrequest.aspx" title="Institute Registration Request"  description="" />
+    <siteMapNode url="/studentregistration.aspx" title="Student Registration"  description="Student Registration" />
+    <siteMapNode url="/requestnewpassword.aspx" title="Request new password"  description="Request new password" />
+    <!--<siteMapNode url="" title=""  description="" />
+    <siteMapNode url="" title=""  description="" />-->
+    
+    
+  </siteMapNode>
+  
+
+
+</siteMap>

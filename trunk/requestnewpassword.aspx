@@ -1,5 +1,9 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="requestnewpassword.aspx.cs" Inherits="requestnewpassword" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" 
+                        AutoEventWireup="true"
+                        CodeFile="requestnewpassword.aspx.cs" 
+                        Inherits="requestnewpassword" 
+                        Title="Untitled Page"  
+                        StylesheetTheme="default"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -13,7 +17,7 @@
         </div>
         <div>
             <div id="requestnewpasswordimg">
-                <img src="./img/requestnewpassword.jpg" />
+                <img src="./img/requestnewpassword.jpg" alt=""/>
             </div>
             <div id="requestnewpasswordform">
                 <div>

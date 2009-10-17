@@ -1,4 +1,9 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="checkout.aspx.cs" Inherits="checkout" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" 
+                        AutoEventWireup="true" 
+                        CodeFile="checkout.aspx.cs" 
+                        Inherits="checkout"
+                        StylesheetTheme="default" 
+                        Title="Untitled Page" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -80,11 +85,9 @@
             </asp:WizardStep>
             <asp:WizardStep runat="server" title="Payment">
                 <input type="radio" name="paymentMethod" value="paypal" />
-                Paypal
-            </asp:WizardStep>
+                Paypal</asp:WizardStep>
             <asp:WizardStep runat="server" Title="Confirm">
-                Are you sure you want to proceed this order?
-            </asp:WizardStep>
+                Are you sure you want to proceed this order?</asp:WizardStep>
         </WizardSteps>
     </asp:Wizard>
 </asp:Content>

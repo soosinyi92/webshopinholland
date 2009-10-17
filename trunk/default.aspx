@@ -1,4 +1,8 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="index" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" 
+                        AutoEventWireup="true" 
+                        CodeFile="default.aspx.cs" 
+                        Inherits="_default" 
+                        StylesheetTheme="default" %>
 
 <%@ Register src="UserControl/SearchBar.ascx" tagname="SearchBar" tagprefix="uc1" %>
 <%@ Register src="UserControl/EventSummary.ascx" tagname="EventSummary" tagprefix="uc1" %>
@@ -39,6 +43,6 @@
             <uc1:EventSummary ID="EventSummary10" runat="server" />
         </li>
     </ul>
-    <a href="./list.aspx" id="more">more...</a>
+    <a href="/list.aspx" id="more">more...</a>
 </asp:Content>
 

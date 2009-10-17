@@ -9,10 +9,9 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
     <meta content="IE=EmulateIE7" http-equiv="X-UA-Compatible"/>
     <title>WebShop</title>
-    <link media="screen" type="text/css" href="css/site.css" rel="stylesheet" />
-    <script type"text/javascript" src="./script/global.js"></script>
-    <asp:ContentPlaceHolder id="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <link media="screen" type="text/css" href="App_Themes/Default/Default.css" rel="stylesheet" />
+    <script type="text/javascript" src="./script/global.js"></script>
+    <asp:ContentPlaceHolder id="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -22,16 +21,32 @@
                     <div class="content">
                         <div id="logo">
                             Web Shop
-                        </div> 
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div id="MainMenuContainer" style="float:left;"> 
+                <asp:TreeView ID="TreeView1" runat="server" 
+                                DataSourceID="dsSitemap" 
+                                ImageSet="Arrows" >
+                    <ParentNodeStyle Font-Bold="False" />
+                    <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
+                    <SelectedNodeStyle  Font-Underline="True" 
+                                        ForeColor="#5555DD" 
+                                        HorizontalPadding="0px" 
+                                        VerticalPadding="0px" />
+                    <NodeStyle Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" 
+                        HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" />
+                </asp:TreeView>
+                
+                <asp:SiteMapDataSource ID="dsSitemap" runat="server" />
             </div>
             <div id="container">
                     <asp:ContentPlaceHolder id="Content" runat="server"></asp:ContentPlaceHolder>
                 <div class="clear"></div>
             </div>
             <div id="footer">
-                &copy;2009 WebShop
+                ©2009 WebShop Shop
             </div>
             <uc1:Login ID="Login1" runat="server" />
         </div>
