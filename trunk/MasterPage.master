@@ -25,26 +25,38 @@
                     </div>
                 </div>
             </div>
-            <div id="MainMenuContainer" style="float:left;"> 
-                <asp:TreeView ID="TreeView1" runat="server" 
-                                DataSourceID="dsSitemap" 
-                                ImageSet="Arrows" >
-                    <ParentNodeStyle Font-Bold="False" />
-                    <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
-                    <SelectedNodeStyle  Font-Underline="True" 
-                                        ForeColor="#5555DD" 
-                                        HorizontalPadding="0px" 
-                                        VerticalPadding="0px" />
-                    <NodeStyle Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" 
-                        HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" />
-                </asp:TreeView>
+           <table border="0">
+                <tr>
+                    <td style="vertical-align:top;padding:5px;">
+                        <div id="MainMenuContainer" style="float:left;"> 
+                            <asp:TreeView ID="TreeView1" runat="server" 
+                                            DataSourceID="dsSitemap" 
+                                            ImageSet="Arrows" >
+                                <ParentNodeStyle Font-Bold="False" />
+                                <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
+                                <SelectedNodeStyle  Font-Underline="True" 
+                                                    ForeColor="#5555DD" 
+                                                    HorizontalPadding="0px" 
+                                                    VerticalPadding="0px" />
+                                <NodeStyle Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" 
+                                    HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" />
+                            </asp:TreeView>
+                            <asp:SiteMapDataSource ID="dsSitemap" runat="server" />
+                        </div>
+                    
+                    </td>
+                    <td>
+                        <div id="container">
+                            <asp:ContentPlaceHolder id="Content" runat="server"></asp:ContentPlaceHolder>
+                            <div class="clear"></div>
+                        </div>
+                    </td>
+                </tr>
+           
+           
+           </table>
+            
                 
-                <asp:SiteMapDataSource ID="dsSitemap" runat="server" />
-            </div>
-            <div id="container">
-                    <asp:ContentPlaceHolder id="Content" runat="server"></asp:ContentPlaceHolder>
-                <div class="clear"></div>
-            </div>
             <div id="footer">
                 ©2009 WebShop Shop
             </div>
