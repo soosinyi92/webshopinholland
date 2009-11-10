@@ -33,8 +33,8 @@
     <Type Name="EventImage">
       <Column Name="ImageID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="EventID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="Event_EventImage" Member="Event" ThisKey="EventID" Type="Event" IsForeignKey="true" />
       <Association Name="Image_EventImage" Member="Image" ThisKey="ImageID" Type="Image" IsForeignKey="true" />
+      <Association Name="Event_EventImage" Member="Event" ThisKey="EventID" Type="Event" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.EventOrganizations" Member="EventOrganizations">
@@ -49,8 +49,8 @@
     <Type Name="EventOrganizer">
       <Column Name="EventID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="UserID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="Event_EventOrganizer" Member="Event" ThisKey="EventID" Type="Event" IsForeignKey="true" />
       <Association Name="aspnet_User_EventOrganizer" Member="aspnet_User" ThisKey="UserID" Type="aspnet_User" IsForeignKey="true" />
+      <Association Name="Event_EventOrganizer" Member="Event" ThisKey="EventID" Type="Event" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.EventPlacesToMeet" Member="EventPlacesToMeets">
@@ -61,34 +61,6 @@
       <Column Name="Address" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="Description" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
       <Association Name="Event_EventPlacesToMeet" Member="Event" ThisKey="EventID" Type="Event" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Events" Member="Events">
-    <Type Name="Event">
-      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ParentEventID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="StsrtDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="EndDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="NOfInterested" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NOfPaid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NOfMaximum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NOfMinimum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NOfCancelled" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Conditions" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
-      <Column Name="Location" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="Type" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
-      <Column Name="Price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="isMainEvent" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="Event_DiscountSubEvent" Member="DiscountSubEvents" OtherKey="EventId" Type="DiscountSubEvent" />
-      <Association Name="Event_EventImage" Member="EventImages" OtherKey="EventID" Type="EventImage" />
-      <Association Name="Event_EventOrganization" Member="EventOrganizations" OtherKey="EventID" Type="EventOrganization" />
-      <Association Name="Event_EventOrganizer" Member="EventOrganizers" OtherKey="EventID" Type="EventOrganizer" />
-      <Association Name="Event_EventPlacesToMeet" Member="EventPlacesToMeets" OtherKey="EventID" Type="EventPlacesToMeet" />
-      <Association Name="Event_Event" Member="Events" OtherKey="ParentEventID" Type="Event" />
-      <Association Name="Event_ListsOfParticipant" Member="ListsOfParticipants" OtherKey="EventID" Type="ListsOfParticipant" />
-      <Association Name="Event_Event" Member="Event1" ThisKey="ParentEventID" Type="Event" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Images" Member="Images">
@@ -109,8 +81,8 @@
       <Column Name="Canceled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="UserID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Pending" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="Event_ListsOfParticipant" Member="Event" ThisKey="EventID" Type="Event" IsForeignKey="true" />
       <Association Name="aspnet_User_ListsOfParticipant" Member="aspnet_User" ThisKey="UserID" Type="aspnet_User" IsForeignKey="true" />
+      <Association Name="Event_ListsOfParticipant" Member="Event" ThisKey="EventID" Type="Event" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.OrganizationContactPeople" Member="OrganizationContactPeoples">
@@ -263,6 +235,35 @@
       <Column Name="RoleId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="aspnet_Role_aspnet_UsersInRole" Member="aspnet_Role" ThisKey="RoleId" Type="aspnet_Role" IsForeignKey="true" />
       <Association Name="aspnet_User_aspnet_UsersInRole" Member="aspnet_User" ThisKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Events" Member="Events">
+    <Type Name="Event">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="ParentEventID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="StsrtDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="NOfInterested" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NOfPaid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NOfMaximum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NOfMinimum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NOfCancelled" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Conditions" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="isMainEvent" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Event_DiscountSubEvent" Member="DiscountSubEvents" OtherKey="EventId" Type="DiscountSubEvent" />
+      <Association Name="Event_EventImage" Member="EventImages" OtherKey="EventID" Type="EventImage" />
+      <Association Name="Event_EventOrganization" Member="EventOrganizations" OtherKey="EventID" Type="EventOrganization" />
+      <Association Name="Event_EventOrganizer" Member="EventOrganizers" OtherKey="EventID" Type="EventOrganizer" />
+      <Association Name="Event_EventPlacesToMeet" Member="EventPlacesToMeets" OtherKey="EventID" Type="EventPlacesToMeet" />
+      <Association Name="Event_ListsOfParticipant" Member="ListsOfParticipants" OtherKey="EventID" Type="ListsOfParticipant" />
+      <Association Name="Event_Event" Member="Events" OtherKey="ParentEventID" Type="Event" />
+      <Association Name="Event_Event" Member="Event1" ThisKey="ParentEventID" Type="Event" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
