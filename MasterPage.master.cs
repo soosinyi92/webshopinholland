@@ -17,4 +17,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
 
     }
+
+    protected void LogOut(object sender, EventArgs e)
+    {
+        FormsAuthentication.SignOut();
+        Response.Redirect("/webshop/");
+    }
 }

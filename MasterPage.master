@@ -58,9 +58,19 @@
             
                 
             <div id="footer">
-                ©2009 WebShop Shop
+                &copy;2009 WebShop
             </div>
-            <uc1:Login ID="Login1" runat="server" />
+            <asp:LoginView runat="server">
+                <AnonymousTemplate>
+                    <uc1:Login ID="Login1" runat="server" />
+                </AnonymousTemplate>
+                <LoggedInTemplate>
+                    <div id="user_panel">
+                        <p id="welcome">Welcome <asp:LoginName ID="LoginName1" runat="server"/></p>
+                        <asp:Button ID="LogOut" Text="Logout" runat="server" OnClick="LogOut"/>
+                    </div>
+                </LoggedInTemplate>
+            </asp:LoginView> 
         </div>
     </form>
 </body>

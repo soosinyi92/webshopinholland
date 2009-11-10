@@ -55,8 +55,10 @@ ws.addEvent = function(el, action, func) {
 ws.init = function() {
     // attach all event listener
     var loginButton = ws.dg('login');
-    ws.addEvent(loginButton, 'click', ws.showLoginPanel);
-    ws.addEvent(window, 'click', ws.hideLoginPanel);
+    if (loginButton) {
+        ws.addEvent(loginButton, 'click', ws.showLoginPanel);
+        ws.addEvent(window, 'click', ws.hideLoginPanel);
+    }
 };
 
 ws.checkBrowserType();
