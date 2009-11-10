@@ -8,18 +8,20 @@
     </a>
 </div>
 <div id="login_panel">
+<asp:Login ID="Login" runat="server">
+<LayoutTemplate>
     <p>
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" />
+        <asp:Label AssociatedControlID="UserName" runat="server">Username:</asp:Label>
+        <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
     </p>
     <p>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" />
+        <asp:Label AssociatedControlID="Password" runat="server">Password:</asp:Label>
+        <asp:TextBox ID="Password" TextMode="Password" runat="server"></asp:TextBox>
     </p>
     <p>
-        <input id="login_submit" type="submit" value="Login" />
-        <input id="remember" type="checkbox" value="1" name="remember_me" />
-        <label for="remember">Remember me</label>
+        <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Login" />
+        <asp:CheckBox ID="RememberMe" runat="server" />
+        <asp:Label AssociatedControlID="RememberMe" runat="server">Remember me</asp:Label>
     </p>
     <br />
     <p>
@@ -28,4 +30,6 @@
     <p>
         <a href="./studentregistration.aspx" id="signup">Sign up now</a>
     </p>
+</LayoutTemplate>
+</asp:Login>
 </div>

@@ -108,6 +108,10 @@ body {
     z-index:100;
 }
 
+#login_panel table,
+#login_panel table tbody,
+#login_panel table tr,
+#login_panel table td,
 #login_panel p {
     background: transparent;
 }
@@ -159,6 +163,34 @@ body {
     font-weight:bold;
     margin:0 5px 0 0;
     padding:4px 10px 5px;
+}
+
+#user_panel {
+    float: right;
+    position: absolute;
+    top: 50px;
+    right: 40px;
+}
+
+#user_panel p {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+#user_panel input[type="submit"] {
+    display: inline-block;
+    -moz-border-radius-bottomleft:4px;
+    -moz-border-radius-bottomright:4px;
+    -moz-border-radius-topleft:4px;
+    -moz-border-radius-topright:4px;
+    background:#88BBD4 ;
+    border:1px solid #88BBD4;
+    color:#FFFFFF;
+    font-size:11px;
+    font-weight:bold;
+    margin:0 5px 0 0;
+    padding:4px 10px 5px;
+    cursor:pointer;
 }
 
 /* content */

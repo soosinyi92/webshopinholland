@@ -44,6 +44,6 @@
             <uc1:EventSummary ID="EventSummary10" runat="server" />
         </li>
     </ul>
-    <a href="/list.aspx" id="more">more...</a>
+    <a href="./list.aspx" id="more">more...</a>
 </asp:Content>
 
