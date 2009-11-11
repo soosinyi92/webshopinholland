@@ -231,27 +231,29 @@ a.redbutton:hover span {
     position: absolute;
     top: 50px;
     right: 40px;
+    font-size: 12px;
 }
 
-#user_panel p {
-    display: inline-block;
-    margin: 0 5px;
+#user_panel a {
+    color:#369;
+    margin:2px 1px 3px 7px;
+    padding: 2px 1px;
+    text-decoration:none;
 }
 
-#user_panel input[type="submit"] {
-    display: inline-block;
-    -moz-border-radius-bottomleft:4px;
-    -moz-border-radius-bottomright:4px;
-    -moz-border-radius-topleft:4px;
-    -moz-border-radius-topright:4px;
-    background:#88BBD4 ;
-    border:1px solid #88BBD4;
-    color:#FFFFFF;
-    font-size:11px;
-    font-weight:bold;
-    margin:0 5px 0 0;
-    padding:4px 10px 5px;
-    cursor:pointer;
+#user_panel a span {
+    background: transparent;
+    color:#369;
+}
+
+#user_panel a:hover {
+    color:#FFF;
+    background: #369;
+}
+
+#user_panel a:hover span{
+    color:#FFF;
+    background: #369;
 }
 
 /* content */
