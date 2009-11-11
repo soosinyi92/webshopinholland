@@ -11,7 +11,7 @@
     <div id="studentregistration">
         <div>
             <span id="studentregistrationt">Student Registration</span>
-            <p id="studentregistrationp">Please fill the form below to register as a student. Do you want to request registration for institute? Please <a href="/instituteregistrationrequest.aspx">click here</a></p>
+            <p id="studentregistrationp">Please fill the form below to register as a student. Do you want to request registration for institute? Please <a href="instituteregistrationrequest.aspx">click here</a></p>
         </div>
         <br />
         <div>
@@ -21,23 +21,23 @@
                 </tr>
                 <tr>
                     <td class="label">First Name</td>
-                    <td><input type="text" /></td>
+                    <td><asp:TextBox ID="FirstName" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="label">Last Name</td>
-                    <td><input type="text" /></td>
+                    <td><asp:TextBox ID="LastName" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="label">Date of Birth</td>
-                    <td><input class="inputdate" type="text" /><input class="inputdate" type="text" /><input class="inputdate" type="text" /></td>
+                    <td><asp:TextBox ID="DateOfBirth1" CssClass="inputdate" runat="server"></asp:TextBox><asp:TextBox ID="DateOfBirth2" CssClass="inputdate" runat="server"></asp:TextBox><asp:TextBox ID="DateOfBirth3" CssClass="inputdate" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="label">Gender</td>
-                    <td><input type="radio" name="gender" value="Male" /> Male <input type="radio" name="gender" value="Female" /> Female</td>
+                    <td><asp:RadioButton ID="Gender1" runat="server" GroupName="Gender" Text="Male" Checked="true" /><asp:RadioButton ID="Gender2" runat="server" GroupName="Gender" Text="Female" /></td>
                 </tr>
                 <tr>
                     <td class="label">Nationality</td>
-                    <td><input type="text" /></td>
+                    <td><asp:TextBox ID="Nationality" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr><td colspan="2"><br /></td></tr>
                 <tr>
@@ -45,23 +45,23 @@
                 </tr>
                 <tr>
                     <td class="label">Street</td>
-                    <td><input type="text" /></td>
+                    <td><asp:TextBox ID="Street" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="label">House Number</td>
-                    <td><input type="text" /></td>
+                    <td><asp:TextBox ID="HouseNumber" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="label">City</td>
-                    <td><input type="text" /></td>
+                    <td><asp:TextBox ID="City" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="label">Country</td>
-                    <td><input type="text" /></td>
+                    <td><asp:TextBox ID="Country" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="label">Postal Code</td>
-                    <td><input type="text" /></td>
+                    <td><asp:TextBox ID="PostalCode" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr><td colspan="2"><br /></td></tr>
                 <tr>
@@ -69,19 +69,19 @@
                 </tr>
                 <tr>
                     <td class="label">Email Address</td>
-                    <td><input type="text" /></td>
+                    <td><asp:TextBox ID="EmailAddress" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="label">Retype Email Address</td>
-                    <td><input type="text" /></td>
+                    <td><asp:TextBox ID="RetypeEmailAddress" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="label">Password</td>
-                    <td><input type="password" /></td>
+                    <td><asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="label">Retype Password</td>
-                    <td><input type="password" /></td>
+                    <td><asp:TextBox ID="RetypePassword" runat="server" TextMode="Password"></asp:TextBox></td>
                 </tr>
                 <tr><td colspan="2"><br /></td></tr>
                 <tr>
@@ -90,7 +90,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="submit" value="Signup" /></td>
+                    <td><asp:Button ID="Signup" runat="server" Text="Signup" onclick="Signup_Click" /></td>
                 </tr>
             </table>
         </div>

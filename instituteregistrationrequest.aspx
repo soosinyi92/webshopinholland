@@ -11,7 +11,7 @@
     <div id="instituteregistrationrequest">
         <div>
             <span id="instituteregistrationrequestt">Institute Registration Request</span>
-            <p id="instituteregistrationrequestp">Please fill the form below to request registration for institute. Do you want to register as a student? Please <a href="/studentregistration.aspx">click here</a></p>
+            <p id="instituteregistrationrequestp">Please fill the form below to request registration for institute. Do you want to register as a student? Please <a href="studentregistration.aspx">click here</a></p>
         </div>
         <br />
         <div>

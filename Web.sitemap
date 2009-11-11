@@ -5,13 +5,8 @@
     <!--<siteMapNode url="/detail.aspx" title="Detail"  description="Detail page" />-->
     <siteMapNode url="instituteregistrationrequest.aspx" title="Institute Registration Request"  description="" />
     <siteMapNode url="studentregistration.aspx" title="Student Registration"  description="Student Registration" />
-    <siteMapNode url="requestnewpassword.aspx" title="Request new password"  description="Request new password" />
+    <siteMapNode url="requestnewpassword.aspx" title="Request New Password"  description="Request New Password" />
     <!--<siteMapNode url="" title=""  description="" />
     <siteMapNode url="" title=""  description="" />-->
-    
-    
   </siteMapNode>
-  
-
-
 </siteMap>
