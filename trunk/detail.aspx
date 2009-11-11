@@ -13,4 +13,4 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" Runat="Server">
     <uc1:SearchBar ID="SearchBar1" runat="server" />
     <uc1:EventDetail ID="EventDetail" runat="server" />
-    </asp:Content>
+</asp:Content>

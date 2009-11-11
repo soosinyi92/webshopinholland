@@ -11,17 +11,17 @@
 <asp:Login ID="Login" runat="server">
 <LayoutTemplate>
     <p>
-        <asp:Label AssociatedControlID="UserName" runat="server">Username:</asp:Label>
+        <asp:Label ID="Label1" AssociatedControlID="UserName" runat="server">Username:</asp:Label>
         <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
     </p>
     <p>
-        <asp:Label AssociatedControlID="Password" runat="server">Password:</asp:Label>
+        <asp:Label ID="Label2" AssociatedControlID="Password" runat="server">Password:</asp:Label>
         <asp:TextBox ID="Password" TextMode="Password" runat="server"></asp:TextBox>
     </p>
     <p>
         <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Login" />
         <asp:CheckBox ID="RememberMe" runat="server" />
-        <asp:Label AssociatedControlID="RememberMe" runat="server">Remember me</asp:Label>
+        <asp:Label ID="Label3" AssociatedControlID="RememberMe" runat="server">Remember me</asp:Label>
     </p>
     <br />
     <p>

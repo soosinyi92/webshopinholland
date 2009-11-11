@@ -11,7 +11,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" Runat="Server">
     <uc1:SearchBar ID="SearchBar1" runat="server" />
-    
     <ul class="event_top10">
         <li class="left">
             <uc1:EventSummary ID="EventSummary1" runat="server" />

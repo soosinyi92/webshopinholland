@@ -25,40 +25,30 @@
                     </div>
                 </div>
             </div>
-           <table border="0">
-                <tr>
-                    <td style="vertical-align:top;padding:5px;">
-                        <div id="MainMenuContainer" style="float:left;"> 
-                            <asp:TreeView ID="TreeView1" runat="server" 
-                                            DataSourceID="dsSitemap" 
-                                            ImageSet="Arrows" >
-                                <ParentNodeStyle Font-Bold="False" />
-                                <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
-                                <SelectedNodeStyle  Font-Underline="True" 
-                                                    ForeColor="#5555DD" 
-                                                    HorizontalPadding="0px" 
-                                                    VerticalPadding="0px" />
-                                <NodeStyle Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" 
-                                    HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" />
-                            </asp:TreeView>
-                            <asp:SiteMapDataSource ID="dsSitemap" runat="server" />
-                        </div>
-                    
-                    </td>
-                    <td>
-                        <div id="container">
-                            <asp:ContentPlaceHolder id="Content" runat="server"></asp:ContentPlaceHolder>
-                            <div class="clear"></div>
-                        </div>
-                    </td>
-                </tr>
-           
-           
-           </table>
-            
-                
+            <div id="body">
+                <div id="mainmenucontainer">
+                    <span id="menutitle">Menu</span>
+                    <asp:TreeView ID="TreeView1" runat="server" 
+                        DataSourceID="dsSitemap" 
+                        ImageSet="Arrows" >
+                        <ParentNodeStyle Font-Bold="False" />
+                        <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
+                        <SelectedNodeStyle  Font-Underline="True" 
+                            ForeColor="#5555DD" 
+                            HorizontalPadding="5px" 
+                            VerticalPadding="5px" />
+                        <NodeStyle Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" 
+                            HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="5px" />
+                    </asp:TreeView>
+                    <asp:SiteMapDataSource ID="dsSitemap" runat="server" />
+                </div>
+                <div id="container">
+                    <asp:ContentPlaceHolder id="Content" runat="server"></asp:ContentPlaceHolder>
+                </div>
+                <div class="clear"></div>
+            </div> 
             <div id="footer">
-                &copy;2009 WebShop
+                &copy; 2009 WebShop
             </div>
             <asp:LoginView runat="server">
                 <AnonymousTemplate>
@@ -66,8 +56,11 @@
                 </AnonymousTemplate>
                 <LoggedInTemplate>
                     <div id="user_panel">
-                        <asp:LinkButton runat="server"><asp:LoginName ID="LoginName1" runat="server"/></asp:LinkButton>
-                        <asp:LinkButton OnClick="LogOut" runat="server">Logout</asp:LinkButton>
+                        <p id="welcome">Welcome <asp:LoginName ID="LoginName1" runat="server"/></p>
+                        <a href="myaccount.aspx" id="myaccount">
+                            <span>My Account</span>
+                        </a>
+                        <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="<span>Logout</span>" />
                     </div>
                 </LoggedInTemplate>
             </asp:LoginView> 

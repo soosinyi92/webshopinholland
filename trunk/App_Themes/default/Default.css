@@ -84,10 +84,46 @@ a.redbutton:hover span {
     width:922px;
 }
 
-#container {
-    margin:0 auto;
-    text-align:left;
-    width:922px;
+#body {
+	margin: auto;
+	width: 1200px;
+}
+
+#body #mainmenucontainer {
+	float: left;
+	margin-bottom: 20px;
+	margin-right: 20px;
+	margin-top: 20px;
+	padding: 10px;
+	width: 250px;
+	-moz-border-radius:4px;
+    background:#88BBD4;
+    color:#FFF;
+    font-weight:bold;
+    text-decoration:none;
+    outline-style:none;
+    outline-width:0;
+}
+
+#body #mainmenucontainer * {
+	background:#88BBD4;
+    color:#FFF;
+    font-weight:bold;
+    text-decoration:none;
+    outline-style:none;
+    outline-width:0;color:#FFF;
+}
+
+#body #mainmenucontainer #menutitle {
+	display: block;
+	font-size: 30px;
+	padding-bottom: 10px;
+	padding-left: 8px;
+}
+
+#body #container {
+    float: left;
+    width: 910px;
 }
 
 #footer {
@@ -101,7 +137,7 @@ a.redbutton:hover span {
 
 /* header */
 #logo {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
     float: left;
     position: relative;
@@ -234,26 +270,36 @@ a.redbutton:hover span {
     font-size: 12px;
 }
 
+#user_panel p {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+#user_panel a:hover,
+#user_panel a:focus {
+    cursor: pointer;
+}
+
 #user_panel a {
-    color:#369;
-    margin:2px 1px 3px 7px;
-    padding: 2px 1px;
+    -moz-border-radius:4px;
+    background:#88BBD4;
+    color:#FFF;
+    font-weight:bold;
+    padding:4px 6px 6px;
+    margin: 0 0 0 10px;
     text-decoration:none;
+    outline-style:none;
+    outline-width:0;
 }
 
 #user_panel a span {
     background: transparent;
-    color:#369;
-}
-
-#user_panel a:hover {
-    color:#FFF;
-    background: #369;
-}
-
-#user_panel a:hover span{
-    color:#FFF;
-    background: #369;
+    color: inherit;
+    font-size:11px;
+    line-height:23px;
+    text-align: center;
 }
 
 /* content */
@@ -523,49 +569,73 @@ a#more:hover {
 	width: auto;
 }
 
-#requestnewpassword input[type="submit"]:hover, input[type="submit"]:focus {
+#requestnewpassword input[type="submit"]:hover,
+input[type="submit"]:focus {
 	background-color: #D5D5D5;
 	background-position: 0 -206px;
 	border-color: #999999 #999999 #888888;
 	color: #000000;
 }
 
-#studentregistration, #instituteregistrationrequest {
+#studentregistration,
+#instituteregistrationrequest,
+#myaccount,
+#registrationcomplete {
 	margin: 20px 0px 20px 20px;
 }
 
-#studentregistrationt, #instituteregistrationrequestt {
+#studentregistrationt,
+#instituteregistrationrequestt,
+#myaccountt,
+#registrationcompletet {
 	font-size: 18px;
 	font-weight: bold;
 }
 
-#studentregistrationp, #instituteregistrationrequestp {
+#studentregistrationp,
+#instituteregistrationrequestp,
+#myaccountp,
+#registrationcompletep {
 	font-size: 11px;
 	margin: 4px 0px 0px 0px;
 }
 
-#studentregistration a, #instituteregistrationrequest a {
+#studentregistration a,
+#instituteregistrationrequest a,
+#myaccount a {
 	color: #88BBD4;
 	text-decoration: none;
 }
 
-#studentregistration a:hover, #instituteregistrationrequest a:hover {
+#studentregistration a:hover,
+#instituteregistrationrequest a:hover,
+#myaccount a:hover {
 	color: #88BBD4;
 	text-decoration: underline;
 }
 
-#studentregistration td, #instituteregistrationrequest td {
+#studentregistration td,
+#instituteregistrationrequest td,
+#myaccount td {
 	margin: 4px 4px 4px 4px;
 	padding: 4px 4px 4px 4px;
 }
 
-#studentregistration .formpart, #instituteregistrationrequest .formpart {
+#studentregistration .formpart,
+#instituteregistrationrequest .formpart,
+#myaccount .formpart {
 	font-size: 16px;
 	font-weight: bold;
 	padding-left: 76px;
 }
 
-#studentregistration input[type="text"], input[type="password"], #instituteregistrationrequest input[type="text"], input[type="password"], textarea {
+#studentregistration input[type="text"],
+input[type="password"],
+#instituteregistrationrequest input[type="text"],
+input[type="password"],
+textarea,
+#myaccount input[type="text"],
+input[type="password"] {
     width: 320px;
     -moz-border-radius-bottomleft: 5px;
     -moz-border-radius-topleft: 5px;
@@ -586,12 +656,15 @@ a#more:hover {
     padding: 8px 10px;
 }
 
-#studentregistration input[type="text"].inputdate {
+#studentregistration input[type="text"].inputdate,
+#myaccount input[type="text"].inputdate {
 	width: 40px;
 	margin-left: 4px;
 }
 
-#studentregistration td.label, #instituteregistrationrequest td.label {
+#studentregistration td.label,
+#instituteregistrationrequest td.label,
+#myaccount td.label {
 	text-align: right;
 	width: 250px;
 }
@@ -602,11 +675,14 @@ a#more:hover {
 	width: 250px;
 }
 
-#studentregistrationagreement, #instituteregistrationrequestagreement {
+#studentregistrationagreement,
+#instituteregistrationrequestagreement {
 	font-size: 11px;
 }
 
-#studentregistration input[type="submit"], #instituteregistrationrequest input[type="submit"] {
+#studentregistration input[type="submit"],
+#instituteregistrationrequest input[type="submit"],
+#myaccount input[type="submit"] {
 	-moz-background-clip: border;
 	-moz-background-inline-policy: continuous;
 	-moz-background-origin: padding;
@@ -635,7 +711,12 @@ a#more:hover {
 	width: auto;
 }
 
-#studentregistration input[type="submit"]:hover, input[type="submit"]:focus, #instituteregistrationrequest input[type="submit"]:hover, input[type="submit"]:focus {
+#studentregistration input[type="submit"]:hover,
+input[type="submit"]:focus,
+#instituteregistrationrequest input[type="submit"]:hover,
+input[type="submit"]:focus,
+#myaccount input[type="submit"]:hover,
+input[type="submit"]:focus {
 	background-color: #D5D5D5;
 	background-position: 0 -206px;
 	border-color: #999999 #999999 #888888;
