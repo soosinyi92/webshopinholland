@@ -17,53 +17,54 @@
     <form id="form1" runat="server">
         <div id="page">
             <div id="header">
-                <div class="inner">
                     <div class="content">
-                        <div id="logo">
-                            Web Shop
-                        </div>
+                        <a href="./">
+                            <div id="logo">
+                                Web Shop
+                            </div>
+                        </a>
+                        <asp:LoginView ID="LoginView1" runat="server">
+                            <AnonymousTemplate>
+                                <uc1:Login ID="Login1" runat="server" />
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                <div id="user_panel">
+                                    <p id="welcome">Welcome <asp:LoginName ID="LoginName1" runat="server"/></p>
+                                    <a href="myaccount.aspx" id="myaccount">
+                                        <span>My Account</span>
+                                    </a>
+                                    <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="<span>Logout</span>" />
+                                </div>
+                            </LoggedInTemplate>
+                        </asp:LoginView> 
+                        <div class="clear"></div>
                     </div>
-                </div>
+                    <div class="clear"></div>
+            </div>
+            <div id="navi">
+                <asp:TreeView ID="TreeView1" runat="server" CssClass="navi_treeview" 
+                    DataSourceID="dsSitemap" 
+                    ImageSet="Simple2" >
+                    <ParentNodeStyle Font-Bold="False" />
+                    <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
+                    <SelectedNodeStyle  Font-Underline="True" 
+                        ForeColor="#5555DD" 
+                        HorizontalPadding="5px" 
+                        VerticalPadding="5px" />
+                    <NodeStyle Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" 
+                        HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="5px" />
+                </asp:TreeView>
+                <asp:SiteMapDataSource ID="dsSitemap" runat="server" />
+                <div id="navi_caption">&nbsp;</div>
             </div>
             <div id="body">
-                <div id="mainmenucontainer">
-                    <span id="menutitle">Menu</span>
-                    <asp:TreeView ID="TreeView1" runat="server" 
-                        DataSourceID="dsSitemap" 
-                        ImageSet="Arrows" >
-                        <ParentNodeStyle Font-Bold="False" />
-                        <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
-                        <SelectedNodeStyle  Font-Underline="True" 
-                            ForeColor="#5555DD" 
-                            HorizontalPadding="5px" 
-                            VerticalPadding="5px" />
-                        <NodeStyle Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" 
-                            HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="5px" />
-                    </asp:TreeView>
-                    <asp:SiteMapDataSource ID="dsSitemap" runat="server" />
-                </div>
                 <div id="container">
                     <asp:ContentPlaceHolder id="Content" runat="server"></asp:ContentPlaceHolder>
                 </div>
-                <div class="clear"></div>
             </div> 
             <div id="footer">
                 &copy; 2009 WebShop
             </div>
-            <asp:LoginView runat="server">
-                <AnonymousTemplate>
-                    <uc1:Login ID="Login1" runat="server" />
-                </AnonymousTemplate>
-                <LoggedInTemplate>
-                    <div id="user_panel">
-                        <p id="welcome">Welcome <asp:LoginName ID="LoginName1" runat="server"/></p>
-                        <a href="myaccount.aspx" id="myaccount">
-                            <span>My Account</span>
-                        </a>
-                        <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="<span>Logout</span>" />
-                    </div>
-                </LoggedInTemplate>
-            </asp:LoginView> 
         </div>
     </form>
 </body>
