@@ -28,7 +28,7 @@ public partial class UserControl_EventDetail : System.Web.UI.UserControl
             i = Int64.Parse(eventID);
 
             WebshopDataContext dc = new WebshopDataContext();
-            
+
             Event eventX = (from ev in dc.Events where ev.EventID == i select ev).FirstOrDefault();
 
             if (eventX == null)
@@ -39,7 +39,7 @@ public partial class UserControl_EventDetail : System.Web.UI.UserControl
             lblStartTime.Text = eventX.StsrtDateTime.ToString();
             lblEndTime.Text = eventX.EndDateTime.ToString(); ;
             lblLocation.Text = eventX.Location;
-            lblPrice.Text = eventX.Price.ToString();                
+            lblPrice.Text = eventX.Price.ToString();
 
             //lblOrganizer.Text = eventX.EventOrganizers.ToString();
             lblOrganization.Text = eventX.EventOrganizations.ToString();

@@ -10,7 +10,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" Runat="Server">
     <asp:Wizard ID="Wizard1" runat="server">
         <WizardSteps>
-            <asp:WizardStep runat="server" title="Personal Info">
+            <asp:WizardStep ID="WizardStep1" runat="server" title="Personal Info">
                 <table id="personal-info">
                     <tr>
                         <td>
@@ -83,10 +83,10 @@
                     </tr>
                 </table>
             </asp:WizardStep>
-            <asp:WizardStep runat="server" title="Payment">
+            <asp:WizardStep ID="WizardStep2" runat="server" title="Payment">
                 <input type="radio" name="paymentMethod" value="paypal" />
                 Paypal</asp:WizardStep>
-            <asp:WizardStep runat="server" Title="Confirm">
+            <asp:WizardStep ID="WizardStep3" runat="server" Title="Confirm">
                 Are you sure you want to proceed this order?</asp:WizardStep>
         </WizardSteps>
     </asp:Wizard>
