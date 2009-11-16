@@ -6,43 +6,26 @@
     </div>
     <div class="event_info">
     
-<asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="WebshopDataContext" 
-    Select="new (ID, Name, StsrtDateTime, EndDateTime, NOfInterested, NOfPaid, Location, Price, EventImages, EventOrganizers)" 
-    TableName="Events" Where="ID == @ID">
-            <WhereParameters>
-                <asp:Parameter DefaultValue="0" Name="ID" Type="Int64" />
-            </WhereParameters>
-</asp:LinqDataSource>
 
-<asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:ASPNETDBConnectionString %>" 
-            SelectCommand="SELECT * FROM [Events] WHERE ([ID] = @ID)">
-    <SelectParameters>
-        <asp:Parameter DefaultValue="7" Name="ID" Type="Int64" />
-    </SelectParameters>
-        </asp:SqlDataSource>
-
-<asp:DataList ID="DataList1" runat="server" DataSourceID="LinqDataSource1">
-    <ItemTemplate>
         Name:
-        <asp:Label ID="NameLabel" runat="server" Text='<%# Eval("Name") %>' />
+        <asp:Label ID="lblName" runat="server" />
         <br />
+        
         Start:
-        <asp:Label ID="StsrtDateTimeLabel" runat="server"
-            Text='<%# Eval("StsrtDateTime") %>' />
+        <asp:Label ID="lblStartTime" runat="server" />
         <br />
+        
         End:
-        <asp:Label ID="EndDateTimeLabel" runat="server" 
-            Text='<%# Eval("EndDateTime") %>' />
+        <asp:Label ID="lblEndTime" runat="server" />
         <br />
+        
         Location:
-        <asp:Label ID="LocationLabel" runat="server" Text='<%# Eval("Location") %>' />
+        <asp:Label ID="lblLocation" runat="server" />
         <br />
+        
         Price:
-        <asp:Label ID="PriceLabel" runat="server" Text='<%# Eval("Price") %>' />
+        <asp:Label ID="lblPrice" runat="server" />
         <br />
-    </ItemTemplate>
-</asp:DataList>
     </div>
 </div>
 
