@@ -13,10 +13,10 @@ ws.dt = function(tag) {
 }
 
 ws.addEvent = function(el, action, func) {
-    if (el.addEventListener){
+    if (el.addEventListener) {
         el.addEventListener(action, func, false);
-    } else if (el.attachEvent){
-        el.attachEvent('on'+action, func);
+    } else if (el.attachEvent) {
+        el.attachEvent('on' + action, func);
     }
 };
 
@@ -54,17 +54,17 @@ ws.hideLoginPanel = function(e) {
 }
 
 ws.showNavigation = function() {
-    if(!ws.navigationOn) {
+    if (!ws.navigationOn) {
         ws.navigationOn = true;
         var navi = ws.dg('navi');
         navi.style.paddingTop = '10px';
         navi.style.paddingRight = '10px';
         navi.style.paddingBottom = '10px';
         ws.dg('navi_caption').style.display = 'none';
-        (function(){
-            if(ws.navigationOn) {
-                if (parseInt(ws.dg('navi').style.left.replace('px','')) != 0) {
-                    navi.style.left = (parseInt(ws.dg('navi').style.left.replace('px','')) + 5) + 'px';
+        (function() {
+            if (ws.navigationOn) {
+                if (parseInt(ws.dg('navi').style.left.replace('px', '')) != 0) {
+                    navi.style.left = (parseInt(ws.dg('navi').style.left.replace('px', '')) + 5) + 'px';
                     setTimeout(arguments.callee, 10);
                 }
             }
@@ -73,7 +73,7 @@ ws.showNavigation = function() {
 };
 
 ws.hideNavigation = function(e) {
-    if(ws.navigationOn && e.target != ws.dg('navi_caption')) {
+    if (ws.navigationOn && e.target != ws.dg('navi_caption')) {
         var navi = ws.dg('navi');
         var posX = e.offsetX ? e.offsetX : e.pageX;
         var posY = e.offsetY ? e.offsetY : e.pageY;
@@ -84,13 +84,13 @@ ws.hideNavigation = function(e) {
             var maxY = minY + navi.offsetHeight;
             if (posX < minX || posX > maxX || posY < minY || posY > maxY) {
                 ws.navigationOn = false;
-                (function(){
-                    if(!ws.navigationOn) {
+                (function() {
+                    if (!ws.navigationOn) {
                         var navi = ws.dg('navi');
                         var left = -195;
                         if (navi.offsetWidth <= 130) left = -100;
-                        if (parseInt(navi.style.left.replace('px','')) > left) {
-                            navi.style.left = (parseInt(ws.dg('navi').style.left.replace('px','')) - 5) + 'px';
+                        if (parseInt(navi.style.left.replace('px', '')) > left) {
+                            navi.style.left = (parseInt(ws.dg('navi').style.left.replace('px', '')) - 5) + 'px';
                             setTimeout(arguments.callee, 10);
                         } else {
                             navi.style.padding = 0;
@@ -124,7 +124,7 @@ ws.init = function() {
 ws.checkBrowserType();
 if (window.onload != undefined) {
     var func = window.onload;
-    window.onload = function() { 
+    window.onload = function() {
         func();
         ws.init();
     };

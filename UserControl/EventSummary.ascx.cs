@@ -42,7 +42,7 @@ public partial class UserControl_EventSummary : System.Web.UI.UserControl
 
         lblName.Text = eventX.Name;
         lblStartTime.Text = eventX.StsrtDateTime.ToString();
-        lblEndTime.Text = eventX.EndDateTime.ToString(); ;   
+        lblEndTime.Text = eventX.EndDateTime.ToString(); ;
         lblLocation.Text = eventX.Location;
         lblPrice.Text = eventX.Price.ToString();
 
