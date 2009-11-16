@@ -93,8 +93,8 @@ a.redbutton:hover span {
 	padding: 0;
 	-moz-border-radius-topright: 4px;
 	-moz-border-radius-bottomright: 4px;
-	-webkit-border-radius-topright: 4px;
-	-webkit-border-radius-bottomright: 4px;
+	-webkit-border-top-right-radius: 4px;
+	-webkit-border-bottom-right-radius: 4px;
     background:#88BBD4;
     color:#FFF;
     font-weight:bold;
@@ -147,6 +147,10 @@ a.redbutton:hover span {
 }
 
 /* header */
+#header a {
+    text-decoration: none;
+}
+
 #logo {
     font-size: 30px;
     font-weight: bold;
@@ -167,6 +171,7 @@ a.redbutton:hover span {
 
 #login_button a {
     -moz-border-radius:4px;
+    -webkit-border-radius: 4px;
     background:#88BBD4;
     color:#FFF;
     font-weight:bold;
@@ -180,6 +185,8 @@ a.redbutton:hover span {
 #login_button a.open {
     -moz-border-radius-bottomright: 0;
     -moz-border-radius-bottomleft: 0;
+    -webkit-border-bottom-right-radius: 0;
+    -webkit-border-bottom-left-radius: 0;
     color: #778899;
     background: #DDEEF6;
 }
@@ -199,6 +206,9 @@ a.redbutton:hover span {
     -moz-border-radius-bottomleft:5px;
     -moz-border-radius-bottomright:5px;
     -moz-border-radius-topleft:5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -webkit-border-top-left-radius: 5px;
     background-color:#DDEEF6;
     border:1px none transparent;
     color:#778899;
@@ -233,10 +243,8 @@ a.redbutton:hover span {
 
 #login_panel input[type="text"],
 #login_panel input[type="password"] {
-    -moz-border-radius-bottomleft:4px;
-    -moz-border-radius-bottomright:4px;
-    -moz-border-radius-topleft:4px;
-    -moz-border-radius-topright:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius: 4px;
     border:1px solid #AACCEE;
     display:block;
     font-size:13px;
@@ -256,10 +264,8 @@ a.redbutton:hover span {
 }
 
 #login_panel input[type="submit"] {
-    -moz-border-radius-bottomleft:4px;
-    -moz-border-radius-bottomright:4px;
-    -moz-border-radius-topleft:4px;
-    -moz-border-radius-topright:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius: 4px;    
     background:#3399DD ;
     border:1px solid #3399DD;
     color:#FFFFFF;
@@ -291,6 +297,7 @@ a.redbutton:hover span {
 
 #user_panel a {
     -moz-border-radius:4px;
+    -webkit-border-radius: 4px;
     background:#88BBD4;
     color:#FFF;
     font-weight:bold;
@@ -345,6 +352,8 @@ a.redbutton:hover span {
     padding:9px 10px 8px;
     -moz-border-radius-bottomright:5px;
     -moz-border-radius-topright:5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
     background:#BBB;
     border:1px solid #EEE;
     color:#333;
@@ -380,6 +389,7 @@ a.redbutton:hover span {
 .event_summary a.img_link {
     padding: 5px 5px;
     -moz-border-radius:5px;
+    -webkit-border-radius: 5px;
     border: 1px solid #DDDDDD;
     text-align: center;
 }
@@ -530,10 +540,8 @@ a#more:hover {
 
 #requestnewpassword input[type="text"] {
     width: 320px;
-    -moz-border-radius-bottomleft: 5px;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-bottomright: 5px;
-    -moz-border-radius-topright: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
     background: #FFF;
     border-color: #EEE;
     border-style: solid;
@@ -550,13 +558,8 @@ a#more:hover {
 }
 
 #requestnewpassword input[type="submit"] {
-	-moz-background-clip: border;
-	-moz-background-inline-policy: continuous;
-	-moz-background-origin: padding;
-	-moz-border-radius-bottomleft: 5px;
-	-moz-border-radius-bottomright: 5px;
-	-moz-border-radius-topleft: 5px;
-	-moz-border-radius-topright: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
 	-x-system-font: none;
 	background: #DDDDDD url(../img/requestnewpasswordbtn.gif) repeat-x scroll 0 0;
 	border: 1px solid #CCCCCC;
@@ -646,10 +649,8 @@ textarea,
 #myaccount input[type="text"],
 input[type="password"] {
     width: 320px;
-    -moz-border-radius-bottomleft: 5px;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-bottomright: 5px;
-    -moz-border-radius-topright: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
     background: #FFF;
     border-color: #EEE;
     border-style: solid;
@@ -692,13 +693,8 @@ input[type="password"] {
 #studentregistration input[type="submit"],
 #instituteregistrationrequest input[type="submit"],
 #myaccount input[type="submit"] {
-	-moz-background-clip: border;
-	-moz-background-inline-policy: continuous;
-	-moz-background-origin: padding;
-	-moz-border-radius-bottomleft: 5px;
-	-moz-border-radius-bottomright: 5px;
-	-moz-border-radius-topleft: 5px;
-	-moz-border-radius-topright: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
 	-x-system-font: none;
 	background: #DDDDDD url(../img/requestnewpasswordbtn.gif) repeat-x scroll 0 0;
 	border: 1px solid #CCCCCC;

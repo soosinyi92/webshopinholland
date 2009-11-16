@@ -38,13 +38,14 @@ ws.hideLoginPanel = function(e) {
     var loginSpan = loginButton.childNodes[1];
     if (e.target != loginButton && e.target != loginSpan) {
         var loginPanel = ws.dg('login_panel');
-        var posX = e.offsetX ? e.offsetX : e.pageX;
-        var posY = e.offsetY ? e.offsetY : e.pageY;
+        var posX = e.pageX ? e.pageX : e.offsetX;
+        var posY = e.pageY ? e.pageY : e.offsetY;
         var minX = loginPanel.offsetLeft;
         var minY = loginPanel.offsetTop;
         if (minX != 0 && minY != 0) {
             var maxX = minX + loginPanel.offsetWidth;
             var maxY = minY + loginPanel.offsetHeight;
+            //alert(posX + ' ' + posY + '\n' + minX + ' ' + minY + '\n' + maxX + ' ' + maxY);
             if (posX < minX || posX > maxX || posY < minY || posY > maxY) {
                 loginPanel.style.display = 'none';
                 loginButton.setAttribute('class', '');
@@ -75,8 +76,8 @@ ws.showNavigation = function() {
 ws.hideNavigation = function(e) {
     if (ws.navigationOn && e.target != ws.dg('navi_caption')) {
         var navi = ws.dg('navi');
-        var posX = e.offsetX ? e.offsetX : e.pageX;
-        var posY = e.offsetY ? e.offsetY : e.pageY;
+        var posX = e.pageX ? e.pageX : e.offsetX;
+        var posY = e.pageY ? e.pageY : e.offsetY;
         var minX = navi.offsetLeft;
         var minY = navi.offsetTop;
         if (minX != undefined && minY != undefined) {
@@ -117,7 +118,7 @@ ws.init = function() {
     // attach all event listener
     var loginButton = ws.dg('login');
     ws.addEvent(loginButton, 'click', ws.showLoginPanel);
-    ws.addEvent(window, 'click', ws.windowClick);
+    ws.addEvent(document, 'click', ws.windowClick);
     ws.addEvent(ws.dg('navi_caption'), 'click', ws.showNavigation);
 };
 
