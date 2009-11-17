@@ -86,7 +86,7 @@
                 <tr><td colspan="2"><br /></td></tr>
                 <tr>
                     <td></td>
-                    <td id="studentregistrationagreement"><input type="checkbox" /> I agree with <a href="#">terms of service</a>, <a href="#">program policy</a>, and <a href="#">privacy policy</a></td>
+                    <td id="studentregistrationagreement"><asp:CheckBox ID="Agreement" runat="server" /></td>
                 </tr>
                 <tr>
                     <td></td>

@@ -33,6 +33,9 @@
                                     <a href="myaccount.aspx" id="myaccount">
                                         <span>My Account</span>
                                     </a>
+                                    <a href="controlpanel.aspx" id="controlpanel">
+                                        <span>Control Panel</span>
+                                    </a>
                                     <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="<span>Logout</span>" />
                                 </div>
                             </LoggedInTemplate>

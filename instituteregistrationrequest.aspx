@@ -21,11 +21,11 @@
                 </tr>
                 <tr>
                     <td class="label">Name</td>
-                    <td><input type="text" /></td>
+                    <td><asp:TextBox ID="Name" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="labeltextarea">Description</td>
-                    <td><textarea rows="4" cols="20"></textarea></td>
+                    <td><asp:TextBox ID="Description" runat="server" TextMode="MultiLine" Rows="5"></asp:TextBox></td>
                 </tr>
                 <tr><td colspan="2"><br /></td></tr>
                 <tr>
@@ -33,23 +33,23 @@
                 </tr>
                 <tr>
                     <td class="label">Street</td>
-                    <td><input type="text" /></td>
+                    <td><asp:TextBox ID="Street" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="label">House Number</td>
-                    <td><input type="text" /></td>
+                    <td><asp:TextBox ID="HouseNumber" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="label">City</td>
-                    <td><input type="text" /></td>
+                    <td><asp:TextBox ID="City" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="label">Country</td>
-                    <td><input type="text" /></td>
+                    <td><asp:TextBox ID="Country" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="label">Postal Code</td>
-                    <td><input type="text" /></td>
+                    <td><asp:TextBox ID="PostalCode" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr><td colspan="2"><br /></td></tr>
                 <tr>
@@ -57,20 +57,20 @@
                 </tr>
                 <tr>
                     <td class="label">Email Address</td>
-                    <td><input type="text" /></td>
+                    <td><asp:TextBox ID="EmailAddress" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="label">Retype Email Address</td>
-                    <td><input type="text" /></td>
+                    <td><asp:TextBox ID="RetypeEmailAddress" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr><td colspan="2"><br /></td></tr>
                 <tr>
                     <td></td>
-                    <td id="instituteregistrationrequestagreement"><input type="checkbox" /> I agree with <a href="#">terms of service</a>, <a href="#">program policy</a>, and <a href="#">privacy policy</a></td>
+                    <td id="instituteregistrationrequestagreement"><asp:CheckBox ID="Agreement" runat="server" /></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="submit" value="Signup" /></td>
+                    <td><asp:Button ID="Signup" runat="server" Text="Signup" onclick="Signup_Click" /></td>
                 </tr>
             </table>
         </div>

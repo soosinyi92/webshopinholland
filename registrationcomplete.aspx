@@ -6,7 +6,9 @@
     <div id="registrationcomplete">
         <div>
             <span id="registrationcompletet">Registration Complete</span>
-            <p id="registrationcompletep">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non tortor urna. Sed erat est, pharetra sed mollis in, viverra ut magna.</p>
+            <p id="registrationcompletep">
+                <asp:Label ID="RegistrationCompleteLabel" runat="server" Text="Label"></asp:Label>
+            </p>
         </div>
     </div>
 </asp:Content>

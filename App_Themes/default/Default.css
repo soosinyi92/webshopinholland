@@ -277,10 +277,7 @@ a.redbutton:hover span {
 
 #user_panel {
     float: right;
-    position: absolute;
-    top: 50px;
-    right: 40px;
-    font-size: 12px;
+    text-align: right;
 }
 
 #user_panel p {
@@ -504,8 +501,12 @@ a#more:hover {
     margin-top: 20px;
 }
 
-#requestnewpassword {
+#requestnewpassword,
+#myaccount,
+#registrationcomplete, 
+#controlpanel {
 	margin: 20px 0px 20px 20px;
+	min-height: 400px;
 }
 
 #requestnewpasswordt {
@@ -590,16 +591,15 @@ input[type="submit"]:focus {
 }
 
 #studentregistration,
-#instituteregistrationrequest,
-#myaccount,
-#registrationcomplete {
+#instituteregistrationrequest {
 	margin: 20px 0px 20px 20px;
 }
 
 #studentregistrationt,
 #instituteregistrationrequestt,
 #myaccountt,
-#registrationcompletet {
+#registrationcompletet,
+#controlpanelt {
 	font-size: 18px;
 	font-weight: bold;
 }
@@ -607,7 +607,8 @@ input[type="submit"]:focus {
 #studentregistrationp,
 #instituteregistrationrequestp,
 #myaccountp,
-#registrationcompletep {
+#registrationcompletep,
+#controlpanelp {
 	font-size: 11px;
 	margin: 4px 0px 0px 0px;
 }
@@ -672,6 +673,11 @@ input[type="password"] {
 	margin-left: 4px;
 }
 
+#studentregistration input[type="radio"],
+#myaccount input[type="radio"] {
+	width: 25px;
+}
+
 #studentregistration td.label,
 #instituteregistrationrequest td.label,
 #myaccount td.label {
@@ -726,6 +732,11 @@ input[type="submit"]:focus {
 	background-position: 0 -206px;
 	border-color: #999999 #999999 #888888;
 	color: #000000;
+}
+
+#myaccount td.accountinformationemailaddress span {
+	font-weight: bold;
+	line-height: 36px;
 }
 
 .event_list {
