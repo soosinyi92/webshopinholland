@@ -54,7 +54,6 @@ namespace EventWebShop.Frontend.PaymentHandlers.PayPal
                              select ev).SingleOrDefault();
             
             
-            
             StringBuilder paymentData = new StringBuilder();
 
             paymentData.Append("cmd=_xclick");
