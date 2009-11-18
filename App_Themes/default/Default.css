@@ -644,11 +644,14 @@ input[type="submit"]:focus {
 
 #studentregistration input[type="text"],
 input[type="password"],
+select,
 #instituteregistrationrequest input[type="text"],
 input[type="password"],
 textarea,
+select,
 #myaccount input[type="text"],
-input[type="password"] {
+input[type="password"],
+select {
     width: 320px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -667,10 +670,31 @@ input[type="password"] {
     padding: 8px 10px;
 }
 
-#studentregistration input[type="text"].inputdate,
-#myaccount input[type="text"].inputdate {
-	width: 40px;
-	margin-left: 4px;
+#studentregistration select,
+#instituteregistrationrequest select,
+#myaccount select {
+	width: 342px;
+}
+
+#studentregistration option,
+#instituteregistrationrequest option,
+#myaccount option {
+	background: #FFF;
+	width: 320px;
+}
+
+#studentregistration select.inputdate {
+	width: 110px;
+	margin-right: 6px;
+}
+
+#myaccount select.inputdate {
+	width: 110px;
+}
+
+#studentregistration select.inputdate option,
+#myaccount select.inputdate option {
+	width: 88px;
 }
 
 #studentregistration input[type="radio"],

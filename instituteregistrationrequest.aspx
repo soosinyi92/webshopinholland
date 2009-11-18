@@ -45,7 +45,7 @@
                 </tr>
                 <tr>
                     <td class="label">Country</td>
-                    <td><asp:TextBox ID="Country" runat="server"></asp:TextBox></td>
+                    <td><asp:DropDownList ID="Country" runat="server"></asp:DropDownList></td>
                 </tr>
                 <tr>
                     <td class="label">Postal Code</td>

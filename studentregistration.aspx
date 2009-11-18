@@ -29,7 +29,7 @@
                 </tr>
                 <tr>
                     <td class="label">Date of Birth</td>
-                    <td><asp:TextBox ID="DateOfBirth1" CssClass="inputdate" runat="server"></asp:TextBox><asp:TextBox ID="DateOfBirth2" CssClass="inputdate" runat="server"></asp:TextBox><asp:TextBox ID="DateOfBirth3" CssClass="inputdate" runat="server"></asp:TextBox></td>
+                    <td><asp:DropDownList ID="DateOfBirth1" CssClass="inputdate" runat="server"></asp:DropDownList><asp:DropDownList ID="DateOfBirth2" CssClass="inputdate" runat="server"></asp:DropDownList><asp:DropDownList ID="DateOfBirth3" CssClass="inputdate" runat="server"></asp:DropDownList></td>
                 </tr>
                 <tr>
                     <td class="label">Gender</td>
@@ -37,7 +37,7 @@
                 </tr>
                 <tr>
                     <td class="label">Nationality</td>
-                    <td><asp:TextBox ID="Nationality" runat="server"></asp:TextBox></td>
+                    <td><asp:DropDownList ID="Nationality" runat="server"></asp:DropDownList></td>
                 </tr>
                 <tr><td colspan="2"><br /></td></tr>
                 <tr>
@@ -57,7 +57,7 @@
                 </tr>
                 <tr>
                     <td class="label">Country</td>
-                    <td><asp:TextBox ID="Country" runat="server"></asp:TextBox></td>
+                    <td><asp:DropDownList ID="Country" runat="server"></asp:DropDownList></td>
                 </tr>
                 <tr>
                     <td class="label">Postal Code</td>
