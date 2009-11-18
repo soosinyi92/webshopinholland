@@ -7,9 +7,19 @@
                 <span>Interested</span>
             </a>
             <br class="clear"/>
-            <a class="redbutton" rel="nofollow" href="#">
-                <span>Purchase</span>
-            </a>
+<%--            <asp:HyperLink ID="btnPurchase" runat="server" CssClass="redbutton" Text="Purchase"/>
+--%>            <asp:Button ID="btnPurchase" runat="server" Text="Button" 
+                onclick="btnPurchase_Click"/>
+        
+                <%--<form id="form1" runat="server" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="POST">
+          </form><input type="submit" name="submit" value="Pay Now" />--%>
+<%--        <div>
+              <input type="hidden" name="cmd" value="_s-xclick" />
+              <input ID="encrypted" runat="server" type="hidden" name="encrypted"/>
+              
+        </div>
+
+            </a>--%>
         </div>
         <div id="album">
             <img src="./img/no_img.jpg" alt="event picture" />
