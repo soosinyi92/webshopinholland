@@ -248,7 +248,7 @@
                                         Country
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="Country" runat="server"></asp:TextBox>
+                                        <asp:DropDownList ID="Country" runat="server"></asp:DropDownList>
                                     </td>
                                 </tr>
                                 <tr>
@@ -348,9 +348,9 @@
                                         Date of Birth
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="DateOfBirth1" CssClass="inputdate" runat="server"></asp:TextBox><asp:TextBox
-                                            ID="DateOfBirth2" CssClass="inputdate" runat="server"></asp:TextBox><asp:TextBox
-                                                ID="DateOfBirth3" CssClass="inputdate" runat="server"></asp:TextBox>
+                                        <asp:DropDownList ID="DateOfBirth1" CssClass="inputdate" runat="server"></asp:DropDownList>
+                                        <asp:DropDownList ID="DateOfBirth2" CssClass="inputdate" runat="server"></asp:DropDownList>
+                                        <asp:DropDownList ID="DateOfBirth3" CssClass="inputdate" runat="server"></asp:DropDownList>
                                     </td>
                                 </tr>
                                 <tr>
@@ -367,7 +367,7 @@
                                         Nationality
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="Nationality" runat="server"></asp:TextBox>
+                                        <asp:DropDownList ID="Nationality" runat="server"></asp:DropDownList>
                                     </td>
                                 </tr>
                                 <tr>
@@ -409,7 +409,7 @@
                                         Country
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="Country" runat="server"></asp:TextBox>
+                                        <asp:DropDownList ID="Country" runat="server"></asp:DropDownList>
                                     </td>
                                 </tr>
                                 <tr>
