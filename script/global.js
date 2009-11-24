@@ -105,7 +105,8 @@ ws.hideNavigation = function(e) {
 };
 
 ws.windowClick = function(e) {
-    ws.hideLoginPanel(e);
+    if(ws.dg('login'))
+        ws.hideLoginPanel(e);
     ws.hideNavigation(e);
 };
 
@@ -117,7 +118,8 @@ ws.init = function() {
     }
     // attach all event listener
     var loginButton = ws.dg('login');
-    ws.addEvent(loginButton, 'click', ws.showLoginPanel);
+    if (loginButton)
+        ws.addEvent(loginButton, 'click', ws.showLoginPanel);
     ws.addEvent(document, 'click', ws.windowClick);
     ws.addEvent(ws.dg('navi_caption'), 'click', ws.showNavigation);
 };
