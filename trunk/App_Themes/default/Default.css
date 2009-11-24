@@ -881,3 +881,69 @@ input[type="submit"]:focus {
     background: inherit;
     text-decoration: none;
 }
+
+div#shoppingcartwrap {
+    margin: 50px 0;
+    padding: 30px 20px;
+    -moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+table#shoppingcart {
+    margin: 30px 0;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+table#shoppingcart * {
+    background: transparent;
+}
+
+table#shoppingcart a {
+    text-decoration: none;
+}
+
+table#shoppingcart a:hover {
+    text-decoration: underline;
+}
+
+table#shoppingcart input[type="text"] {
+    width: 2em;
+}
+
+table#shoppingcart input[type="text"],
+table#shoppingcart a.update {
+    display: none;
+}
+
+div#shoppingcartwrap,
+table#shoppingcart tr {
+    background: #fff;
+}
+
+table#shoppingcart tr.row:hover {
+    background: #ddd;
+}
+
+
+
+table#shoppingcart th,
+table#shoppingcart td {
+    padding: 5px;
+}
+
+table#shoppingcart th {
+    border-bottom: #eee 2px solid;
+}
+
+table#shoppingcart td {
+    border-top: #eee 1px solid;
+}
+
+table#shoppingcart td.name {
+    width: 300px;
+}
+
+table#shoppingcart td.quantity {
+    text-align: center;
+}

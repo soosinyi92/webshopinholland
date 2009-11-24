@@ -17,8 +17,15 @@ public partial class shoppingcart : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         List<ShoppingCart.Item> cart = Profile.User.ShoppingCart.getItems();
-        rptShoppingCart.DataSource = cart;
-        rptShoppingCart.DataBind();
+        if (cart.Count == 0)
+        {
+            rptShoppingCart.Visible = false;
+        }
+        else
+        {
+            rptShoppingCart.DataSource = cart;
+            rptShoppingCart.DataBind();
+        }
     }
 
     protected void lbtnDelete_Click(object sender, CommandEventArgs e)
