@@ -23,14 +23,9 @@ public partial class shoppingcart : System.Web.UI.Page
 
     protected void lbtnDelete_Click(object sender, CommandEventArgs e)
     {
+        Profile.User.ShoppingCart.removeItem(Int64.Parse(e.CommandArgument.ToString()));
         List<ShoppingCart.Item> cart = Profile.User.ShoppingCart.getItems();
-
-        LinkButton lnk = sender as LinkButton;
-
-        int index = ((RepeaterItem)lnk.NamingContainer).ItemIndex;
-
-        //cart.Remove(Int64.Parse(e.CommandArgument.ToString()));
-
+        rptShoppingCart.DataSource = cart;
         rptShoppingCart.DataBind();
     }
 }
