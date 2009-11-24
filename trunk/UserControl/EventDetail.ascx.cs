@@ -115,7 +115,7 @@ public partial class UserControl_EventDetail : System.Web.UI.UserControl
         {
             return;
         }
-        Profile.User.ShoppingCart.addOrUpdateItem(eventX.EventID, eventX.Name, eventX.Price, 1);
+        Profile.User.ShoppingCart.addItem(eventX.EventID, eventX.Name, eventX.Price, 1);
     }
 }
 public class RemotePost

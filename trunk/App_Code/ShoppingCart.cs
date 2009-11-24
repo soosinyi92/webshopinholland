@@ -12,6 +12,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
+[Serializable]
 public class ShoppingCart
 {
     public class Item
@@ -73,19 +74,14 @@ public class ShoppingCart
         }
     }
 
-    public List<Item> cart = new List<Item>();
+    public Dictionary<Int64, Item> cart = new Dictionary<Int64, Item>();
 
     private Item getItem(Int64 eventId)
     {
-        foreach (Item item in cart)
-        {
-            if (item.EventId == eventId)
-                return item;
-        }
-        return null;
+        return cart[eventId];
     }
 
-    public void addOrUpdateItem(Int64 eventId, String eventName, decimal eventPrice, int quantity)
+    public void addItem(Int64 eventId, String eventName, decimal eventPrice, int quantity)
     {
         if (eventId < 0 || eventName == null || eventPrice < 0 || quantity < 1)
         {
@@ -93,45 +89,33 @@ public class ShoppingCart
         }
         else
         {
-            int n = 0;
-            foreach(Item item in cart)
+            if (cart.ContainsKey(eventId))
             {
-                n++;
-                if (item.EventId == eventId)
-                {
-                    if (quantity == 0)
-                    {
-                        cart.RemoveAt(n);
-                        return;
-                    }
-                    item.Quantity = quantity;
-                    return;
-                }
+                updateItem(eventId, quantity + cart[eventId].Quantity);
             }
-            Item newItem = new Item();
-            newItem.EventId = eventId;
-            newItem.EventName = eventName;
-            newItem.EventPrice = eventPrice;
-            newItem.Quantity = quantity;
-            cart.Add(newItem);
+            else
+            {
+                Item newItem = new Item();
+                newItem.EventId = eventId;
+                newItem.EventName = eventName;
+                newItem.EventPrice = eventPrice;
+                newItem.Quantity = quantity;
+                cart.Add(eventId, newItem);
+            }
         }
+    }
+
+    public void updateItem(Int64 eventId, int quantity)
+    {
+        cart[eventId].Quantity = quantity;
     }
 
     public void removeItem(Int64 eventId)
     {
-        int n = 0;
-        foreach (Item item in cart)
-        {
-            n++;
-            if (item.EventId == eventId)
-            {
-                cart.RemoveAt(n);
-                return;
-            }
-        }
+        cart.Remove(eventId);
     }
 
-    public List<Item> getItems()
+    public Dictionary<Int64, Item> getItems()
     {
         return cart;
     }
