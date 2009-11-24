@@ -466,7 +466,7 @@ public partial class myaccount : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            if (User.IsInRole("Super Administrator"))
+            if (User.IsInRole(GlobalVariable.superadministratorrolename))
             {
                 ((DropDownList)LoginView1.FindControl("DateOfBirth1")).DataSource = day;
                 ((DropDownList)LoginView1.FindControl("DateOfBirth1")).DataBind();
@@ -507,7 +507,7 @@ public partial class myaccount : System.Web.UI.Page
                 ((TextBox)LoginView1.FindControl("PostalCode")).Text = Profile.SuperAdministrator.PostalCode;
                 ((Label)LoginView1.FindControl("EmailAddress")).Text = User.Identity.Name;
             }
-            else if (User.IsInRole("Institute Administrator"))
+            else if (User.IsInRole(GlobalVariable.instituteadministratorrolename))
             {
                 ((DropDownList)LoginView1.FindControl("Country")).DataSource = country;
                 ((DropDownList)LoginView1.FindControl("Country")).DataBind();
@@ -521,7 +521,7 @@ public partial class myaccount : System.Web.UI.Page
                 ((TextBox)LoginView1.FindControl("PostalCode")).Text = Profile.InstituteAdministrator.PostalCode;
                 ((Label)LoginView1.FindControl("EmailAddress")).Text = User.Identity.Name;
             }
-            else if (User.IsInRole("User"))
+            else if (User.IsInRole(GlobalVariable.userrolename))
             {
                 ((DropDownList)LoginView1.FindControl("DateOfBirth1")).DataSource = day;
                 ((DropDownList)LoginView1.FindControl("DateOfBirth1")).DataBind();
@@ -569,76 +569,297 @@ public partial class myaccount : System.Web.UI.Page
     {
         MembershipUser membershipuser;
 
-        if (User.IsInRole("Super Administrator"))
+        if (User.IsInRole(GlobalVariable.superadministratorrolename))
         {
-            Profile.SuperAdministrator.FirstName = ((TextBox)LoginView1.FindControl("FirstName")).Text;
-            Profile.SuperAdministrator.LastName = ((TextBox)LoginView1.FindControl("LastName")).Text;
-            Profile.SuperAdministrator.DateOfBirth = ((DropDownList)LoginView1.FindControl("DateOfBirth1")).Text + "/" + ((DropDownList)LoginView1.FindControl("DateOfBirth2")).Text + "/" + ((DropDownList)LoginView1.FindControl("DateOfBirth3")).Text;
-            if (((RadioButton)LoginView1.FindControl("Gender1")).Checked)
+            if (ValidateInput())
             {
-                Profile.SuperAdministrator.Gender = "Male";
-            }
-            else
-            {
-                Profile.SuperAdministrator.Gender = "Female";
-            }
-            Profile.SuperAdministrator.Nationality = ((DropDownList)LoginView1.FindControl("Nationality")).Text;
-            Profile.SuperAdministrator.Street = ((TextBox)LoginView1.FindControl("Street")).Text;
-            Profile.SuperAdministrator.HouseNumber = ((TextBox)LoginView1.FindControl("HouseNumber")).Text;
-            Profile.SuperAdministrator.City = ((TextBox)LoginView1.FindControl("City")).Text;
-            Profile.SuperAdministrator.Country = ((DropDownList)LoginView1.FindControl("Country")).Text;
-            Profile.SuperAdministrator.PostalCode = ((TextBox)LoginView1.FindControl("PostalCode")).Text;
-            if (!((TextBox)LoginView1.FindControl("Password")).Text.Equals(""))
-            {
-                membershipuser = Membership.GetUser(User.Identity.Name);
-                membershipuser.ChangePassword(membershipuser.ResetPassword("Password Answer"), ((TextBox)LoginView1.FindControl("Password")).Text);
-            }
+                Profile.SuperAdministrator.FirstName = ((TextBox)LoginView1.FindControl("FirstName")).Text;
+                Profile.SuperAdministrator.LastName = ((TextBox)LoginView1.FindControl("LastName")).Text;
+                Profile.SuperAdministrator.DateOfBirth = ((DropDownList)LoginView1.FindControl("DateOfBirth1")).Text + "/" + ((DropDownList)LoginView1.FindControl("DateOfBirth2")).Text + "/" + ((DropDownList)LoginView1.FindControl("DateOfBirth3")).Text;
+                if (((RadioButton)LoginView1.FindControl("Gender1")).Checked)
+                {
+                    Profile.SuperAdministrator.Gender = "Male";
+                }
+                else
+                {
+                    Profile.SuperAdministrator.Gender = "Female";
+                }
+                Profile.SuperAdministrator.Nationality = ((DropDownList)LoginView1.FindControl("Nationality")).Text;
+                Profile.SuperAdministrator.Street = ((TextBox)LoginView1.FindControl("Street")).Text;
+                Profile.SuperAdministrator.HouseNumber = ((TextBox)LoginView1.FindControl("HouseNumber")).Text;
+                Profile.SuperAdministrator.City = ((TextBox)LoginView1.FindControl("City")).Text;
+                Profile.SuperAdministrator.Country = ((DropDownList)LoginView1.FindControl("Country")).Text;
+                Profile.SuperAdministrator.PostalCode = ((TextBox)LoginView1.FindControl("PostalCode")).Text;
+                if (!((TextBox)LoginView1.FindControl("Password")).Text.Equals(""))
+                {
+                    membershipuser = Membership.GetUser(User.Identity.Name);
+                    membershipuser.ChangePassword(membershipuser.ResetPassword("Password Answer"), ((TextBox)LoginView1.FindControl("Password")).Text);
+                }
 
-            Response.Redirect(Request.Url.ToString());
+                Response.Redirect(Request.Url.ToString());
+            }
         }
-        else if (User.IsInRole("Institute Administration"))
+        else if (User.IsInRole(GlobalVariable.instituteadministratorrolename))
         {
-            Profile.InstituteAdministrator.Name = ((TextBox)LoginView1.FindControl("Name")).Text;
-            Profile.InstituteAdministrator.Description = ((TextBox)LoginView1.FindControl("Description")).Text;
-            Profile.InstituteAdministrator.Street = ((TextBox)LoginView1.FindControl("Street")).Text;
-            Profile.InstituteAdministrator.HouseNumber = ((TextBox)LoginView1.FindControl("HouseNumber")).Text;
-            Profile.InstituteAdministrator.City = ((TextBox)LoginView1.FindControl("City")).Text;
-            Profile.InstituteAdministrator.Country = ((DropDownList)LoginView1.FindControl("Country")).Text;
-            Profile.InstituteAdministrator.PostalCode = ((TextBox)LoginView1.FindControl("PostalCode")).Text;
-            if (!((TextBox)LoginView1.FindControl("Password")).Text.Equals(""))
+            if (ValidateInput())
             {
-                membershipuser = Membership.GetUser(User.Identity.Name);
-                membershipuser.ChangePassword(membershipuser.ResetPassword("Password Answer"), ((TextBox)LoginView1.FindControl("Password")).Text);
-            }
+                Profile.InstituteAdministrator.Name = ((TextBox)LoginView1.FindControl("Name")).Text;
+                Profile.InstituteAdministrator.Description = ((TextBox)LoginView1.FindControl("Description")).Text;
+                Profile.InstituteAdministrator.Street = ((TextBox)LoginView1.FindControl("Street")).Text;
+                Profile.InstituteAdministrator.HouseNumber = ((TextBox)LoginView1.FindControl("HouseNumber")).Text;
+                Profile.InstituteAdministrator.City = ((TextBox)LoginView1.FindControl("City")).Text;
+                Profile.InstituteAdministrator.Country = ((DropDownList)LoginView1.FindControl("Country")).Text;
+                Profile.InstituteAdministrator.PostalCode = ((TextBox)LoginView1.FindControl("PostalCode")).Text;
+                if (!((TextBox)LoginView1.FindControl("Password")).Text.Equals(""))
+                {
+                    membershipuser = Membership.GetUser(User.Identity.Name);
+                    membershipuser.ChangePassword(membershipuser.ResetPassword("Password Answer"), ((TextBox)LoginView1.FindControl("Password")).Text);
+                }
 
-            Response.Redirect(Request.Url.ToString());
+                Response.Redirect(Request.Url.ToString());
+            }
         }
-        else if (User.IsInRole("User"))
+        else if (User.IsInRole(GlobalVariable.userrolename))
         {
-            Profile.User.FirstName = ((TextBox)LoginView1.FindControl("FirstName")).Text;
-            Profile.User.LastName = ((TextBox)LoginView1.FindControl("LastName")).Text;
-            Profile.User.DateOfBirth = ((DropDownList)LoginView1.FindControl("DateOfBirth1")).Text + "/" + ((DropDownList)LoginView1.FindControl("DateOfBirth2")).Text + "/" + ((DropDownList)LoginView1.FindControl("DateOfBirth3")).Text;
-            if (((RadioButton)LoginView1.FindControl("Gender1")).Checked)
+            if (ValidateInput())
             {
-                Profile.User.Gender = "Male";
-            }
-            else
-            {
-                Profile.User.Gender = "Female";
-            }
-            Profile.User.Nationality = ((DropDownList)LoginView1.FindControl("Nationality")).Text;
-            Profile.User.Street = ((TextBox)LoginView1.FindControl("Street")).Text;
-            Profile.User.HouseNumber = ((TextBox)LoginView1.FindControl("HouseNumber")).Text;
-            Profile.User.City = ((TextBox)LoginView1.FindControl("City")).Text;
-            Profile.User.Country = ((DropDownList)LoginView1.FindControl("Country")).Text;
-            Profile.User.PostalCode = ((TextBox)LoginView1.FindControl("PostalCode")).Text;
-            if (!((TextBox)LoginView1.FindControl("Password")).Text.Equals(""))
-            {
-                membershipuser = Membership.GetUser(User.Identity.Name);
-                membershipuser.ChangePassword(membershipuser.ResetPassword("Password Answer"), ((TextBox)LoginView1.FindControl("Password")).Text);
-            }
+                Profile.User.FirstName = ((TextBox)LoginView1.FindControl("FirstName")).Text;
+                Profile.User.LastName = ((TextBox)LoginView1.FindControl("LastName")).Text;
+                Profile.User.DateOfBirth = ((DropDownList)LoginView1.FindControl("DateOfBirth1")).Text + "/" + ((DropDownList)LoginView1.FindControl("DateOfBirth2")).Text + "/" + ((DropDownList)LoginView1.FindControl("DateOfBirth3")).Text;
+                if (((RadioButton)LoginView1.FindControl("Gender1")).Checked)
+                {
+                    Profile.User.Gender = "Male";
+                }
+                else
+                {
+                    Profile.User.Gender = "Female";
+                }
+                Profile.User.Nationality = ((DropDownList)LoginView1.FindControl("Nationality")).Text;
+                Profile.User.Street = ((TextBox)LoginView1.FindControl("Street")).Text;
+                Profile.User.HouseNumber = ((TextBox)LoginView1.FindControl("HouseNumber")).Text;
+                Profile.User.City = ((TextBox)LoginView1.FindControl("City")).Text;
+                Profile.User.Country = ((DropDownList)LoginView1.FindControl("Country")).Text;
+                Profile.User.PostalCode = ((TextBox)LoginView1.FindControl("PostalCode")).Text;
+                if (!((TextBox)LoginView1.FindControl("Password")).Text.Equals(""))
+                {
+                    membershipuser = Membership.GetUser(User.Identity.Name);
+                    membershipuser.ChangePassword(membershipuser.ResetPassword("Password Answer"), ((TextBox)LoginView1.FindControl("Password")).Text);
+                }
 
-            Response.Redirect(Request.Url.ToString());
+                Response.Redirect(Request.Url.ToString());
+            }
         }
+    }
+
+    private bool ValidateInput()
+    {
+        bool condition;
+
+        condition = true;
+
+        if (User.IsInRole(GlobalVariable.superadministratorrolename))
+        {
+            ((Label)LoginView1.FindControl("FirstNameError")).Visible = false;
+            ((Label)LoginView1.FindControl("LastNameError")).Visible = false;
+            ((Label)LoginView1.FindControl("DateOfBirthError")).Visible = false;
+            ((Label)LoginView1.FindControl("NationalityError")).Visible = false;
+            ((Label)LoginView1.FindControl("StreetError")).Visible = false;
+            ((Label)LoginView1.FindControl("HouseNumberError")).Visible = false;
+            ((Label)LoginView1.FindControl("CityError")).Visible = false;
+            ((Label)LoginView1.FindControl("CountryError")).Visible = false;
+            ((Label)LoginView1.FindControl("PostalCodeError")).Visible = false;
+            ((Label)LoginView1.FindControl("PasswordError")).Visible = false;
+            ((Label)LoginView1.FindControl("RetypePasswordError")).Visible = false;
+
+            if (!Validation.ValidateRegex(((TextBox)LoginView1.FindControl("FirstName")).Text, Validation.generalregex))
+            {
+                ((Label)LoginView1.FindControl("FirstNameError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((TextBox)LoginView1.FindControl("LastName")).Text, Validation.generalregex))
+            {
+                ((Label)LoginView1.FindControl("LastNameError")).Visible = true;
+                condition = false;
+            }
+            if ((!Validation.ValidateRegex(((DropDownList)LoginView1.FindControl("DateOfBirth1")).Text, Validation.dateofbirthregex)) ||
+                (!Validation.ValidateRegex(((DropDownList)LoginView1.FindControl("DateOfBirth2")).Text, Validation.dateofbirthregex)) ||
+                (!Validation.ValidateRegex(((DropDownList)LoginView1.FindControl("DateOfBirth3")).Text, Validation.dateofbirthregex)))
+            {
+                ((Label)LoginView1.FindControl("DateOfBirthError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((DropDownList)LoginView1.FindControl("Nationality")).Text, Validation.nationalitycountryregex))
+            {
+                ((Label)LoginView1.FindControl("NationalityError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((TextBox)LoginView1.FindControl("Street")).Text, Validation.generalregex))
+            {
+                ((Label)LoginView1.FindControl("StreetError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((TextBox)LoginView1.FindControl("HouseNumber")).Text, Validation.generalregex))
+            {
+                ((Label)LoginView1.FindControl("HouseNumberError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((TextBox)LoginView1.FindControl("City")).Text, Validation.generalregex))
+            {
+                ((Label)LoginView1.FindControl("CityError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((DropDownList)LoginView1.FindControl("Country")).Text, Validation.nationalitycountryregex))
+            {
+                ((Label)LoginView1.FindControl("CountryError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((TextBox)LoginView1.FindControl("PostalCode")).Text, Validation.generalregex))
+            {
+                ((Label)LoginView1.FindControl("PostalCodeError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((TextBox)LoginView1.FindControl("Password")).Text, Validation.emptypasswordregex))
+            {
+                ((Label)LoginView1.FindControl("PasswordError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateSimilarity(((TextBox)LoginView1.FindControl("Password")).Text, ((TextBox)LoginView1.FindControl("RetypePassword")).Text))
+            {
+                ((Label)LoginView1.FindControl("RetypePasswordError")).Visible = true;
+                condition = false;
+            }
+        }
+        else if (User.IsInRole(GlobalVariable.instituteadministratorrolename))
+        {
+            ((Label)LoginView1.FindControl("NameError")).Visible = false;
+            ((Label)LoginView1.FindControl("DescriptionError")).Visible = false;
+            ((Label)LoginView1.FindControl("StreetError")).Visible = false;
+            ((Label)LoginView1.FindControl("HouseNumberError")).Visible = false;
+            ((Label)LoginView1.FindControl("CityError")).Visible = false;
+            ((Label)LoginView1.FindControl("CountryError")).Visible = false;
+            ((Label)LoginView1.FindControl("PostalCodeError")).Visible = false;
+            ((Label)LoginView1.FindControl("PasswordError")).Visible = false;
+            ((Label)LoginView1.FindControl("RetypePasswordError")).Visible = false;
+
+            if (!Validation.ValidateRegex(((TextBox)LoginView1.FindControl("Name")).Text, Validation.generalregex))
+            {
+                ((Label)LoginView1.FindControl("NameError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((TextBox)LoginView1.FindControl("Description")).Text, Validation.generalregex))
+            {
+                ((Label)LoginView1.FindControl("DescriptionError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((TextBox)LoginView1.FindControl("Street")).Text, Validation.generalregex))
+            {
+                ((Label)LoginView1.FindControl("StreetError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((TextBox)LoginView1.FindControl("HouseNumber")).Text, Validation.generalregex))
+            {
+                ((Label)LoginView1.FindControl("HouseNumberError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((TextBox)LoginView1.FindControl("City")).Text, Validation.generalregex))
+            {
+                ((Label)LoginView1.FindControl("CityError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((DropDownList)LoginView1.FindControl("Country")).Text, Validation.nationalitycountryregex))
+            {
+                ((Label)LoginView1.FindControl("CountryError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((TextBox)LoginView1.FindControl("PostalCode")).Text, Validation.generalregex))
+            {
+                ((Label)LoginView1.FindControl("PostalCodeError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((TextBox)LoginView1.FindControl("Password")).Text, Validation.emptypasswordregex))
+            {
+                ((Label)LoginView1.FindControl("PasswordError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateSimilarity(((TextBox)LoginView1.FindControl("Password")).Text, ((TextBox)LoginView1.FindControl("RetypePassword")).Text))
+            {
+                ((Label)LoginView1.FindControl("RetypePasswordError")).Visible = true;
+                condition = false;
+            }
+        }
+        else if (User.IsInRole(GlobalVariable.userrolename))
+        {
+            ((Label)LoginView1.FindControl("FirstNameError")).Visible = false;
+            ((Label)LoginView1.FindControl("LastNameError")).Visible = false;
+            ((Label)LoginView1.FindControl("DateOfBirthError")).Visible = false;
+            ((Label)LoginView1.FindControl("NationalityError")).Visible = false;
+            ((Label)LoginView1.FindControl("StreetError")).Visible = false;
+            ((Label)LoginView1.FindControl("HouseNumberError")).Visible = false;
+            ((Label)LoginView1.FindControl("CityError")).Visible = false;
+            ((Label)LoginView1.FindControl("CountryError")).Visible = false;
+            ((Label)LoginView1.FindControl("PostalCodeError")).Visible = false;
+            ((Label)LoginView1.FindControl("PasswordError")).Visible = false;
+            ((Label)LoginView1.FindControl("RetypePasswordError")).Visible = false;
+
+            if (!Validation.ValidateRegex(((TextBox)LoginView1.FindControl("FirstName")).Text, Validation.generalregex))
+            {
+                ((Label)LoginView1.FindControl("FirstNameError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((TextBox)LoginView1.FindControl("LastName")).Text, Validation.generalregex))
+            {
+                ((Label)LoginView1.FindControl("LastNameError")).Visible = true;
+                condition = false;
+            }
+            if ((!Validation.ValidateRegex(((DropDownList)LoginView1.FindControl("DateOfBirth1")).Text, Validation.dateofbirthregex)) ||
+                (!Validation.ValidateRegex(((DropDownList)LoginView1.FindControl("DateOfBirth2")).Text, Validation.dateofbirthregex)) ||
+                (!Validation.ValidateRegex(((DropDownList)LoginView1.FindControl("DateOfBirth3")).Text, Validation.dateofbirthregex)))
+            {
+                ((Label)LoginView1.FindControl("DateOfBirthError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((DropDownList)LoginView1.FindControl("Nationality")).Text, Validation.nationalitycountryregex))
+            {
+                ((Label)LoginView1.FindControl("NationalityError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((TextBox)LoginView1.FindControl("Street")).Text, Validation.generalregex))
+            {
+                ((Label)LoginView1.FindControl("StreetError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((TextBox)LoginView1.FindControl("HouseNumber")).Text, Validation.generalregex))
+            {
+                ((Label)LoginView1.FindControl("HouseNumberError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((TextBox)LoginView1.FindControl("City")).Text, Validation.generalregex))
+            {
+                ((Label)LoginView1.FindControl("CityError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((DropDownList)LoginView1.FindControl("Country")).Text, Validation.nationalitycountryregex))
+            {
+                ((Label)LoginView1.FindControl("CountryError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((TextBox)LoginView1.FindControl("PostalCode")).Text, Validation.generalregex))
+            {
+                ((Label)LoginView1.FindControl("PostalCodeError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateRegex(((TextBox)LoginView1.FindControl("Password")).Text, Validation.emptypasswordregex))
+            {
+                ((Label)LoginView1.FindControl("PasswordError")).Visible = true;
+                condition = false;
+            }
+            if (!Validation.ValidateSimilarity(((TextBox)LoginView1.FindControl("Password")).Text, ((TextBox)LoginView1.FindControl("RetypePassword")).Text))
+            {
+                ((Label)LoginView1.FindControl("RetypePasswordError")).Visible = true;
+                condition = false;
+            }
+        }
+
+        return condition;
     }
 }

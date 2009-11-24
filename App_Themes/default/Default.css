@@ -671,7 +671,11 @@ select {
 }
 
 #studentregistration select,
-#instituteregistrationrequest select,
+#instituteregistrationrequest select {
+	margin-right: -6px;
+	width: 342px;
+}
+
 #myaccount select {
 	width: 342px;
 }
@@ -683,12 +687,8 @@ select {
 	width: 320px;
 }
 
-#studentregistration select.inputdate {
-	width: 110px;
-	margin-right: 6px;
-}
-
-#myaccount select.inputdate {
+#studentregistration select.inputdate, #myaccount select.inputdate {
+	margin-right: 0;
 	width: 110px;
 }
 
@@ -761,6 +761,46 @@ input[type="submit"]:focus {
 #myaccount td.accountinformationemailaddress span {
 	font-weight: bold;
 	line-height: 36px;
+}
+
+#studentregistration .error, #instituteregistrationrequest .error {
+	color: rgb(220, 0, 0);
+	font-size: 30pt;
+	line-height: 0;
+	margin-left: 8px;
+	vertical-align: middle;
+}
+
+#myaccount .error {
+	color: rgb(220, 0, 0);
+	font-size: 30pt;
+	line-height: 0;
+	margin-left: 2px;
+	vertical-align: middle;
+}
+
+#studentregistration .inputdateerror, #myaccount .inputdateerror {
+	color: rgb(220, 0, 0);
+	font-size: 30pt;
+	line-height: 0;
+	margin-left: 2px;
+	vertical-align: middle;
+}
+
+#instituteregistrationrequest .descriptionerror {
+	color: rgb(220, 0, 0);
+	font-size: 30pt;
+	line-height: 40px;
+	margin-left: 8px;
+	vertical-align: top;
+}
+
+#myaccount .descriptionerror {
+	color: rgb(220, 0, 0);
+	font-size: 30pt;
+	line-height: 40px;
+	margin-left: 2px;
+	vertical-align: top;
 }
 
 .event_list {
