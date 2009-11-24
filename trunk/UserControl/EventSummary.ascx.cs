@@ -11,53 +11,56 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-public partial class UserControl_EventSummary : System.Web.UI.UserControl
+namespace EventControls
 {
-    private Int64 eventID1 = 0;
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class UserControl_EventSummary : System.Web.UI.UserControl
     {
-    }
-
-    public bool FillEvent(Int64 eventID)
-    {
-
-        eventID1 = eventID;
-
-        if (eventID == null)
+        private Int64 eventID1 = 0;
+        protected void Page_Load(object sender, EventArgs e)
         {
-            return false;
         }
 
-        ImageButton1.ImageUrl = "..\\img\\no_img.jpg";
-        ImageButton1.Width = 100;
-        ImageButton1.Height = 100;
-
-        WebshopDataContext dc = new WebshopDataContext();
-        Event eventX = (from ev in dc.Events where ev.EventID == eventID select ev).FirstOrDefault();
-
-        if (eventX == null)
+        public bool FillEvent(Int64 eventID)
         {
-            return false;
+
+            eventID1 = eventID;
+
+            if (eventID == null)
+            {
+                return false;
+            }
+
+            ImageButton1.ImageUrl = "..\\img\\no_img.jpg";
+            ImageButton1.Width = 100;
+            ImageButton1.Height = 100;
+
+            WebshopDataContext dc = new WebshopDataContext();
+            Event eventX = (from ev in dc.Events where ev.EventID == eventID select ev).FirstOrDefault();
+
+            if (eventX == null)
+            {
+                return false;
+            }
+
+            lblName.Text = eventX.Name;
+            lblStartTime.Text = eventX.StsrtDateTime.ToString();
+            lblEndTime.Text = eventX.EndDateTime.ToString(); ;
+            lblLocation.Text = eventX.Location;
+            lblPrice.Text = eventX.Price.ToString();
+
+            return true;
         }
 
-        lblName.Text = eventX.Name;
-        lblStartTime.Text = eventX.StsrtDateTime.ToString();
-        lblEndTime.Text = eventX.EndDateTime.ToString(); ;
-        lblLocation.Text = eventX.Location;
-        lblPrice.Text = eventX.Price.ToString();
-
-        return true;
-    }
-
-    public Int64 EventID
-    {
-        get
+        public Int64 EventID
         {
-            return eventID1;
+            get
+            {
+                return eventID1;
+            }
         }
-    }
-    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
-    {
-        Response.Redirect("./detail.aspx?EventID=" + eventID1.ToString());
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("./detail.aspx?EventID=" + eventID1.ToString());
+        }
     }
 }

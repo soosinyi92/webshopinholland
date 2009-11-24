@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="EventSummary.ascx.cs" Inherits="UserControl_EventSummary" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="EventSummary.ascx.cs" Inherits="EventControls.UserControl_EventSummary" %>
 <div class="event_summary">
     <div class="event_img">
         <asp:ImageButton ID="ImageButton1" runat="server" 

@@ -107,6 +107,16 @@ public partial class UserControl_EventDetail : System.Web.UI.UserControl
     {
 
     }
+    protected void btnAddToCart_Click(object sender, EventArgs e)
+    {
+        Event eventX = EventFacade.getEventById(Request.QueryString["EventID"]);
+
+        if (eventX == null)
+        {
+            return;
+        }
+        Profile.User.ShoppingCart.addOrUpdateItem(eventX.EventID, eventX.Name, eventX.Price, 1);
+    }
 }
 public class RemotePost
 {
