@@ -12,7 +12,13 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-[Serializable]
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Xml.Serialization;
+
+
+
 public class ShoppingCart
 {
     public class Item
@@ -74,7 +80,7 @@ public class ShoppingCart
         }
     }
 
-    public Dictionary<Int64, Item> cart = new Dictionary<Int64, Item>();
+    public SerializableDictionary<Int64, Item> cart = new SerializableDictionary<Int64, Item>();
 
     private Item getItem(Int64 eventId)
     {
@@ -115,8 +121,10 @@ public class ShoppingCart
         cart.Remove(eventId);
     }
 
-    public Dictionary<Int64, Item> getItems()
+    public List<Item> getItems()
     {
-        return cart;
+        List<Item> list = new List<Item>(cart.Values);
+        
+        return list;
     }
 }
