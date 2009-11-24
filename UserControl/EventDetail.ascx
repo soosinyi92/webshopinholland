@@ -17,9 +17,7 @@
               <input type="hidden" name="cmd" value="_s-xclick" />
               <input ID="encrypted" runat="server" type="hidden" name="encrypted"/>
               
-            <asp:LinkButton ID="btnAddToCart" CssClass="redbutton" runat="server" onclick="btnAddToCart_Click">
-                <span>Add to Cart</span>
-            </asp:LinkButton>
+            
             <br class="clear"/>
             <a class="redbutton" rel="nofollow" href="#">
                 <span>Purchase</span>
@@ -27,6 +25,11 @@
         </div>
 
             </a>--%>
+            
+        <asp:LinkButton ID="btnAddToCart" CssClass="redbutton" runat="server" onclick="btnAddToCart_Click">
+            <span>Add to Cart</span>
+        </asp:LinkButton>
+        
         </div>
         <div id="album">
             <img src="./img/no_img.jpg" alt="event picture" />

@@ -1,4 +1,4 @@
-<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
 <%@ Register src="UserControl/Login.ascx" tagname="Login" tagprefix="uc1" %>
 
@@ -35,6 +35,9 @@
                                     </a>
                                     <a href="controlpanel.aspx" id="controlpanel">
                                         <span>Control Panel</span>
+                                    </a>
+                                    <a href="shoppingcart.aspx" id="shoppingcart">
+                                        <span>Shopping Cart</span>
                                     </a>
                                     <asp:LoginStatus ID="LoginStatus1" runat="server" 
                                         LogoutText="<span>Logout</span>" />
