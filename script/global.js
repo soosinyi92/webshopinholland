@@ -12,6 +12,21 @@ ws.dt = function(tag) {
     return document.getElementsByTagName(tag);
 }
 
+ws.dc = function(oElm, strTagName, strClassName){
+	var arrElements = (strTagName == "*" && oElm.all)? oElm.all : oElm.getElementsByTagName(strTagName);
+	var arrReturnElements = new Array();
+	strClassName = strClassName.replace(/\-/g, "\\-");
+	var oRegExp = new RegExp("(^|\\s)" + strClassName + "(\\s|$)");
+	var oElement;
+	for(var i=0; i<arrElements.length; i++){
+		oElement = arrElements[i];
+		if(oRegExp.test(oElement.className)){
+			arrReturnElements.push(oElement);
+		}
+	}
+	return (arrReturnElements)
+};
+
 ws.addEvent = function(el, action, func) {
     if (el.addEventListener) {
         el.addEventListener(action, func, false);
@@ -110,6 +125,10 @@ ws.windowClick = function(e) {
     ws.hideNavigation(e);
 };
 
+ws.showUpdate = function(e) {
+
+};
+
 ws.init = function() {
     // initialize navi menu position
     var navi = ws.dg('navi');
@@ -122,6 +141,8 @@ ws.init = function() {
         ws.addEvent(loginButton, 'click', ws.showLoginPanel);
     ws.addEvent(document, 'click', ws.windowClick);
     ws.addEvent(ws.dg('navi_caption'), 'click', ws.showNavigation);
+    var shoppingcart = ws.dg('shoppingcart');
+    
 };
 
 ws.checkBrowserType();
