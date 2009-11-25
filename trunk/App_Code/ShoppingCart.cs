@@ -121,6 +121,15 @@ public class ShoppingCart
         cart.Remove(eventId);
     }
 
+    public void removeAllItems()
+    {
+        List<Int64> keys = new List<Int64>(cart.Keys);
+        foreach (Int64 key in keys)
+        {
+            cart.Remove(key);
+        }
+    }
+
     public List<Item> getItems()
     {
         List<Item> list = new List<Item>(cart.Values);

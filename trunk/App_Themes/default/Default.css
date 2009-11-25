@@ -134,6 +134,7 @@ a.redbutton:hover span {
 #body #container {
     width: 750px;
     margin: 0 auto;
+    padding: 10px;
     text-align: left;
 }
 
@@ -946,4 +947,22 @@ table#shoppingcart td.name {
 
 table#shoppingcart td.quantity {
     text-align: center;
+}
+
+table#shoppingcart td.quantity .quantity_box {
+    border: #666 1px solid;
+    margin-left: 25px;
+}
+
+table#shoppingcart td.action {
+    width: 150px;
+}
+
+span.empty_cart {
+    display: block;
+    margin: 50px;
+    padding: 30px 20px;
+    background: #fff;
+    -moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
 }
