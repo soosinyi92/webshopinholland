@@ -132,8 +132,8 @@ public class ShoppingCart
 
     public List<Item> getItems()
     {
-        List<Item> list = new List<Item>(cart.Values);
+        //List<Item> list = new List<Item>(cart.Values);
         
-        return list;
+        return new List<Item>(cart.Values);
     }
 }

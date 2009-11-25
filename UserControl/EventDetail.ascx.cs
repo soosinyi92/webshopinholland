@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
@@ -33,6 +34,7 @@ public partial class UserControl_EventDetail : System.Web.UI.UserControl
             i = Int64.Parse(eventID);
 
             m_eventID = i;
+
         if (!IsPostBack)
         {
             
@@ -45,21 +47,44 @@ public partial class UserControl_EventDetail : System.Web.UI.UserControl
             {
                 return;
             }
-            //Payment pp_payment = new Payment();
-            //string pp_encString = pp_payment.getPPEncryptedString(m_eventID);
-            //encrypted.Value = pp_encString;
-            //ltlEncrypted.Text = "<input ID='encrypted' type='hidden' name='encrypted' value='" + pp_encString + "'/>";
+
+            lblEventStart.Text = eventX.Name;
+            
             lblStartTime.Text = eventX.StsrtDateTime.ToString();
             lblEndTime.Text = eventX.EndDateTime.ToString(); ;
             lblLocation.Text = eventX.Location;
             lblPrice.Text = eventX.Price.ToString();
 
+            IEnumerable<EventOrganization> organizations = (from o in dc.EventOrganizations
+                                                  join ev in dc.Events on o.EventID equals ev.EventID
+                                                  where ev.EventID == i
+                                                  orderby ev.EventID
+                                                  select o);
 
-            //lblOrganizer.Text = eventX.EventOrganizers.ToString();
-            lblOrganization.Text = eventX.EventOrganizations.ToString();
+            IEnumerable<EventOrganizer> organizers = (from o in dc.EventOrganizers
+                                                         join ev in dc.Events on o.EventID equals ev.EventID
+                                                         join user in dc.aspnet_Users on o.UserID equals user.UserId
+                                                         where o.EventID == i
+                                                         orderby o.EventID
+                                                         select o);
+
+            foreach (EventOrganizer organizer in organizers)
+            {
+                lblOrganizer.Text += organizer.aspnet_User.UserName + "<br />" + "&nbsp;";
+            }
+
+            foreach (EventOrganization organization in organizations)
+            {
+                lblOrganization.Text += organization.Organization.Name + "\n";
+            }
 
             lblDescription.Text = eventX.Description;
             lblConditions.Text = eventX.Conditions;
+
+            //Payment pp_payment = new Payment();
+            //string pp_encString = pp_payment.getPPEncryptedString(m_eventID);
+            //encrypted.Value = pp_encString;
+            //ltlEncrypted.Text = "<input ID='encrypted' type='hidden' name='encrypted' value='" + pp_encString + "'/>";
         }
     }
     protected void btnPurchase_Click(object sender, EventArgs e)
