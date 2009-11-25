@@ -49,7 +49,8 @@ public partial class shoppingcart : System.Web.UI.Page
         Profile.User.ShoppingCart.removeItem(Int64.Parse(e.CommandArgument.ToString()));
         List<ShoppingCart.Item> cart = Profile.User.ShoppingCart.getItems();
         rptShoppingCart.DataSource = cart;
-        rptShoppingCart.DataBind();
+        Response.Redirect(Request.RawUrl);
+        //rptShoppingCart.DataBind();
     }
 
     protected void lbtnUpdate_Click(object sender, EventArgs e)

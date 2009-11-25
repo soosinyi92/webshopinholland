@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="EventDetail.ascx.cs" Inherits="UserControl_EventDetail" %>
 <div id="event_detail">
-    <h1>Event Title</h1>
+    <h1><span class="label"></span> <asp:Label runat="server" ID="lblEventStart" /> <br /></h1>
     <div id="subjectwrap">
         <div id="buttons">
             <a class="redbutton" rel="nofollow" href="#">
@@ -40,7 +40,7 @@
             <span class="label">Location:</span> <asp:Label runat="server" ID="lblLocation" /> <br />
             <span class="label">Price:</span> <asp:Label runat="server" ID="lblPrice" /> Euro <br />
              <span class="label">Discount:</span> <asp:Label runat="server" ID="lblDiscount" /> Euro <br />
-            <br /> <span class="label">Organizer:</span> <asp:Label runat="server" ID="lblOrganizer" /> <br />
+            <br /> <span class="label">Organizer:</span> <asp:Label runat="server" ID="lblOrganizer"/> <br />
             <span class="label">Organization:</span> <asp:Label runat="server" ID="lblOrganization" /> <br />         
         </div>
     </div>
