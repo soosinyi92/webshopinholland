@@ -36,7 +36,7 @@
                                     <a href="controlpanel.aspx" id="controlpanel">
                                         <span>Control Panel</span>
                                     </a>
-                                    <a href="shoppingcart.aspx" id="shoppingcart">
+                                    <a href="shoppingcart.aspx">
                                         <span>Shopping Cart</span>
                                     </a>
                                     <asp:LoginStatus ID="LoginStatus1" runat="server" 
@@ -63,6 +63,7 @@
                 </asp:TreeView>
                 <asp:SiteMapDataSource ID="dsSitemap" runat="server" />
                 <div id="navi_caption">&nbsp;</div>
+                <div class="clear"></div>
             </div>
             <div id="body">
                 <div id="container">

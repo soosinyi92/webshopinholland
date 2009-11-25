@@ -126,7 +126,19 @@ ws.windowClick = function(e) {
 };
 
 ws.showUpdate = function(e) {
+    var target = e.target ? e.target : e.srcElement;
+    target.style.display = 'none';
+    target.parentNode.childNodes[3].style.display = 'block';
+    target.parentNode.childNodes[3].focus();
+    target.parentNode.parentNode.childNodes[9].childNodes[1].style.display = 'inline-block';
+};
 
+ws.hideUpdate = function(e) {
+    var target = e.target ? e.target : e.srcElement;
+    ws.dg('shoppingcartwrap').childNodes[3].value = target.value;
+    target.style.display = 'none';
+    target.parentNode.childNodes[1].style.display = 'block';
+    setTimeout('ws.dg(\'' + target.parentNode.parentNode.childNodes[9].childNodes[1].id + '\').style.display = \'none\';', 200);
 };
 
 ws.init = function() {
@@ -142,7 +154,18 @@ ws.init = function() {
     ws.addEvent(document, 'click', ws.windowClick);
     ws.addEvent(ws.dg('navi_caption'), 'click', ws.showNavigation);
     var shoppingcart = ws.dg('shoppingcart');
-    
+    if (shoppingcart) {
+        var labels = ws.dc(shoppingcart, 'SPAN', 'quantity_label');
+        var length = labels.length;
+        for(var i = 0; i < length; i ++) {
+            ws.addEvent(labels[i], 'click', ws.showUpdate);
+        }
+        var boxes = ws.dc(shoppingcart, 'INPUT', 'quantity_box');
+        length = boxes.length;
+        for(var i = 0; i < length; i ++) {
+            ws.addEvent(boxes[i], 'blur', ws.hideUpdate);
+        }
+    }
 };
 
 ws.checkBrowserType();
