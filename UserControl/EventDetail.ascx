@@ -8,8 +8,8 @@
             </a>
             <br class="clear"/>
 <%--            <asp:HyperLink ID="btnPurchase" runat="server" CssClass="redbutton" Text="Purchase"/>
---%>            <asp:Button ID="btnPurchase" runat="server" Text="Button" 
-                onclick="btnPurchase_Click"/>
+--%>            <%--<asp:Button ID="btnPurchase" runat="server" Text="Button" 
+                onclick="btnPurchase_Click"/>--%>
         
                 <%--<form id="form1" runat="server" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="POST">
           </form><input type="submit" name="submit" value="Pay Now" />--%>
