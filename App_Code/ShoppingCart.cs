@@ -80,7 +80,116 @@ public class ShoppingCart
         }
     }
 
-    public SerializableDictionary<Int64, Item> cart = new SerializableDictionary<Int64, Item>();
+    public class ShippingInfo
+    {
+        private String m_FirstName;
+        public String FirstName
+        {
+            get
+            {
+                return m_FirstName;
+            }
+            set
+            {
+                m_FirstName = value;
+            }
+        }
+
+        private String m_LastName;
+        public String LastName
+        {
+            get
+            {
+                return m_LastName;
+            }
+            set
+            {
+                m_LastName = value;
+            }
+        }
+
+        private String m_Address;
+        public String Address
+        {
+            get
+            {
+                return m_Address;
+            }
+            set
+            {
+                m_Address = value;
+            }
+        }
+
+        private String m_City;
+        public String City
+        {
+            get
+            {
+                return m_City;
+            }
+            set
+            {
+                m_City = value;
+            }
+        }
+
+        private String m_PostCode;
+        public String PostCode
+        {
+            get
+            {
+                return m_PostCode;
+            }
+            set
+            {
+                m_PostCode = value;
+            }
+        }
+
+        private String m_Country;
+        public String Country
+        {
+            get
+            {
+                return m_Country;
+            }
+            set
+            {
+                m_Country = value;
+            }
+        }
+
+        private String m_Email;
+        public String Email
+        {
+            get
+            {
+                return m_Email;
+            }
+            set
+            {
+                m_Email = value;
+            }
+        }
+
+        private String m_Phone;
+        public String Phone
+        {
+            get
+            {
+                return m_Phone;
+            }
+            set
+            {
+                m_Phone = value;
+            }
+        }
+    }
+
+    private SerializableDictionary<Int64, Item> cart = new SerializableDictionary<Int64, Item>();
+
+    private ShippingInfo shippingInfo = new ShippingInfo();
 
     private Item getItem(Int64 eventId)
     {
@@ -135,5 +244,15 @@ public class ShoppingCart
         //List<Item> list = new List<Item>(cart.Values);
         
         return new List<Item>(cart.Values);
+    }
+
+    public ShippingInfo getShippingInfo()
+    {
+        return shippingInfo;
+    }
+
+    public void setShippingInfo(ShippingInfo shippingInfo)
+    {
+        this.shippingInfo = shippingInfo;
     }
 }
