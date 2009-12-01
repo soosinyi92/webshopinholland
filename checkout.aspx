@@ -5,11 +5,10 @@
                         StylesheetTheme="default" 
                         Title="Untitled Page" %>
 
-
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" Runat="Server">
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
-    <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="2" 
-    onfinishbuttonclick="Wizard1_FinishButtonClick">
+    <asp:Wizard ID="Wizard1" runat="server">
         <WizardSteps>
             <asp:WizardStep ID="WizardStep1" runat="server" title="Personal Info">
                 <table id="personal-info">
@@ -18,7 +17,7 @@
                             First Name
                         </td>
                         <td>
-                            <asp:TextBox ID="txtFirstName" CssClass="txtbox" runat="server" />
+                            <input type="text" name="txtFirstName" class="txtbox" />
                         </td>
                     </tr>
                     <tr>
@@ -26,7 +25,7 @@
                             Last Name
                         </td>
                         <td>
-                            <asp:TextBox ID="txtLastName" CssClass="txtbox" runat="server" />
+                            <input type="text" name="txtLastName" class="txtbox" />
                         </td>
                     </tr>
                     <tr>
@@ -34,15 +33,7 @@
                             Address
                         </td>
                         <td>
-                            <asp:TextBox ID="txtAddress" CssClass="txtbox" runat="server" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Postal Code
-                        </td>
-                        <td>
-                            <asp:TextBox ID="txtPostalCode" CssClass="txtbox" runat="server" />
+                            <input type="text" name="txtAddress" class="txtbox" />
                         </td>
                     </tr>
                     <tr>
@@ -50,15 +41,23 @@
                             City
                         </td>
                         <td>
-                            <asp:TextBox ID="txtCity" class="txtbox" runat="server" />
+                            <input type="text" name="txtCity" class="txtbox" />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            Country
+                            Province
                         </td>
                         <td>
-                            <asp:TextBox ID="txtCountry" CssClass="txtbox" runat="server" />
+                            <input type="text" name="txtProvince" class="txtbox" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Postal Code
+                        </td>
+                        <td>
+                            <input type="text" name="txtPostalCode" class="txtbox" />
                         </td>
                     </tr>
                     <tr>
@@ -66,7 +65,7 @@
                             Email
                         </td>
                         <td>
-                            <asp:TextBox ID="txtEmail" CssClass="txtbox" runat="server" />
+                            <input type="text" name="txtEmail" class="txtbox" />
                         </td>
                     </tr>
                     <tr>
@@ -74,12 +73,12 @@
                             Phone
                         </td>
                         <td>
-                            <asp:TextBox ID="txtPhone" CssClass="txtbox" runat="server" />
+                            <input type="text" name="txtPhone" class="txtbox" />
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <a href="./shoppingcart.aspx" id="backCart">Back to cart</a>
+                            <a href="#" id="backCart">Back to cart</a>
                         </td>
                     </tr>
                 </table>
