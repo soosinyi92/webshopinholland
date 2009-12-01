@@ -7,6 +7,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" Runat="Server">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
     <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="2" 
     onfinishbuttonclick="Wizard1_FinishButtonClick">
         <WizardSteps>
