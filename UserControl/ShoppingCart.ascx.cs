@@ -63,7 +63,6 @@ public partial class UserControl_ShoppingCart : System.Web.UI.UserControl
         List<ShoppingCart.Item> cart = Profile.User.ShoppingCart.getItems();
         rptShoppingCart.DataSource = cart;
         Response.Redirect(Request.RawUrl);
-        //rptShoppingCart.DataBind();
     }
 
     protected void lbtnUpdate_Click(object sender, EventArgs e)
