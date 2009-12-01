@@ -505,7 +505,7 @@ public partial class myaccount : System.Web.UI.Page
                 ((TextBox)LoginView1.FindControl("City")).Text = Profile.SuperAdministrator.City;
                 ((DropDownList)LoginView1.FindControl("Country")).SelectedIndex = Array.IndexOf(country, Profile.SuperAdministrator.Country);
                 ((TextBox)LoginView1.FindControl("PostalCode")).Text = Profile.SuperAdministrator.PostalCode;
-                ((Label)LoginView1.FindControl("EmailAddress")).Text = Profile.User.Email;
+                ((Label)LoginView1.FindControl("EmailAddress")).Text = User.Identity.Name;
             }
             else if (User.IsInRole(GlobalVariable.instituteadministratorrolename))
             {
@@ -519,7 +519,7 @@ public partial class myaccount : System.Web.UI.Page
                 ((TextBox)LoginView1.FindControl("City")).Text = Profile.InstituteAdministrator.City;
                 ((DropDownList)LoginView1.FindControl("Country")).SelectedIndex = Array.IndexOf(country, Profile.InstituteAdministrator.Country);
                 ((TextBox)LoginView1.FindControl("PostalCode")).Text = Profile.InstituteAdministrator.PostalCode;
-                ((Label)LoginView1.FindControl("EmailAddress")).Text = Profile.User.Email;
+                ((Label)LoginView1.FindControl("EmailAddress")).Text = User.Identity.Name;
             }
             else if (User.IsInRole(GlobalVariable.userrolename))
             {
@@ -560,7 +560,7 @@ public partial class myaccount : System.Web.UI.Page
                 ((TextBox)LoginView1.FindControl("City")).Text = Profile.User.City;
                 ((DropDownList)LoginView1.FindControl("Country")).SelectedIndex = Array.IndexOf(country, Profile.User.Country);
                 ((TextBox)LoginView1.FindControl("PostalCode")).Text = Profile.User.PostalCode;
-                ((Label)LoginView1.FindControl("EmailAddress")).Text = Profile.User.Email;
+                ((Label)LoginView1.FindControl("EmailAddress")).Text = User.Identity.Name;
             }
         }
     }
