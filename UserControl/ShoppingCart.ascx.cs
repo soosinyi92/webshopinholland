@@ -44,15 +44,16 @@ public partial class UserControl_ShoppingCart : System.Web.UI.UserControl
         {
             rptShoppingCart.DataSource = cart;
             rptShoppingCart.DataBind();
-            decimal total = 0;
-            foreach (ShoppingCart.Item item in cart)
-            {
-                total += item.EventPrice * item.Quantity;
-            }
+            decimal total = Profile.User.ShoppingCart.getTotalNetPrice();
+            //decimal total = 0;
+			//foreach (ShoppingCart.Item item in cart)
+			//{
+			//    total += item.EventPrice * item.Quantity;
+			//}
             if (total > 0)
             {
                 Label lblTotal = rptShoppingCart.Controls[rptShoppingCart.Controls.Count - 1].FindControl("lblTotal") as Label;
-                lblTotal.Text = total.ToString();
+                lblTotal.Text = Math.Round(total,2).ToString();
             }
         }
     }
@@ -91,4 +92,8 @@ public partial class UserControl_ShoppingCart : System.Web.UI.UserControl
         Profile.User.ShoppingCart.removeAllItems();
         Response.Redirect(Request.RawUrl);
     }
+	protected void lbtnCheckOut_Click(object sender, EventArgs e)
+	{
+
+	}
 }

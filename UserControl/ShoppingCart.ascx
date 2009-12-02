@@ -50,4 +50,5 @@
     </asp:Repeater>
     <asp:Label ID="lbEmptyCart" CssClass="empty_cart" Text="The shopping cart is empty." runat="server" Visible="False"></asp:Label>
     <asp:LinkButton ID="lbtnContinue" runat="server" Text="Continue shopping" PostBackUrl="~/default.aspx"></asp:LinkButton>
-    <asp:LinkButton ID="lbtnCheckOut" runat="server" Text="Check out" PostBackUrl="~/checkout.aspx"></asp:LinkButton>
+    <asp:LinkButton ID="lbtnCheckOut" runat="server" Text="Check out" 
+    PostBackUrl="~/checkout.aspx" onclick="lbtnCheckOut_Click"></asp:LinkButton>

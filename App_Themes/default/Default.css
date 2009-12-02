@@ -966,3 +966,7 @@ span.empty_cart {
     -moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 }
+
+/*Check out*/
+#checkOut table tbody tr td{ padding:5px; vertical-align:top; text-align:left;}
+#personal-info tr td{ padding:5px;}
