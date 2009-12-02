@@ -8,11 +8,13 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" Runat="Server">
     <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
-    <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="2" 
-    onfinishbuttonclick="Wizard1_FinishButtonClick">
+    <div id="checkOut">
+    <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="0"  
+            onfinishbuttonclick="Wizard1_FinishButtonClick">
         <WizardSteps>
             <asp:WizardStep ID="WizardStep1" runat="server" title="Personal Info">
                 <table id="personal-info">
+                    <tr><td colspan="2">Please fill in your shipping data:</td></tr>
                     <tr>
                         <td>
                             First Name
@@ -91,5 +93,6 @@
                 Are you sure you want to proceed this order?</asp:WizardStep>
         </WizardSteps>
     </asp:Wizard>
+    </div>
 </asp:Content>
 

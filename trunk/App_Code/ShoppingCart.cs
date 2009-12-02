@@ -243,7 +243,7 @@ public class ShoppingCart
         
         return new List<Item>(cart.Values);
     }
-
+	
     public ShippingInfo getShippingInfo()
     {
         return shippingInfo;
@@ -252,5 +252,14 @@ public class ShoppingCart
     public void setShippingInfo(ShippingInfo shippingInfo)
     {
         this.shippingInfo = shippingInfo;
+    }
+    public decimal getTotalNetPrice()
+    {
+		decimal total = 0;
+		foreach(Item item in this.getItems())
+		{
+			total += item.EventPrice * item.Quantity;
+		}
+		return total;
     }
 }

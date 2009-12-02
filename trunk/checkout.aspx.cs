@@ -10,6 +10,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using EventWebShop.Frontend.PaymentHandlers.PayPal;
 
 public partial class checkout : System.Web.UI.Page
 {
@@ -43,5 +44,10 @@ public partial class checkout : System.Web.UI.Page
         shippingInfo.Phone = txtPhone.Text;
 
         Profile.User.ShoppingCart.setShippingInfo(shippingInfo);
+		Payment pp_payment = new Payment();
+		string pp_encString = pp_payment.getPPEncryptedString(Profile.User.ShoppingCart);
+		
+		
+		String testStop = "Stop Here";
     }
 }
