@@ -23,10 +23,11 @@
                         Please type your email address below.</p>
                 </div>
                 <div>
-                    <input type="text" />
+                    <asp:TextBox ID="EmailAddress" runat="server"></asp:TextBox><asp:Label ID="EmailAddressError"
+                        runat="server" CssClass="error" Text="*" Visible="false"></asp:Label>
                 </div>
                 <div>
-                    <input type="submit" value="Request New Password" />
+                    <asp:Button ID="Submit" runat="server" Text="Request New Password" OnClick="Submit_Click" />
                 </div>
             </div>
         </div>

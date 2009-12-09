@@ -59,7 +59,7 @@ public partial class registrationcomplete : System.Web.UI.Page
                 guid = new Guid(username);
                 membershipuser = Membership.GetUser(guid);
 
-                System.Net.Mail.MailMessage mailmessage = new System.Net.Mail.MailMessage(GlobalVariable.superadministratoremailaddress, membershipuser.UserName, "Email Subject", "<p>Email Body</p><p>Activation Link : <a href=\"" + Request.Url.GetLeftPart(UriPartial.Authority) + Page.ResolveUrl("~/registrationcomplete.aspx?operation=instituteregistrationrequestactivate&username=" + membershipuser.ProviderUserKey.ToString()) + "\">Activate Account</a></p>");
+                System.Net.Mail.MailMessage mailmessage = new System.Net.Mail.MailMessage(GlobalVariable.superadministratoremailaddress, membershipuser.UserName, "Email Subject", GlobalVariable.emailheadertemplate + "<p>Email Body</p><p>Activation Link : <a href=\"" + Request.Url.GetLeftPart(UriPartial.Authority) + Page.ResolveUrl("~/registrationcomplete.aspx?operation=instituteregistrationrequestactivate&username=" + membershipuser.ProviderUserKey.ToString()) + "\">Activate Account</a></p>" + GlobalVariable.emailfootertemplate);
                 mailmessage.IsBodyHtml = true;
                 System.Net.NetworkCredential networkcredential = new System.Net.NetworkCredential(GlobalVariable.superadministratoremailaddress, GlobalVariable.superadministratoremailpassword);
                 System.Net.Mail.SmtpClient smtpclient = new System.Net.Mail.SmtpClient("smtp.mail.yahoo.com", 587);
@@ -68,6 +68,10 @@ public partial class registrationcomplete : System.Web.UI.Page
                 smtpclient.Send(mailmessage);
 
                 RegistrationCompleteLabel.Text = "Sed erat est, pharetra sed mollis in, viverra ut magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non tortor urna.";
+            }
+            else
+            {
+                RegistrationCompleteLabel.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non tortor urna. Sed erat est, pharetra sed mollis in, viverra ut magna.";
             }
         }
         else
