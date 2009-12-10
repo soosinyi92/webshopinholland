@@ -68,9 +68,15 @@
             </div>
         </div>
         <div id="footer">
-            <p>
-                Copyright &copy; 2009 WebShop
-            </p>
+            <ul>
+                <li>Copyright &copy; 2009 WebShop</li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Program Policy</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
         </div>
     </div>
     </form>
