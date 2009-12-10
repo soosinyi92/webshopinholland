@@ -44,5 +44,7 @@
         </li>
     </ul>
     <a href="./list.aspx" id="more">more...</a>
+    <div class="clear">
+    </div>
 </asp:Content>
 
