@@ -84,7 +84,7 @@ a.redbutton:hover span {
 
 /* Structure */
 #header {
-    background-color: #002233;
+    background: #002233 url('/img/topbackground.png') repeat-x scroll 0 0;
     width: 100%;
     min-width: 750px;
 }
@@ -97,7 +97,7 @@ a.redbutton:hover span {
 #navi {
     position: fixed;
 	float: left;
-	top: 150px;
+	top: 158px;
 	left: -195px;
 	padding: 0;
 	-moz-border-radius-topright: 4px;
@@ -162,6 +162,26 @@ a.redbutton:hover span {
     color:#778899;
     font-size: 12px;
     text-align: center;
+}
+
+#footer ul {
+	list-style: none;
+	margin: auto;
+	margin-bottom: 14px;
+	width: 670px;
+}
+
+#footer ul li {
+	float: left;
+	margin-left: 10px;
+}
+
+#footer ul li a {
+	color: #2A82AA;
+}
+
+#footer ul li a:hover {
+	text-decoration: underline;
 }
 
 /* header */
@@ -343,7 +363,7 @@ a.redbutton:hover span {
     -moz-border-radius-bottomleft:5px;
     -moz-border-radius-topleft:5px;
     background:#FFF;
-    border-color:#EEE;
+    border-color:#CCC;
     border-style:solid;
     border-width:1px 0 1px 1px;
     font-family:Helvetica,Arial,Sans-serif;
@@ -370,7 +390,7 @@ a.redbutton:hover span {
     -webkit-border-bottom-right-radius: 5px;
     -webkit-border-top-right-radius: 5px;
     background:#BBB;
-    border:1px solid #EEE;
+    border:1px solid #CCC;
     color:#333;
     font-family:Helvetica,Arial,Sans-serif;
     font-size:18px;
@@ -405,7 +425,7 @@ a.redbutton:hover span {
     padding: 5px 5px;
     -moz-border-radius:5px;
     -webkit-border-radius: 5px;
-    border: 1px solid #DDDDDD;
+    border: 1px solid #BBBBBB;
     text-align: center;
 }
 
@@ -428,7 +448,7 @@ a.redbutton:hover span {
 }
 
 ul.event_top10 {
-    border-top: 1px dashed #DDDDDD; 
+    border-top: 1px dashed #BBBBBB; 
     width: 100%;
     text-align: center;
 }
@@ -439,12 +459,12 @@ ul.event_top10 li {
     margin: 0;
     width: 47%;
     float: left;
-    border-bottom: 1px dashed #DDDDDD;
+    border-bottom: 1px dashed #BBBBBB;
     text-align: left;
 }
 
 ul.event_top10 li.left {
-    border-right: 1px dashed #DDDDDD;
+    border-right: 1px dashed #BBBBBB;
 }
 
 a#more {
@@ -468,7 +488,7 @@ a#more:hover {
 }
 
 #subjectwrap #buttons {
-    border-left:1px dashed #DDDDDD;
+    border-left:1px dashed #BBBBBB;
     display:inline;
     float:right;
     padding:10px 0 10px 5px;
@@ -525,7 +545,6 @@ a#more:hover {
 #resetpassword,
 #controlpanel {
 	margin: 20px 0px 20px 20px;
-	min-height: 400px;
 }
 
 #requestnewpasswordt {
@@ -857,7 +876,7 @@ input[type="submit"]:focus {
 
 .event_list .event_list_buttons {
     float: right;
-    border-left: 1px dashed #DDD;
+    border-left: 1px dashed #BBB;
     padding-left: 5px;
     width: 100px;
     height: 100%;
@@ -870,12 +889,12 @@ input[type="submit"]:focus {
 
 #event_list {
     margin-top: 30px;
-    border-top :1px dashed #DDD;
+    border-top :1px dashed #BBB;
 }
 
 #event_list li {
     list-style-type: none;
-    border-bottom: 1px dashed #DDD;
+    border-bottom: 1px dashed #BBB;
 }
 
 #pagewrap {
@@ -890,7 +909,7 @@ input[type="submit"]:focus {
 #pagewrap #page li {
     list-style-type: none;
     display: inline-block;
-    border: 1px solid #DDD;
+    border: 1px solid #BBB;
     width: 20px;
 }
 
@@ -913,7 +932,7 @@ div#shoppingcartwrap {
 table#shoppingcart {
     margin: 30px 0;
     border-collapse: collapse;
-    background: #fff;
+    background: #EEE;
 }
 
 table#shoppingcart * {
@@ -939,11 +958,11 @@ table#shoppingcart a.update {
 
 div#shoppingcartwrap,
 table#shoppingcart tr {
-    background: #fff;
+    background: #EEE;
 }
 
 table#shoppingcart tr.row:hover {
-    background: #ddd;
+    background: #CCC;
 }
 
 
@@ -954,11 +973,11 @@ table#shoppingcart td {
 }
 
 table#shoppingcart th {
-    border-bottom: #eee 2px solid;
+    border-bottom: #DDD 2px solid;
 }
 
 table#shoppingcart td {
-    border-top: #eee 1px solid;
+    border-top: #DDD 1px solid;
 }
 
 table#shoppingcart td.name {
@@ -970,7 +989,7 @@ table#shoppingcart td.quantity {
 }
 
 table#shoppingcart td.quantity .quantity_box {
-    border: #666 1px solid;
+    border: #555 1px solid;
     margin-left: 25px;
 }
 
@@ -982,7 +1001,7 @@ span.empty_cart {
     display: block;
     margin: 50px;
     padding: 30px 20px;
-    background: #fff;
+    background: #EEE;
     -moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 }
