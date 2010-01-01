@@ -30,9 +30,9 @@ namespace EventControls
                 return false;
             }
 
-            ImageButton1.ImageUrl = "..\\img\\no_img.jpg";
-            ImageButton1.Width = 100;
-            ImageButton1.Height = 100;
+            //ImageButton1.ImageUrl = "..\\img\\no_img.jpg";
+            //ImageButton1.Width = 100;
+            //ImageButton1.Height = 100;
 
             WebshopDataContext dc = new WebshopDataContext();
             Event eventX = (from ev in dc.Events where ev.EventID == eventID select ev).FirstOrDefault();
@@ -43,8 +43,10 @@ namespace EventControls
             }
 
             lblName.Text = eventX.Name;
-            lblStartTime.Text = eventX.StsrtDateTime.ToString();
-            lblEndTime.Text = eventX.EndDateTime.ToString(); ;
+            lblStartTime.Text = eventX.StsrtDateTime.ToShortDateString() +
+                                " " + eventX.StsrtDateTime.ToShortTimeString();
+            lblEndTime.Text = eventX.StsrtDateTime.ToShortDateString() +
+                                " " + eventX.StsrtDateTime.ToShortTimeString();
             lblLocation.Text = eventX.Location;
             lblPrice.Text = eventX.Price.ToString();
 

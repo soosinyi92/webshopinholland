@@ -15,31 +15,31 @@
         <li class="left">
             <uc1:EventSummary ID="EventSummary1" runat="server" />
         </li>
-        <li>
+        <li class ="right">
             <uc1:EventSummary ID="EventSummary2" runat="server" />
         </li>
         <li class="left">
             <uc1:EventSummary ID="EventSummary3" runat="server" />
         </li>
-        <li>
+        <li class ="right">
             <uc1:EventSummary ID="EventSummary4" runat="server" />
         </li>
         <li class="left">
             <uc1:EventSummary ID="EventSummary5" runat="server" />
         </li>
-        <li>
+        <li class ="right">
             <uc1:EventSummary ID="EventSummary6" runat="server" />
         </li>
         <li class="left">
             <uc1:EventSummary ID="EventSummary7" runat="server" />
-        </li>
-        <li>
+        </li class ="right">
+        <li class ="right">
             <uc1:EventSummary ID="EventSummary8" runat="server" />
         </li>
         <li class="left">
             <uc1:EventSummary ID="EventSummary9" runat="server" />
         </li>
-        <li>
+        <li class ="right">
             <uc1:EventSummary ID="EventSummary10" runat="server" />
         </li>
     </ul>

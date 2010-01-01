@@ -412,7 +412,7 @@ a.redbutton:hover span {
     font-size: 13px;
 }
 
-.event_summary .event_img {
+.event_summary .event_preview {
     float: left;
 }
 
@@ -439,6 +439,8 @@ a.redbutton:hover span {
     float: right;
     width: 180px;
     margin: 0;
+    font-style: italic;
+    color: #FF3300;
 }
 
 .event_summary h2 {
@@ -465,6 +467,12 @@ ul.event_top10 li {
 
 ul.event_top10 li.left {
     border-right: 1px dashed #BBBBBB;
+    background-color: #003344;
+}
+
+ul.event_top10 li.right {
+    border-right: 1px dashed #BBBBBB;
+    background-color: #002244;
 }
 
 a#more {
