@@ -10,19 +10,6 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
-
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
 public partial class UserControl_ShoppingCart : System.Web.UI.UserControl
@@ -45,11 +32,7 @@ public partial class UserControl_ShoppingCart : System.Web.UI.UserControl
             rptShoppingCart.DataSource = cart;
             rptShoppingCart.DataBind();
             decimal total = Profile.User.ShoppingCart.getTotalNetPrice();
-            //decimal total = 0;
-			//foreach (ShoppingCart.Item item in cart)
-			//{
-			//    total += item.EventPrice * item.Quantity;
-			//}
+            
             if (total > 0)
             {
                 Label lblTotal = rptShoppingCart.Controls[rptShoppingCart.Controls.Count - 1].FindControl("lblTotal") as Label;
