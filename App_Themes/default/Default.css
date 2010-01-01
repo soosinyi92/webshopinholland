@@ -439,8 +439,17 @@ a.redbutton:hover span {
     float: right;
     width: 180px;
     margin: 0;
-    font-style: italic;
-    color: #FF3300;
+}
+
+.event_summary .event_info .event_info_label
+{
+	color: #009988;
+}
+
+.event_summary .event_info .event_info_information
+{
+	color: #FF3300;
+	font-style: italic;
 }
 
 .event_summary h2 {
