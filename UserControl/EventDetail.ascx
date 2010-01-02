@@ -2,38 +2,24 @@
 <div id="event_detail">
     <h1><span class="label"></span> <asp:Label runat="server" ID="lblEventStart" /> <br /></h1>
     <div id="subjectwrap">
+        
+        <div id="album">
+            <%--<img src="./img/no_img.jpg" alt="event picture" />--%>
+            <object width="560" height="340"><param name="movie" value="http://www.youtube.com/v/B1jYllE0T-k&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/B1jYllE0T-k&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="560" height="340"></embed></object>
+        </div>
         <div id="buttons">
             <a class="redbutton" rel="nofollow" href="#">
                 <span>Interested</span>
             </a>
-            <br class="clear"/>
-<%--            <asp:HyperLink ID="btnPurchase" runat="server" CssClass="redbutton" Text="Purchase"/>
---%>            <%--<asp:Button ID="btnPurchase" runat="server" Text="Button" 
-                onclick="btnPurchase_Click"/>--%>
         
-                <%--<form id="form1" runat="server" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="POST">
-          </form><input type="submit" name="submit" value="Pay Now" />--%>
-<%--        <div>
-              <input type="hidden" name="cmd" value="_s-xclick" />
-              <input ID="encrypted" runat="server" type="hidden" name="encrypted"/>
-              
-            
             <br class="clear"/>
-            <a class="redbutton" rel="nofollow" href="#">
-                <span>Purchase</span>
-            </a>
-        </div>
 
-            </a>--%>
+            <asp:LinkButton ID="btnAddToCart" CssClass="redbutton" runat="server" onclick="btnAddToCart_Click">
+                <span>Add to Cart</span>
+            </asp:LinkButton>
             
-        <asp:LinkButton ID="btnAddToCart" CssClass="redbutton" runat="server" onclick="btnAddToCart_Click">
-            <span>Add to Cart</span>
-        </asp:LinkButton>
+            </div>
         
-        </div>
-        <div id="album">
-            <img src="./img/no_img.jpg" alt="event picture" />
-        </div>
         <div id="info">
             <span class="label">Start:</span> <asp:Label runat="server" ID="lblStartTime" /> <br />
             <span class="label">End:</span> <asp:Label runat="server" ID="lblEndTime" /> <br />

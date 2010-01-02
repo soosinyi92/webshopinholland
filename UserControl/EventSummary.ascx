@@ -12,12 +12,12 @@
             Name:
         </span>
         <span class="event_info_information">
-            <asp:LinkButton ID="lblName" runat="server" />
+            <asp:LinkButton ID="lblName" runat="server" CssClass="event_info_event_name" OnCommand="LinkButton1_Click" />
             <br />
         </span>
         
         <span class="event_info_label">
-            Str:
+            Start:
         </span>
         <span class="event_info_information">
         

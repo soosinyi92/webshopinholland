@@ -32,16 +32,16 @@ h2 {
     margin:0 0 12px;
 }
 
-a {
+/*a {
 	color:#333333;
-}
+}*/
 
 a.redbutton {
     -moz-background-clip:border;
     -moz-background-inline-policy:continuous;
     -moz-background-origin:padding;
     -x-system-font:none;
-    background:transparent url(/img/redbutt.gif) no-repeat scroll right top;
+    /*background:transparent url(/img/redbutt.gif) no-repeat scroll right top;*/
     color:#FF7676;
     cursor:pointer;
     display:block;
@@ -56,7 +56,7 @@ a.redbutton {
 
 a.redbutton span {
     -moz-background-clip:border;
-    background:transparent url(/img/redbutt.gif) no-repeat scroll 0 0;
+    /*background:transparent url(/img/redbutt.gif) no-repeat scroll 0 0;*/
     display:block;
     line-height:18px;
     padding:4px 1px 4px 1px;
@@ -69,7 +69,7 @@ a.redbutton:visited {
 }
 
 a.redbutton:hover {
-    background:transparent url(/img/redbutt.gif) no-repeat right -24px;
+    /*background:transparent url(/img/redbutt.gif) no-repeat right -24px;*/
     color:#FFF
 }
 
@@ -148,7 +148,7 @@ a.redbutton:hover span {
 
 #body #container {
     -moz-border-radius: 10px;
-    background-color: #FFFFFF;
+    background-color: #003366;
     width: 750px;
     margin: 0 auto;
     padding: 20px;
@@ -408,7 +408,7 @@ a.redbutton:hover span {
 }
 
 .event_summary {
-    width: 300px;
+    width: 380px;
     font-size: 13px;
 }
 
@@ -418,7 +418,7 @@ a.redbutton:hover span {
 
 .event_summary a {
     text-decoration: none;
-    display: block;
+    display: inline-block;
 }
 
 .event_summary a.img_link {
@@ -437,7 +437,7 @@ a.redbutton:hover span {
 
 .event_summary .event_info {
     float: right;
-    width: 180px;
+    width: 260px;
     margin: 0;
 }
 
@@ -450,6 +450,12 @@ a.redbutton:hover span {
 {
 	color: #FF3300;
 	font-style: italic;
+}
+
+.event_summary .event_info .event_info_information .event_info_event_name
+{
+	color: #00FFFF;
+	font-size: 16px;
 }
 
 .event_summary h2 {
@@ -476,7 +482,7 @@ ul.event_top10 li {
 
 ul.event_top10 li.left {
     border-right: 1px dashed #BBBBBB;
-    background-color: #003344;
+    background-color: #002244;
 }
 
 ul.event_top10 li.right {
