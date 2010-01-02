@@ -64,5 +64,10 @@ namespace EventControls
         {
             Response.Redirect("./detail.aspx?EventID=" + eventID1.ToString());
         }
+
+        protected void LinkButton1_Click(object sender, CommandEventArgs e)
+        {
+            Response.Redirect("./detail.aspx?EventID=" + eventID1.ToString());
+        }
     }
 }
