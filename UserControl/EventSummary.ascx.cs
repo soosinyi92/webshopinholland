@@ -45,8 +45,8 @@ namespace EventControls
             lblName.Text = eventX.Name;
             lblStartTime.Text = eventX.StsrtDateTime.ToShortDateString() +
                                 " " + eventX.StsrtDateTime.ToShortTimeString();
-            lblEndTime.Text = eventX.StsrtDateTime.ToShortDateString() +
-                                " " + eventX.StsrtDateTime.ToShortTimeString();
+            lblEndTime.Text = eventX.EndDateTime.ToShortDateString() +
+                                " " + eventX.EndDateTime.ToShortTimeString();
             lblLocation.Text = eventX.Location;
             lblPrice.Text = eventX.Price.ToString();
 

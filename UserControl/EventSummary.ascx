@@ -7,47 +7,40 @@
 
     </div>
     
-    <div class="event_info">
-        <span class="event_info_label">
+    <div class="event_info_label">
+        
             Name:
-        </span>
-        <span class="event_info_information">
-            <asp:LinkButton ID="lblName" runat="server" CssClass="event_info_event_name" OnCommand="LinkButton1_Click" />
             <br />
-        </span>
         
-        <span class="event_info_label">
             Start:
-        </span>
-        <span class="event_info_information">
-        
-            <asp:Label ID="lblStartTime" runat="server" />
             <br />
-        </span>
         
-        <span class="event_info_label">
             End:
-        </span>
-        <span class="event_info_information">
-            <asp:Label ID="lblEndTime" runat="server" />
             <br />
-        </span>
-        
-        <span class="event_info_label">
+
             Location:
-        </span>
-        <span class="event_info_information">
-            <asp:Label ID="lblLocation" runat="server" />
             <br />
-        </span>
-        
-        <span class="event_info_label">
+       
             Price:
-        </span>
-        <span class="event_info_information">
-            <asp:Label ID="lblPrice" runat="server" />
             <br />
-        </span>
+    </div>
+    
+    <div class="event_info_information">
+        
+        <asp:LinkButton ID="lblName" runat="server" CssClass="event_info_name" OnCommand="LinkButton1_Click" />
+        <br />
+        
+        <asp:Label ID="lblStartTime" runat="server" />
+        <br />
+            
+        <asp:Label ID="lblEndTime" runat="server" />
+        <br />
+        
+        <asp:Label ID="lblLocation" runat="server" />
+        <br />    
+        
+        <asp:Label ID="lblPrice" runat="server" />
+        <br />
     </div>
 </div>
 
