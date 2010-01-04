@@ -37,12 +37,12 @@
             
             Discount:
             <br />
-            
-            <br />Organizer:
             <br />
             
             Organization:
             <br />
+            
+            <br />Organizer:
         </div>
         
         <div class="info_information">
@@ -52,8 +52,9 @@
             <asp:Label runat="server" ID="lblPrice" /> Euro <br />
             <asp:Label runat="server" ID="lblDiscount" /> Euro <br />
             <br />
-            <div class="info_information_organizer"><asp:Label runat="server" ID="lblOrganizer" /> </div> <br />
             <asp:Label runat="server" ID="lblOrganization" /> <br />
+            <br />
+            <div class="info_information_organizer"><asp:Label runat="server" ID="lblOrganizer" /> </div> <br />
         </div>
         
         <div class="clear"></div>
