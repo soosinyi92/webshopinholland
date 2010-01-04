@@ -10,9 +10,9 @@
         </div>
         
         <div id="buttons">
-            <a class="redbutton" rel="nofollow" href="#">
+            <asp:LinkButton ID="btnInterested" CssClass="redbutton" runat="server" onclick="btnInterested_Click">
                 <span>Interested</span>
-            </a>
+            </asp:LinkButton>
         
             <br class="clear"/>
 

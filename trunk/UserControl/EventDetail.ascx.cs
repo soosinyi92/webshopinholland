@@ -23,6 +23,12 @@ public partial class UserControl_EventDetail : System.Web.UI.UserControl
     private Int64 m_eventID;
     protected void Page_Load(object sender, EventArgs e)
     {
+
+        if (!Page.User.Identity.IsAuthenticated || !Page.User.IsInRole("User"))
+        {
+            btnInterested.Visible = false;
+        }
+
         String eventID = Request.QueryString["EventID"];
 
             if (eventID == null)
@@ -141,6 +147,41 @@ public partial class UserControl_EventDetail : System.Web.UI.UserControl
             return;
         }
         Profile.User.ShoppingCart.addItem(eventX.EventID, eventX.Name, eventX.Price, 1);
+    }
+
+    protected void btnInterested_Click(object sender, EventArgs e)
+    {
+        WebshopDataContext dc = new WebshopDataContext();
+        aspnet_User user = (from ev in dc.aspnet_Users where ev.UserName.Equals(Page.User.Identity.Name) select ev).FirstOrDefault();
+        ListsOfParticipant lists = (from ev in dc.ListsOfParticipants where ev.EventID == m_eventID && ev.UserID == user.UserId select ev).FirstOrDefault();
+
+        if (lists == null)
+        {
+            ListsOfParticipant newLists = new ListsOfParticipant
+            {
+                UserID = user.UserId,
+                EventID = m_eventID,
+                Interested = true
+            };
+
+            dc.ListsOfParticipants.InsertOnSubmit(newLists);
+            dc.SubmitChanges();
+            dc.Dispose();
+        }
+        else if (lists.Interested == false)
+        {
+            //ListsOfParticipant newLists = new ListsOfParticipant
+            //{
+            //    lists.Interested = true
+            //};
+            lists.Interested = true;
+
+            dc.ListsOfParticipants.Attach(lists, true);
+            dc.SubmitChanges();
+            
+            
+            dc.Dispose();
+        }
     }
 }
 public class RemotePost
