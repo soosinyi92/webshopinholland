@@ -70,7 +70,7 @@ public partial class UserControl_EventDetail : System.Web.UI.UserControl
 
             foreach (EventOrganizer organizer in organizers)
             {
-                lblOrganizer.Text += organizer.aspnet_User.UserName + "<br />" + "&nbsp;";
+                lblOrganizer.Text += organizer.aspnet_User.UserName + "<br />";
             }
 
             foreach (EventOrganization organization in organizations)
