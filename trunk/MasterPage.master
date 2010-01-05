@@ -30,8 +30,10 @@
                         <div id="user_panel">
                             <p id="welcome">
                                 Welcome
-                                <asp:LoginName ID="LoginName1" runat="server" />
+                                <!--<asp:LoginName ID="LoginName1" runat="server" />-->
+                                <asp:Label ID="userfirstname" runat="server" Text=""></asp:Label>
                             </p>
+                            <br /><br />
                             <a href="myaccount.aspx" id="myaccount"><span>My Account</span> </a><a href="controlpanel.aspx"
                                 id="controlpanel"><span>Control Panel</span> </a><a href="shoppingcart.aspx"><span>Shopping
                                     Cart</span> </a>
