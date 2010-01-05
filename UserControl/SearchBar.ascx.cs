@@ -24,6 +24,6 @@ public partial class UserControl_SearchBar : System.Web.UI.UserControl
     }
     protected void Search_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("./list.aspx?Category=" + Category.SelectedValue);
     }
 }
