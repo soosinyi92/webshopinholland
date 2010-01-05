@@ -12,11 +12,6 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml.Serialization;
-
 public class ShoppingCart
 {
     public class Item

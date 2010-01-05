@@ -1,7 +1,12 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="SearchBar.ascx.cs" Inherits="UserControl_SearchBar" %>
 <div id="searchbar">
+    <div class="category">
+            
+    </div>
     <div class="content">
-        <input type="text" id="search-text" />
-        <input type="submit" value="Search" />
+        <asp:DropDownList ID="Category" CssClass="category" runat="server">
+            </asp:DropDownList>
+        <asp:TextBox ID="SearchText" runat="server"></asp:TextBox>
+        <asp:Button ID="Search" runat="server" Text="Button" onclick="Search_Click" />
     </div>
 </div>

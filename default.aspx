@@ -4,45 +4,13 @@
                         Inherits="_default" 
                         StylesheetTheme="default" %>
 
-<%@ Register src="UserControl/SearchBar.ascx" tagname="SearchBar" tagprefix="uc1" %>
+<%@ Register src="UserControl/SearchBar.ascx" tagname="SearchBar" tagprefix="uc2" %>
 <%@ Register src="UserControl/EventSummary.ascx" tagname="EventSummary" tagprefix="uc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" Runat="Server">
-    <uc1:SearchBar ID="SearchBar1" runat="server" />
-    <%--<ul class="event_top10">
-        <li class="left">
-            <uc1:EventSummary ID="EventSummary1" runat="server" />
-        </li>
-        <li class ="right">
-            <uc1:EventSummary ID="EventSummary2" runat="server" />
-        </li>
-        <li class="left">
-            <uc1:EventSummary ID="EventSummary3" runat="server" />
-        </li>
-        <li class ="right">
-            <uc1:EventSummary ID="EventSummary4" runat="server" />
-        </li>
-        <li class="left">
-            <uc1:EventSummary ID="EventSummary5" runat="server" />
-        </li>
-        <li class ="right">
-            <uc1:EventSummary ID="EventSummary6" runat="server" />
-        </li>
-        <li class="left">
-            <uc1:EventSummary ID="EventSummary7" runat="server" />
-        </li class ="right">
-        <li class ="right">
-            <uc1:EventSummary ID="EventSummary8" runat="server" />
-        </li>
-        <li class="left">
-            <uc1:EventSummary ID="EventSummary9" runat="server" />
-        </li>
-        <li class ="right">
-            <uc1:EventSummary ID="EventSummary10" runat="server" />
-        </li>
-    </ul>--%>
+    <uc2:SearchBar ID="SearchBar1" runat="server" />
     <asp:Repeater ID="TopEvents" OnItemDataBound="PopulateTopEvents" runat="server">
         <HeaderTemplate>
             <ul class="event_top10">
@@ -64,7 +32,7 @@
             </ ul>
         </FooterTemplate>
     </asp:Repeater>
-    <a href="./list.aspx" id="more">more...</a>
+    <a href="./list.aspx?Category=0" id="more">more...</a>
     <div class="clear">
     </div>
 </asp:Content>
