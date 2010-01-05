@@ -9,6 +9,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" Runat="Server">
     <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
     <div id="checkOut">
+    <asp:Literal ID="ltlEncrypted" runat="server" Visible="false" />
     <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="0"  
             onfinishbuttonclick="Wizard1_FinishButtonClick">
         <WizardSteps>
