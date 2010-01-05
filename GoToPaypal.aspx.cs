@@ -21,13 +21,13 @@ public partial class GoToPaypal : System.Web.UI.Page
             Int64 i = new Int64();
             i = Int64.Parse(eventID);
 
-            Payment pp_payment = new Payment();
-            string pp_encString = pp_payment.getPPEncryptedString(i);
+			//Payment pp_payment = new Payment();
+			//string pp_encString = pp_payment.getPPEncryptedString(i);
 
-            encrypted.Value = pp_encString;
+			//encrypted.Value = pp_encString;
 
 
-            string breakhere = "";
+			string breakhere = "";
         
         //}
     }
