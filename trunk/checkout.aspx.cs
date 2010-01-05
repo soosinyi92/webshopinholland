@@ -43,8 +43,8 @@ public partial class checkout : System.Web.UI.Page
         shippingInfo.Phone = txtPhone.Text;
 
         Profile.ShoppingCart.setShippingInfo(shippingInfo);
-		Payment pp_payment = new Payment();
-		string pp_encString = pp_payment.getPPEncryptedString(Profile.ShoppingCart);
+		Payment pp_payment = new Payment(this.Page, ltlEncrypted);
+		pp_payment.registerAndSubmitPPForm(Profile.User.ShoppingCart);
 		
 		
 		String testStop = "Stop Here";
