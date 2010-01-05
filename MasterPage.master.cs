@@ -13,8 +13,14 @@ using System.Xml.Linq;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
+    Label userfirstname;
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        userfirstname = (Label)LoginView1.FindControl("userfirstname");
+        if (userfirstname != null)
+        {
+            userfirstname.Text = Profile.User.FirstName;
+        }
     }
 }

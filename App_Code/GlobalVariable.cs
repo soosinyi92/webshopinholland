@@ -20,7 +20,7 @@ public static class GlobalVariable
     public static string emailfootertemplate = "<p style=\"-moz-border-radius:4px;-webkit-border-radius: 4px;background:#88BBD4;display: block;font-size:12px;margin-top: 20px;padding: 10px 10px 10px 0px;text-align: right;width:500px\">Copyright &copy; 2009 WebShop</p></div>";
     public static string[] day = { "-", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" };
     public static string[] month = { "-", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
-    public static string[] year = { "-", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000" };
+    public static string[] year = { "-", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000" };
     public static string[] nationality = {"-", 
                             "Afghan", 
                             "Albanian", 
