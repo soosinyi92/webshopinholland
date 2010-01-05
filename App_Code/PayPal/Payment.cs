@@ -27,8 +27,8 @@ namespace EventWebShop.Frontend.PaymentHandlers.PayPal
     {
         
         private string PP_myHostingPrefix = ConfigurationManager.AppSettings["PP_HostingPrefix"];
-        private string PP_returnURL = ConfigurationManager.AppSettings["PP_Return"];
-        private string PP_cancelReturnURL = ConfigurationManager.AppSettings["PP_Cancel"];
+		private string PP_returnURL = ConfigurationManager.AppSettings["PP_HostingPrefix"] + "/" + ConfigurationManager.AppSettings["PP_Return"];
+		private string PP_cancelReturnURL = ConfigurationManager.AppSettings["PP_HostingPrefix"] + "/" + ConfigurationManager.AppSettings["PP_Cancel"];
 
         private string PP_MerchantUsername = ConfigurationManager.AppSettings["PP_MerchantUsername"];
         private string PP_signerPfxPassword = ConfigurationManager.AppSettings["PP_SignerPassword"]; // retrieve your password securely here
@@ -36,11 +36,26 @@ namespace EventWebShop.Frontend.PaymentHandlers.PayPal
         private string paypalCertPath = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["PP_PaypalCertPath"]);
         private string signerPfxPath = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["PP_SignerPfxPath"]);
         
-        
-        public Payment()
-                { }
-		private string getPPPaymentDataString(ShoppingCart shc) // will be replaced by getPPPaymentDataString(ShoppingCart shCart)
+        private ShoppingCart shc;
+		public String __pp_encrypted;
+        private System.Web.UI.Page __Page;
+        private System.Web.UI.WebControls.Literal __txtEncrypted;
+
+		public Payment(System.Web.UI.Page _Page, System.Web.UI.WebControls.Literal _txtEncrypted) 
+		{ 
+			this.__Page = _Page;
+			this.__txtEncrypted = _txtEncrypted ;
+		}
+		public Payment(System.Web.UI.Page _Page, System.Web.UI.WebControls.Literal _txtEncrypted, ShoppingCart _shc) 
 		{
+			this.__Page = _Page;
+			this.__txtEncrypted = _txtEncrypted;
+			this.shc = _shc;
+		}
+		
+		private string getPPPaymentDataString(ShoppingCart _shc) 
+		{
+			this.shc = _shc;
 			StringBuilder paymentData = new StringBuilder();
 			//Add general PP variables
 			//Cart Total: 
@@ -86,6 +101,7 @@ namespace EventWebShop.Frontend.PaymentHandlers.PayPal
 			int i = 0;
 			foreach(ShoppingCart.Item item in shc.getItems())
 			{
+				i++;
 				//Shipping --> Added as an item!!!!
 				paymentData.Append("\nitem_name_" + i.ToString() + "=" + item.EventName); //name of the product
 				paymentData.Append("\nitem_number_" + i.ToString() + "=" + item.EventId.ToString() ); //product id
@@ -102,18 +118,7 @@ namespace EventWebShop.Frontend.PaymentHandlers.PayPal
 			
 			}
 
-			////Shipping --> Added as an item!!!!
-			//paymentData.Append("\nitem_name_1=product1"); //name of the product
-			//paymentData.Append("\nitem_number_1=nr_1"); //product id
-			//paymentData.Append("\nquantity_1=2"); //nr of ordered pieces per item
-			//paymentData.Append("\namount_1=1.00"); //price per piece
-			//paymentData.Append("\ntax_1=0.20");
-			////paymentData.Append("\ndiscount_amount_1=0.20") // = NOT PER INDIVIDUAL ITEM! discount_amount_cart overwrites this if set 
-			//paymentData.Append("\ndiscount_rate_1=20"); // PER INDIVIDUAL ITEM! in %. discount_rate_cart overwrites this if set
-			//paymentData.Append("\non0_1=color"); //maximum of 7 option field names per item (0-6)
-			//paymentData.Append("\nos0_1=brown"); // maximum of 7 option selection names per item (0-6). MAX 64 chars
-			//paymentData.Append("\non1_1=size");
-			//paymentData.Append("\nos1_1=xxl");
+
 
 			////Adding Items 
 			//paymentData.Append("\nitem_name_2=Item_2");
@@ -158,7 +163,7 @@ namespace EventWebShop.Frontend.PaymentHandlers.PayPal
             
 	        StringBuilder paymentData = new StringBuilder();
 
-	        paymentData.Append("cmd=_xclick");
+	        paymentData.Append("cmd=_s-xclick");
 	        paymentData.Append("\nupload=1");
 
 	        paymentData.Append("\nbusiness=" + ConfigurationManager.AppSettings["PP_MerchantUsername"]);
@@ -221,6 +226,21 @@ namespace EventWebShop.Frontend.PaymentHandlers.PayPal
 
 	        string encryptedResult = ewp.SignAndEncrypt(strPaymentData);
 	        return encryptedResult;
+	    }
+	  
+	    public void registerAndSubmitPPForm(ShoppingCart _shc)
+	    {
+			__pp_encrypted = getPPEncryptedString(_shc);
+			__txtEncrypted.Text = "<input type='hidden' name='cmd' value='_s-xclick'><input id='encrypted' type='hidden' name='encrypted' value='" + __pp_encrypted + "'/>";
+			__txtEncrypted.Visible=true;
+            __Page.Form.Action = ConfigurationManager.AppSettings["PP_SubmitUrl"];
+            __Page.Form.Method = "Post";
+            __Page.ClientScript.RegisterStartupScript(__Page.GetType(), "PayPal", "document.forms[0].submit();", true);
+
+            System.Web.UI.WebControls.Literal ltl = new System.Web.UI.WebControls.Literal();
+            ltl.ID = "ltlRedirecting";
+            ltl.Text = "Redirecting....<br /><input type='submit' name='submit' value='Pay Now' /> ";
+
 	    }
 	}
     public class ButtonEncryption
