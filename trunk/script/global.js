@@ -40,26 +40,30 @@ ws.checkBrowserType = function() {
     if (browser == 'Microsoft Internet Explorer') ws.isIE = true;
 };
 
-ws.showLoginPanel = function (evt) {
+ws.showLoginPanel = function (e) {
     var loginButton = ws.dg('login');
     var loginPanel = ws.dg('login_panel');
     loginPanel.style.display = 'block';
     loginButton.setAttribute('class', 'open');
-    if (typeof evt.preventDefault != 'undefined') {
-        evt.preventDefault(); // W3C 
+    if (typeof e.preventDefault != 'undefined') {
+        e.preventDefault(); // W3C 
     } else {
-        evt.returnValue = false; // IE 
+        e.returnValue = false; // IE 
     }
-    return false;
 };
 
-ws.hideLoginPanel = function(e) {
+ws.hideLoginPanel = function (e) {
     var loginButton = ws.dg('login');
     var loginSpan = loginButton.childNodes[1];
-    if (e.target != loginButton && e.target != loginSpan) {
+    var target = e.target ? e.target : e.srcElement;
+    if (target != loginButton && target != loginSpan && target.innerHTML != '<SPAN>Login</SPAN>' && target.innerHTML != 'Login') {
         var loginPanel = ws.dg('login_panel');
         var posX = e.pageX ? e.pageX : e.offsetX;
         var posY = e.pageY ? e.pageY : e.offsetY;
+        if (ws.isIE) {
+            posX = e.clientX + document.body.scrollLeft;
+            posY = e.clientY + document.body.scrollTop;
+        }
         var minX = loginPanel.offsetLeft;
         var minY = loginPanel.offsetTop;
         if (minX != 0 && minY != 0) {
@@ -93,11 +97,16 @@ ws.showNavigation = function() {
     }
 };
 
-ws.hideNavigation = function(e) {
-    if (ws.navigationOn && e.target != ws.dg('navi_caption')) {
+ws.hideNavigation = function (e) {
+    var target = e.target ? e.target : e.srcElement;
+    if (ws.navigationOn && target != ws.dg('navi_caption')) {
         var navi = ws.dg('navi');
         var posX = e.pageX ? e.pageX : e.offsetX;
         var posY = e.pageY ? e.pageY : e.offsetY;
+        if (ws.isIE) {
+            posX = e.clientX + document.body.scrollLeft;
+            posY = e.clientY + document.body.scrollTop;
+        }
         var minX = navi.offsetLeft;
         var minY = navi.offsetTop;
         if (minX != undefined && minY != undefined) {
@@ -105,7 +114,7 @@ ws.hideNavigation = function(e) {
             var maxY = minY + navi.offsetHeight;
             if (posX < minX || posX > maxX || posY < minY || posY > maxY) {
                 ws.navigationOn = false;
-                (function() {
+                (function () {
                     if (!ws.navigationOn) {
                         var navi = ws.dg('navi');
                         var left = -195;
