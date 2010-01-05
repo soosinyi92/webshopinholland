@@ -93,46 +93,6 @@ public partial class UserControl_EventDetail : System.Web.UI.UserControl
             //ltlEncrypted.Text = "<input ID='encrypted' type='hidden' name='encrypted' value='" + pp_encString + "'/>";
         }
     }
-    protected void btnPurchase_Click(object sender, EventArgs e)
-    {
-        Payment pp_payment = new Payment();
-        string pp_encString = pp_payment.getPPEncryptedString(m_eventID);
-        
-        RemotePost myremotepost = new RemotePost();
-        myremotepost.Url = ConfigurationManager.AppSettings["PP_SubmitUrl"];
-        myremotepost.Add("encrypted","pp_encString");
-        myremotepost.Add("cmd","_s-xclick");
-        myremotepost.Post() ;
-   
-
-    //    //encrypted.Value = pp_encString;
-
-    //    ASCIIEncoding encoding=new ASCIIEncoding();
-    //    string postData=pp_encString;
-
-    //    //
-    //    //////postData += ("&username="+strName);
-    //    ////byte[]  data = encoding.GetBytes(postData);
-    //    byte[]  data = encoding.GetBytes(postData);
-    //    Page.Request.
-    //    //WebClient myWebClient = new WebClient();
-    //    //myWebClient.UploadData(ConfigurationManager.AppSettings["PP_SubmitUrl"], data);
-
-
-    //    //// Prepare web request...
-    //    HttpWebRequest myRequest =
-    //      (HttpWebRequest)WebRequest.Create(ConfigurationManager.AppSettings["PP_SubmitUrl"]);
-    //    myRequest.Method = "POST";
-    //    myRequest.ContentType = "application/x-www-form-urlencoded";
-    //    myRequest.ContentLength = data.Length;
-    //    Stream newStream = myRequest.GetRequestStream();
-    //    // Send the data.
-    //    newStream.Write(data, 0, data.Length);
-    //    newStream.Close();
-    //    //myRequest.AllowAutoRedirect;
-
-    //    Response.Redirect(ConfigurationManager.AppSettings["PP_SubmitUrl"] + "?cmd=_s-xclick&encrypted=" + postData);
-    }
 
     protected void btnAddToCart_Click(object sender, EventArgs e)
     {
