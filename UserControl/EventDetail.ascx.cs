@@ -95,10 +95,6 @@ public partial class UserControl_EventDetail : System.Web.UI.UserControl
     }
     protected void btnPurchase_Click(object sender, EventArgs e)
     {
-        if (!Page.User.Identity.IsAuthenticated)
-        {
-            Response.Redirect("./login.aspx?redirect=" + Server.UrlPathEncode(Request.RawUrl));
-        }
         Payment pp_payment = new Payment();
         string pp_encString = pp_payment.getPPEncryptedString(m_eventID);
         
@@ -140,17 +136,13 @@ public partial class UserControl_EventDetail : System.Web.UI.UserControl
 
     protected void btnAddToCart_Click(object sender, EventArgs e)
     {
-        if (!Page.User.Identity.IsAuthenticated)
-        {
-            Response.Redirect("./login.aspx");
-        }
         Event eventX = EventFacade.getEventById(Request.QueryString["EventID"]);
 
         if (eventX == null)
         {
             return;
         }
-        Profile.User.ShoppingCart.addItem(eventX.EventID, eventX.Name, eventX.Price, 1);
+        Profile.ShoppingCart.addItem(eventX.EventID, eventX.Name, eventX.Price, 1);
     }
 
     protected void btnInterested_Click(object sender, EventArgs e)

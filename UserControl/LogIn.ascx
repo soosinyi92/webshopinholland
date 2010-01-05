@@ -1,5 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Login.ascx.cs" Inherits="LogInControl" %>
 <div id="login_button">
+    <a href="./shoppingcart.aspx">
+        <span>Shopping Cart</span>
+    </a>
     <a href="./studentregistration.aspx" id="signup">
         <span>Sign up</span>
     </a>
