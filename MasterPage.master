@@ -69,7 +69,7 @@
         </div>
         <div id="footer">
             <ul>
-                <li>Copyright &copy; 2009 WebShop</li>
+                <li>Copyright &copy; 2009-<%= System.DateTime.Now.Year %> WebShop</li>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About Us</a></li>
                 <li><a href="#">Contact</a></li>

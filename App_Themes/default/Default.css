@@ -86,6 +86,7 @@ a.redbutton:hover span {
 #header {
     background: #002233 url('/img/topbackground.png') repeat-x scroll 0 0;
     width: 100%;
+    height: 90px;
     min-width: 750px;
 }
 
@@ -129,6 +130,8 @@ a.redbutton:hover span {
 #navi #navi_caption {
     -moz-border-radius-bottomright: 4px;
     -moz-border-radius-topright: 4px;
+	-webkit-border-top-right-radius: 4px;
+	-webkit-border-bottom-right-radius: 4px;
     float: right;
     width: 25px;
     height: 120px;
@@ -168,7 +171,7 @@ a.redbutton:hover span {
 	list-style: none;
 	margin: auto;
 	margin-bottom: 14px;
-	width: 670px;
+	width: 750px;
 }
 
 #footer ul li {
@@ -196,7 +199,7 @@ a.redbutton:hover span {
 /* login */
 #login_button {
     float: right;
-    margin-top: 92px;
+    margin-top: 47px;
     text-align: right;
 }
 
@@ -248,7 +251,7 @@ a.redbutton:hover span {
     background-color:#DDEEF6;
     border:1px none transparent;
     color:#778899;
-    margin-top:97px;
+    margin-top:52px;
     padding:10px;
     text-align:left;
     width:215px;
