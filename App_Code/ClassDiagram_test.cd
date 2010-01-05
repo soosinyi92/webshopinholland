@@ -1,1 +1,18 @@
- 
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EventWebShop.Frontend.PaymentHandlers.PayPal.Payment">
+    <Position X="9" Y="1.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAgAAABiIABIAIAAAAAEAAAUUAA=</HashCode>
+      <FileName>App_Code\PayPal\Payment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EventWebShop.Frontend.PaymentHandlers.PayPal.ButtonEncryption">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAAABAAAABCAAgAAAAAAAAAAAAAAAABgBAABIAA=</HashCode>
+      <FileName>App_Code\PayPal\Payment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
