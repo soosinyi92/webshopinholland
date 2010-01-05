@@ -25,7 +25,7 @@ namespace EventControls
 
             eventID1 = eventID;
 
-            if (eventID == null)
+            if (eventID == -1)
             {
                 return false;
             }
@@ -47,7 +47,8 @@ namespace EventControls
                                 " " + eventX.StsrtDateTime.ToShortTimeString();
             lblEndTime.Text = eventX.EndDateTime.ToShortDateString() +
                                 " " + eventX.EndDateTime.ToShortTimeString();
-            lblLocation.Text = eventX.Location;
+
+            lblLocation.Text = Utilities.ContinuousString(eventX.Location, 0, 26);
             lblPrice.Text = eventX.Price.ToString();
 
             return true;
