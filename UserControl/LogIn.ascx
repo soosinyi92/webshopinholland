@@ -3,7 +3,7 @@
     <a href="./studentregistration.aspx" id="signup">
         <span>Sign up</span>
     </a>
-    <a href="#" id="login" >
+    <a href="./login.aspx" id="login" >
         <span>Login</span>
     </a>
 </div>
