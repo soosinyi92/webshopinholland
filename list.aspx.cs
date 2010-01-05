@@ -18,20 +18,50 @@ public partial class list : System.Web.UI.Page
     {
         WebshopDataContext dc = new WebshopDataContext();
 
-        IEnumerable<Event> eventX = (from ev in dc.Events select ev).DefaultIfEmpty();
-
         String event_category = Request.QueryString["Category"];
-
-        int category = int.Parse(event_category);
+        String event_text = Request.QueryString["Text"];
         
-
-        if (eventX == null)
+        if (event_category == "Any")
         {
-            return;
+            if (event_text != "")
+            {
+                IEnumerable<Int64> topEvents = (from ev in dc.Events
+                                                where ev.Name.Contains(event_text)
+                                                select ev.EventID);
+                TopEvents.DataSource = topEvents;
+            }
+            else
+            {
+                IEnumerable<Int64> topEvents = (from ev in dc.Events
+                                                select ev.EventID);
+                TopEvents.DataSource = topEvents;
+            }
         }
+        else
+        {
+            Category category = (from ca in dc.Categories
+                                              where ca.CategoryName.Equals(event_category)
+                                              select ca).FirstOrDefault();
 
-        IEnumerable<Int64> topEvents = (from ev in eventX select ev.EventID);
-        TopEvents.DataSource = topEvents;
+            IEnumerable<Int64> event_categories = ( from ev in dc.EventCategories
+                                                    where ev.CategoryID == category.CategoryID
+                                                    select ev.EventID);
+
+            if (event_text != "")
+            {
+                IEnumerable<Int64> events = (from ev in dc.Events
+                                             where event_categories.Contains(ev.EventID) &&
+                                                   ev.Name.Contains(event_text)
+                                             select ev.EventID);
+
+                TopEvents.DataSource = events;
+            }
+            else
+            {
+                TopEvents.DataSource = event_categories;
+            }
+        }
+        
         TopEvents.DataBind();
     }
 

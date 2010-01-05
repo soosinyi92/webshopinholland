@@ -61,13 +61,13 @@ public partial class UserControl_EventBackEnd : System.Web.UI.UserControl
                                             ev.Price
                                       });
 
-        BasicEvents.DataSource = basicEvents;
-        BasicEvents.DataBind();
+        //BasicEvents.DataSource = basicEvents;
+        //BasicEvents.DataBind();
     }
 
     protected void BasicEvents_SelectedIndexChanged(Object sender, EventArgs e)
     {
-        int a = BasicEvents.SelectedIndex;
+        //int a = BasicEvents.SelectedIndex;
 
         //var contact = (from ev in events
         //               orderby ev.StsrtDateTime
