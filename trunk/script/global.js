@@ -40,11 +40,16 @@ ws.checkBrowserType = function() {
     if (browser == 'Microsoft Internet Explorer') ws.isIE = true;
 };
 
-ws.showLoginPanel = function() {
+ws.showLoginPanel = function (evt) {
     var loginButton = ws.dg('login');
     var loginPanel = ws.dg('login_panel');
     loginPanel.style.display = 'block';
     loginButton.setAttribute('class', 'open');
+    if (typeof evt.preventDefault != 'undefined') {
+        evt.preventDefault(); // W3C 
+    } else {
+        evt.returnValue = false; // IE 
+    }
     return false;
 };
 

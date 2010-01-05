@@ -95,7 +95,10 @@ public partial class UserControl_EventDetail : System.Web.UI.UserControl
     }
     protected void btnPurchase_Click(object sender, EventArgs e)
     {
-	    
+        if (!Page.User.Identity.IsAuthenticated)
+        {
+            Response.Redirect("./login.aspx?redirect=" + Server.UrlPathEncode(Request.RawUrl));
+        }
         Payment pp_payment = new Payment();
         string pp_encString = pp_payment.getPPEncryptedString(m_eventID);
         
@@ -134,12 +137,13 @@ public partial class UserControl_EventDetail : System.Web.UI.UserControl
 
     //    Response.Redirect(ConfigurationManager.AppSettings["PP_SubmitUrl"] + "?cmd=_s-xclick&encrypted=" + postData);
     }
-    protected void btnPurchase_Click1(object sender, EventArgs e)
-    {
 
-    }
     protected void btnAddToCart_Click(object sender, EventArgs e)
     {
+        if (!Page.User.Identity.IsAuthenticated)
+        {
+            Response.Redirect("./login.aspx");
+        }
         Event eventX = EventFacade.getEventById(Request.QueryString["EventID"]);
 
         if (eventX == null)
@@ -151,6 +155,10 @@ public partial class UserControl_EventDetail : System.Web.UI.UserControl
 
     protected void btnInterested_Click(object sender, EventArgs e)
     {
+        if (!Page.User.Identity.IsAuthenticated)
+        {
+            Response.Redirect("./login.aspx");
+        }
         WebshopDataContext dc = new WebshopDataContext();
         aspnet_User user = (from ev in dc.aspnet_Users where ev.UserName.Equals(Page.User.Identity.Name) select ev).FirstOrDefault();
         ListsOfParticipant lists = (from ev in dc.ListsOfParticipants where ev.EventID == m_eventID && ev.UserID == user.UserId select ev).FirstOrDefault();

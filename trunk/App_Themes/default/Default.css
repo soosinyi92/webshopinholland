@@ -261,27 +261,42 @@ a.redbutton:hover span {
     right: 10px;
 }
 
+#login {
+    width: 33%;
+    margin-left: 33%;
+    margin-right: 33%;
+}
+
 #login_panel table,
 #login_panel table tbody,
 #login_panel table tr,
 #login_panel table td,
-#login_panel p {
+#login_panel p,
+#login table,
+#login table tbody,
+#login table tr,
+#login table td,
+#login p {
     background: transparent;
 }
 
-#login_panel label {
+#login_panel label,
+#login label {
     color: #778899;
     background: transparent;
 }
 
-#login_panel a {
+#login_panel a,
+#login a {
     background: transparent;
     color: #2277BB;
     text-decoration: none;
 }
 
 #login_panel input[type="text"],
-#login_panel input[type="password"] {
+#login_panel input[type="password"],
+#login input[type="text"],
+#login input[type="password"] {
     -moz-border-radius:4px;
     -webkit-border-radius: 4px;
     border:1px solid #AACCEE;
@@ -294,15 +309,19 @@ a.redbutton:hover span {
 }
 
 #login_panel input[type="submit"]:hover,
-#login_panel input[type="submit"]:focus {
+#login_panel input[type="submit"]:focus,
+#login input[type="submit"]:hover,
+#login input[type="submit"]:focus {
     cursor: pointer;
 }
 
-#login_panel input[type="checkbox"] {
+#login_panel input[type="checkbox"],
+#login input[type="checkbox"] {
     background: transparent;
 }
 
-#login_panel input[type="submit"] {
+#login_panel input[type="submit"],
+#login input[type="submit"] {
     -moz-border-radius:4px;
     -webkit-border-radius: 4px;    
     background:#3399DD ;
@@ -316,7 +335,7 @@ a.redbutton:hover span {
 
 #user_panel {
     float: right;
-    margin-top: 92px;
+    margin-top: 47px;
     text-align: right;
 }
 
