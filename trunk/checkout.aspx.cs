@@ -16,18 +16,17 @@ public partial class checkout : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Page.User.Identity.IsAuthenticated || !Page.User.IsInRole("User"))
+        if (Page.User.Identity.IsAuthenticated && Page.User.IsInRole("User"))
         {
-            Response.Redirect("./");
+            txtFirstName.Text = Profile.User.FirstName;
+            txtLastName.Text = Profile.User.LastName;
+            txtAddress.Text = Profile.User.Street + " " + Profile.User.HouseNumber;
+            txtPostalCode.Text = Profile.User.PostalCode;
+            txtCity.Text = Profile.User.City;
+            txtCountry.Text = Profile.User.Country;
+            //txtEmail.Text = Profile.User.Email;
+            //txtPhone.Text = Profile.User.Phone;
         }
-        txtFirstName.Text = Profile.User.FirstName;
-        txtLastName.Text = Profile.User.LastName;
-        txtAddress.Text = Profile.User.Street + " " + Profile.User.HouseNumber;
-        txtPostalCode.Text = Profile.User.PostalCode;
-        txtCity.Text = Profile.User.City;
-        txtCountry.Text = Profile.User.Country;
-        //txtEmail.Text = Profile.User.Email;
-        //txtPhone.Text = Profile.User.Phone;
     }
 
 
@@ -43,9 +42,9 @@ public partial class checkout : System.Web.UI.Page
         shippingInfo.Email = txtEmail.Text;
         shippingInfo.Phone = txtPhone.Text;
 
-        Profile.User.ShoppingCart.setShippingInfo(shippingInfo);
+        Profile.ShoppingCart.setShippingInfo(shippingInfo);
 		Payment pp_payment = new Payment();
-		string pp_encString = pp_payment.getPPEncryptedString(Profile.User.ShoppingCart);
+		string pp_encString = pp_payment.getPPEncryptedString(Profile.ShoppingCart);
 		
 		
 		String testStop = "Stop Here";

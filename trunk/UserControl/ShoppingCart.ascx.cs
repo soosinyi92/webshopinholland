@@ -16,11 +16,8 @@ public partial class UserControl_ShoppingCart : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Page.User.Identity.IsAuthenticated || !Page.User.IsInRole("User"))
-        {
-            Response.Redirect("./");
-        }
-        List<ShoppingCart.Item> cart = Profile.User.ShoppingCart.getItems();
+        
+        List<ShoppingCart.Item> cart = Profile.ShoppingCart.getItems();
         if (cart.Count == 0)
         {
             rptShoppingCart.Visible = false;
@@ -31,7 +28,7 @@ public partial class UserControl_ShoppingCart : System.Web.UI.UserControl
         {
             rptShoppingCart.DataSource = cart;
             rptShoppingCart.DataBind();
-            decimal total = Profile.User.ShoppingCart.getTotalNetPrice();
+            decimal total = Profile.ShoppingCart.getTotalNetPrice();
             
             if (total > 0)
             {
@@ -43,25 +40,25 @@ public partial class UserControl_ShoppingCart : System.Web.UI.UserControl
 
     protected void lbtnDelete_Click(object sender, CommandEventArgs e)
     {
-        Profile.User.ShoppingCart.removeItem(Int64.Parse(e.CommandArgument.ToString()));
-        List<ShoppingCart.Item> cart = Profile.User.ShoppingCart.getItems();
+        Profile.ShoppingCart.removeItem(Int64.Parse(e.CommandArgument.ToString()));
+        List<ShoppingCart.Item> cart = Profile.ShoppingCart.getItems();
         rptShoppingCart.DataSource = cart;
         Response.Redirect(Request.RawUrl);
     }
 
     protected void lbtnUpdate_Click(object sender, EventArgs e)
     {
-        List<ShoppingCart.Item> cart = Profile.User.ShoppingCart.getItems();
+        List<ShoppingCart.Item> cart = Profile.ShoppingCart.getItems();
         int quantity = int.Parse(Request.Form.Get("hfUpdateQuantity"));
         LinkButton btnUpdate = sender as LinkButton;
         RepeaterItem item = btnUpdate.Parent as RepeaterItem;
         if (quantity == 0)
         {
-            Profile.User.ShoppingCart.removeItem(cart[item.ItemIndex].EventId);
+            Profile.ShoppingCart.removeItem(cart[item.ItemIndex].EventId);
         }
         else if (quantity != cart[item.ItemIndex].Quantity)
         {
-            Profile.User.ShoppingCart.updateItem(cart[item.ItemIndex].EventId, quantity);
+            Profile.ShoppingCart.updateItem(cart[item.ItemIndex].EventId, quantity);
         }
         else
         {
@@ -72,7 +69,7 @@ public partial class UserControl_ShoppingCart : System.Web.UI.UserControl
 
     protected void lbtnDeleteAll_Click(object sender, EventArgs e)
     {
-        Profile.User.ShoppingCart.removeAllItems();
+        Profile.ShoppingCart.removeAllItems();
         Response.Redirect(Request.RawUrl);
     }
 	protected void lbtnCheckOut_Click(object sender, EventArgs e)
