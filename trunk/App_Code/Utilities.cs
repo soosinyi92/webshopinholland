@@ -45,7 +45,7 @@ public class Utilities
 
         foreach (Category ev in ct)
         {
-            categories.Add(ev.CategoryName);
+            categories.Add(ev.CategoryName.Trim());
         }
 
         return categories;

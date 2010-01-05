@@ -2,6 +2,7 @@
                         AutoEventWireup="true" 
                         CodeFile="default.aspx.cs" 
                         Inherits="_default" 
+                        EnableViewState="true"
                         StylesheetTheme="default" %>
 
 <%@ Register src="UserControl/SearchBar.ascx" tagname="SearchBar" tagprefix="uc2" %>
