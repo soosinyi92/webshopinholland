@@ -1,12 +1,26 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="EventDetail.ascx.cs" Inherits="UserControl_EventDetail" %>
+
+<%@ Register src="EventSummary.ascx" tagname="EventSummary" tagprefix="uc1" %>
+
 <div id="event_detail">
     <asp:Label runat="server" ID="lblEventStart" CssClass="event_info_name" /> <br />
     <br />
-    
+    <div class="clear"></div>
     <div id="subjectwrap">
         <div id="album">
+            <asp:Repeater ID="rptImages" runat="server">
+                <ItemTemplate>
+                    <asp:Image ID="image" ImageUrl='<%# DataBinder.Eval(Container.DataItem, "URL") %>' runat="server" />
+                </ItemTemplate>
+                <FooterTemplate>
+                    <script type="text/javascript">
+                        ws.getImages();
+                    </script>
+                </FooterTemplate>
+            </asp:Repeater>
+            <asp:Image ID="defaultimage" ImageUrl="~/img/no_img.jpg" Visible="false" runat="server" />
             <%--<img src="./img/no_img.jpg" alt="event picture" />--%>
-            <object width="660" height="340"><param name="movie" value="http://www.youtube.com/v/B1jYllE0T-k&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/B1jYllE0T-k&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="660" height="340"></embed></object>
+            <%--<object width="660" height="340"><param name="movie" value="http://www.youtube.com/v/B1jYllE0T-k&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/B1jYllE0T-k&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="660" height="340"></embed></object>--%>
         </div>
         
         <div id="buttons">
@@ -71,5 +85,31 @@
                 <asp:Label runat="server" ID="lblConditions" />
             </p>
         </div>
+        
+        <div class="events_program">
+            <asp:Repeater ID="EventsProgram" OnItemDataBound="PopulateTopEvents" runat="server">
+                <HeaderTemplate>
+                    <ul class="event_top10">
+                </HeaderTemplate>
+                
+                <ItemTemplate>
+                    <li class="left">
+                        <uc1:EventSummary ID="EventSummary" runat="server" />
+                    </li>
+                </ItemTemplate>
+                
+                <AlternatingItemTemplate>
+                    <li class ="right">
+                        <uc1:EventSummary ID="EventSummary" runat="server" />
+                    </li>
+                </AlternatingItemTemplate>
+                
+                <FooterTemplate>
+                    </ ul>
+                </FooterTemplate>
+            </asp:Repeater>
+        </div>
+        
+        <div class="clear"></div>
     </div>
 </div>

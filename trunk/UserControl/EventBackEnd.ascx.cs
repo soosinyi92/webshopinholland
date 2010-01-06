@@ -27,6 +27,7 @@ public partial class UserControl_EventBackEnd : System.Web.UI.UserControl
             Add.Visible = false;
             Update.Visible = false;
             Delete.Visible = false;
+            lblProgram.Visible = false;
 
             //Participants.Visible = false;
 
@@ -112,6 +113,10 @@ public partial class UserControl_EventBackEnd : System.Web.UI.UserControl
             Add.Visible = true;
             Update.Visible = false;
             Delete.Visible = false;
+            lblProgram.Visible = false;
+
+            events_program.DataSource = null;
+            events_program.DataBind();
         }
         else
         {
@@ -137,7 +142,7 @@ public partial class UserControl_EventBackEnd : System.Web.UI.UserControl
             if (main_event != null)
             {
                 ddltIsMainEvent.SelectedItem.Selected = false;
-                ddltIsMainEvent.Items.FindByText(eventX.Name).Selected = true;
+                ddltIsMainEvent.Items.FindByText(main_event.Name).Selected = true;
             }
             else
             {
@@ -146,7 +151,21 @@ public partial class UserControl_EventBackEnd : System.Web.UI.UserControl
 
             Update.Visible = true;
             Delete.Visible = true;
+            lblProgram.Visible = true;
             Add.Visible = false;
+
+            var events_programs = (from ev in dc.Events
+                                                   where ev.ParentEventID == eventX.EventID
+                                                   select new
+                                                   {
+                                                       ev.Name,
+                                                       ev.StsrtDateTime,
+                                                       ev.EndDateTime,
+                                                       ev.Price
+                                                   });
+
+            events_program.DataSource = events_programs;
+            events_program.DataBind();
         }
     }
     protected void Delete_Click(object sender, EventArgs e)
@@ -195,8 +214,32 @@ public partial class UserControl_EventBackEnd : System.Web.UI.UserControl
             //isMainEvent = btnIsMainEvent.Checked
         };
 
+        if (ddltIsMainEvent.SelectedIndex == 0)
+        {
+            event_x.isMainEvent = true;
+        }
+        else
+        {
+            event_x.isMainEvent = false;
+            event_x.ParentEventID = (from ev in dc.Events
+                                     where ev.Name.Equals(ddltIsMainEvent.SelectedItem.Text)
+                                     select ev.EventID).FirstOrDefault();
+        }
+
+        Image img = new Image
+        {
+            URL = txtPicture.Text
+        };
+
         dc.Events.InsertOnSubmit(event_x);
+        dc.Images.InsertOnSubmit(img);
         dc.SubmitChanges();
+        
+        EventImage eveimg = new EventImage
+        {
+            EventID = event_x.EventID,
+            ImageID = img.ImageID
+        };
 
         EventOrganization event_orgainzation = new EventOrganization
         {
@@ -204,6 +247,7 @@ public partial class UserControl_EventBackEnd : System.Web.UI.UserControl
             OrgainzationID = orgman.OrganizationID
         };
 
+        dc.EventImages.InsertOnSubmit(eveimg);
         dc.EventOrganizations.InsertOnSubmit(event_orgainzation);
         dc.SubmitChanges();
         Response.Redirect(Request.RawUrl);
@@ -213,7 +257,7 @@ public partial class UserControl_EventBackEnd : System.Web.UI.UserControl
         WebshopDataContext dc = new WebshopDataContext();
 
         Event event_x = ( from ev in dc.Events
-                          where ev.Name.Equals(events_list.SelectedItem.Text)
+                          where ev.Name.Equals(ddltIsMainEvent.SelectedItem.Text)
                           select ev).FirstOrDefault();
 
             event_x.Name = txtName.Text;
@@ -225,7 +269,34 @@ public partial class UserControl_EventBackEnd : System.Web.UI.UserControl
             event_x.Location = txtLocation.Text;
             event_x.Price = decimal.Parse(txtPrice.Text);
             event_x.Description = txtDescription.Text;
-            //event_x.isMainEvent = btnIsMainEvent.Checked;
+
+            if (ddltIsMainEvent.SelectedIndex == 0)
+            {
+                event_x.isMainEvent = true;
+            }
+            else
+            {
+                event_x.isMainEvent = false;
+                event_x.ParentEventID = (from ev in dc.Events
+                                         where ev.Name.Equals(events_list.SelectedItem.Text)
+                                         select ev.EventID).FirstOrDefault();
+            }
+
+            Image img = new Image
+            {
+                URL = txtPicture.Text
+            };
+
+            dc.Images.InsertOnSubmit(img);
+            dc.SubmitChanges();
+
+            EventImage eveimg = new EventImage
+            {
+                EventID = event_x.EventID,
+                ImageID = img.ImageID
+            };
+
+            dc.EventImages.InsertOnSubmit(eveimg);
 
         dc.SubmitChanges();
     }

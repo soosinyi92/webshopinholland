@@ -12,9 +12,12 @@
             onselectedindexchanged="events_list_SelectedIndexChanged" AutoPostBack="true" ></asp:ListBox>
     </div>
     <div class="EventsProgram">
-        <span class="events_list_title">Event Program</span>
         <br />
-        <asp:ListBox ID="events_program" runat="server"></asp:ListBox>
+        <asp:Label ID="lblProgram" runat="server" Text="Program"></asp:Label>
+        <br />
+        <%--<asp:ListBox ID="events_program" runat="server"></asp:ListBox>--%>
+        <asp:GridView ID="events_program" runat="server">
+        </asp:GridView>
     </div>
     <div class="clear"></div>
     <div class="EventsButtons">
@@ -74,13 +77,18 @@
                 </asp:DropDownList>
             </td>
         </tr>
-        <%--<asp:Label ID="Label13" runat="server" Text="Label"></asp:Label>
-        <asp:TextBox ID="TextBox13" runat="server"></asp:TextBox>
+        <tr>
+            <th><asp:Label ID="lblPicture" runat="server" Text="Picture"></asp:Label></th>
+            <%--<td><asp:CheckBox ID="btnIsMainEvent" runat="server" /></td>--%>
+            <td>
+                <asp:TextBox ID="txtPicture" runat="server"></asp:TextBox>
+            </td>
+        </tr>
             
-        <asp:Label ID="Label14" runat="server" Text="Label"></asp:Label>
-        <asp:TextBox ID="TextBox14" runat="server"></asp:TextBox>
+        <%--<asp:Label ID="Label14" runat="server" Text="Label"></asp:Label>
+        <asp:TextBox ID="TextBox14" runat="server"></asp:TextBox>--%>
         
-        <br />--%>
+        <br />
     </table>
     <asp:Button ID="Add" runat="server" Text="Add Event" onclick="Add_Click" />
     <asp:Button ID="Update" runat="server" Text="Update Event" 
