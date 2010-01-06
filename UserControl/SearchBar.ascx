@@ -4,9 +4,11 @@
             
     </div>
     <div class="content">
+
         <asp:DropDownList ID="Categories" CssClass="category" runat="server"
             onselectedindexchanged="Category_SelectedIndexChanged" >
             </asp:DropDownList>
+
         <asp:TextBox ID="SearchText" runat="server"></asp:TextBox>
         <asp:Button ID="Search" runat="server" Text="Search" onclick="Search_Click" />
     </div>
