@@ -1,7 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="controlpanel.aspx.cs" Inherits="controlpanel" Title="Untitled Page" %>
+    CodeFile="controlpanel.aspx.cs" Inherits="controlpanel" Title="Untitled Page" EnableEventValidation="false" %>
 
 <%@ Register src="UserControl/EventBackEnd.ascx" tagname="EventBackEnd" tagprefix="uc1" %>
+<%@ Register src="UserControl/InstitutionBackEnd.ascx" tagname="InstitutionBackEnd" tagprefix="uc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -24,10 +25,7 @@
                 <ContentTemplate>
                     <div id="controlpanel">
                         <div>
-                            <span id="controlpanelt">Control Panel</span>
-                            <p id="controlpanelp">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non tortor urna.
-                                Sed erat est, pharetra sed mollis in, viverra ut magna.</p>
+                            <uc1:InstitutionBackEnd ID="InstitutionBackEnd" runat="server" />
                         </div>
                     </div>
                 </ContentTemplate>

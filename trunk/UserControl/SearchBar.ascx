@@ -8,6 +8,6 @@
             onselectedindexchanged="Category_SelectedIndexChanged" >
             </asp:DropDownList>
         <asp:TextBox ID="SearchText" runat="server"></asp:TextBox>
-        <asp:Button ID="Search" runat="server" Text="Button" onclick="Search_Click" />
+        <asp:Button ID="Search" runat="server" Text="Search" onclick="Search_Click" />
     </div>
 </div>
