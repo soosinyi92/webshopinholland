@@ -33,7 +33,7 @@
             </ ul>
         </FooterTemplate>
     </asp:Repeater>
-    <a href="./list.aspx?Category=0" id="more">more...</a>
+    <a href="./list.aspx?Category=Any&Text=" id="more">more...</a>
     <div class="clear">
     </div>
 </asp:Content>
