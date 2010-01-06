@@ -13,25 +13,6 @@ body {
 	background-color: #002233;
 }
 
-Events
-{
-	width: 320;
-}
-
-Events .EventsList .events_list
-{
-	width: 160;
-	float: left;
-	display: inline-block;
-}
-
-Events .EventsProgram .events_program
-{
-	width: 160;
-	float: left;
-	display: inline-block;
-}
-
 h1 {
     color:#999;
     display:block;
@@ -55,6 +36,10 @@ h2 {
 a {
 	/*color:#333333;*/
 	color: #DDDDDD;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 a.redbutton {
@@ -530,6 +515,10 @@ a.redbutton:hover span {
 	color: #2A82AA;
 	font-size: 16px;
 	font-weight: bold;
+}
+
+a.event_info_name:hover {
+    text-decoration: none;
 }
 
 .event_summary h2 {
@@ -1259,6 +1248,24 @@ ul#institution-list li input[type="image"] {
 }
 
 /* Event Backend */
+Events
+{
+	width: 320;
+}
+
+Events .EventsList .events_list
+{
+	width: 160;
+	float: left;
+	display: inline-block;
+}
+
+Events .EventsProgram .events_program
+{
+	width: 160;
+	float: left;
+	display: inline-block;
+}
 div.EventsList {
     float: left;
 }
