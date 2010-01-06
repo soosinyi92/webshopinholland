@@ -13,6 +13,25 @@ body {
 	background-color: #002233;
 }
 
+Events
+{
+	width: 320;
+}
+
+Events .EventsList .events_list
+{
+	width: 160;
+	float: left;
+	display: inline-block;
+}
+
+Events .EventsProgram .events_program
+{
+	width: 160;
+	float: left;
+	display: inline-block;
+}
+
 h1 {
     color:#999;
     display:block;

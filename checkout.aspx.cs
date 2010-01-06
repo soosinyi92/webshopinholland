@@ -44,7 +44,7 @@ public partial class checkout : System.Web.UI.Page
 
         Profile.ShoppingCart.setShippingInfo(shippingInfo);
 		Payment pp_payment = new Payment(this.Page, ltlEncrypted);
-		pp_payment.registerAndSubmitPPForm(Profile.User.ShoppingCart);
+		//pp_payment.registerAndSubmitPPForm(Profile.User.ShoppingCart);
 		
 		
 		String testStop = "Stop Here";
