@@ -27,6 +27,8 @@
                         <div>
                             <uc1:InstitutionBackEnd ID="InstitutionBackEnd" runat="server" />
                         </div>
+                        <br />
+                        <asp:Button ID="ManageStudent" runat="server" Text="Manage Student" OnClick="ManageStudent_Click" />
                     </div>
                 </ContentTemplate>
             </asp:RoleGroup>
@@ -35,6 +37,30 @@
                     <div id="controlpanel">
                         <div>
                             <uc1:EventBackEnd ID="EventBackEnd" runat="server" />
+                        </div>
+                    </div>
+                </ContentTemplate>
+            </asp:RoleGroup>
+            <asp:RoleGroup Roles="Institute Management">
+                <ContentTemplate>
+                    <div id="controlpanel">
+                        <div>
+                            <span id="controlpanelt">Control Panel</span>
+                            <p id="controlpanelp">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non tortor urna.
+                                Sed erat est, pharetra sed mollis in, viverra ut magna.</p>
+                        </div>
+                    </div>
+                </ContentTemplate>
+            </asp:RoleGroup>
+            <asp:RoleGroup Roles="Event Organizer">
+                <ContentTemplate>
+                    <div id="controlpanel">
+                        <div>
+                            <span id="controlpanelt">Control Panel</span>
+                            <p id="controlpanelp">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non tortor urna.
+                                Sed erat est, pharetra sed mollis in, viverra ut magna.</p>
                         </div>
                     </div>
                 </ContentTemplate>
