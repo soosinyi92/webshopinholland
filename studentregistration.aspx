@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="studentregistration.aspx.cs" Inherits="studentregistration" Title="Untitled Page"
+    CodeFile="studentregistration.aspx.cs" Inherits="studentregistration" Title="Sign Up"
     StylesheetTheme="default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">

@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="controlpanel.aspx.cs" Inherits="controlpanel" Title="Untitled Page" EnableEventValidation="false" %>
+    CodeFile="controlpanel.aspx.cs" Inherits="controlpanel" Title="Control Panel" EnableEventValidation="false" %>
 
 <%@ Register src="UserControl/EventBackEnd.ascx" tagname="EventBackEnd" tagprefix="uc1" %>
 <%@ Register src="UserControl/InstitutionBackEnd.ascx" tagname="InstitutionBackEnd" tagprefix="uc1" %>

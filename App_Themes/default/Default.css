@@ -439,7 +439,7 @@ a.redbutton:hover span {
     line-height:normal;
     margin:0;
     outline-width:0;
-    padding:8px 10px;
+    padding:3px 5px;
 }
 
 #searchbar input[type="submit"]:hover,
@@ -449,7 +449,7 @@ a.redbutton:hover span {
 }
 
 #searchbar input[type="submit"] {
-    padding:9px 10px 8px;
+    padding:2px;
     -moz-border-radius-bottomright:5px;
     -moz-border-radius-topright:5px;
     -webkit-border-bottom-right-radius: 5px;
@@ -467,7 +467,6 @@ a.redbutton:hover span {
     outline-color:-moz-use-text-color;
     outline-style:none;
     outline-width:medium;
-    padding:8px 15px;
     text-decoration:none;
     text-shadow:0 1px 0 #FFFFFF;
 }
