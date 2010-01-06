@@ -15,7 +15,10 @@ public partial class controlpanel : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!Page.User.Identity.IsAuthenticated)
+        {
+            Response.Redirect("./");
+        }
     }
 
     protected void ManageStudent_Click(object sender, EventArgs e)

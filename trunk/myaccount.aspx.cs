@@ -17,6 +17,10 @@ public partial class myaccount : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!Page.User.Identity.IsAuthenticated)
+        {
+            Response.Redirect("./");
+        }
         if (!Page.IsPostBack)
         {
             if (User.IsInRole(GlobalVariable.superadministratorrolename))
