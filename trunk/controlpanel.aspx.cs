@@ -17,4 +17,9 @@ public partial class controlpanel : System.Web.UI.Page
     {
 
     }
+
+    protected void ManageStudent_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("./managestudent.aspx");
+    }
 }

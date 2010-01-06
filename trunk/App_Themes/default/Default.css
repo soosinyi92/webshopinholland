@@ -742,7 +742,8 @@ input[type="submit"]:focus {
 }
 
 #studentregistration,
-#instituteregistrationrequest {
+#instituteregistrationrequest,
+#managestudent {
 	margin: 20px 0px 20px 20px;
 }
 
@@ -751,7 +752,8 @@ input[type="submit"]:focus {
 #myaccountt,
 #registrationcompletet,
 #resetpasswordt,
-#controlpanelt {
+#controlpanelt,
+#managestudentt {
 	font-size: 18px;
 	font-weight: bold;
 }
@@ -761,35 +763,40 @@ input[type="submit"]:focus {
 #myaccountp,
 #registrationcompletep,
 #resetpasswordp,
-#controlpanelp {
+#controlpanelp,
+#managestudentp {
 	font-size: 11px;
 	margin: 4px 0px 0px 0px;
 }
 
 #studentregistration a,
 #instituteregistrationrequest a,
-#myaccount a {
+#myaccount a,
+#managestudent a {
 	color: #2A82AA;
 	text-decoration: none;
 }
 
 #studentregistration a:hover,
 #instituteregistrationrequest a:hover,
-#myaccount a:hover {
+#myaccount a:hover,
+#managestudent a:hover {
 	color: #2A82AA;
 	text-decoration: underline;
 }
 
 #studentregistration td,
 #instituteregistrationrequest td,
-#myaccount td {
+#myaccount td,
+#managestudent td {
 	margin: 4px 4px 4px 4px;
 	padding: 4px 4px 4px 4px;
 }
 
 #studentregistration .formpart,
 #instituteregistrationrequest .formpart,
-#myaccount .formpart {
+#myaccount .formpart,
+#managestudent .formpart {
 	font-size: 16px;
 	font-weight: bold;
 	padding-left: 76px;
@@ -803,6 +810,9 @@ input[type="password"],
 textarea,
 select,
 #myaccount input[type="text"],
+input[type="password"],
+select,
+#managestudent input[type="text"],
 input[type="password"],
 select,
 #institution-table input[type="text"] {
@@ -830,35 +840,42 @@ select,
 	width: 342px;
 }
 
-#myaccount select {
+#myaccount select,
+#managestudent select {
 	width: 342px;
 }
 
 #studentregistration option,
 #instituteregistrationrequest option,
-#myaccount option {
+#myaccount option,
+#managestudent option {
 	background: #FFF;
 	width: 320px;
 }
 
-#studentregistration select.inputdate, #myaccount select.inputdate {
+#studentregistration select.inputdate,
+#myaccount select.inputdate,
+#managestudent select.inputdate {
 	margin-right: 0;
 	width: 110px;
 }
 
 #studentregistration select.inputdate option,
-#myaccount select.inputdate option {
+#myaccount select.inputdate option,
+#managestudent select.inputdate option {
 	width: 88px;
 }
 
 #studentregistration input[type="radio"],
-#myaccount input[type="radio"] {
+#myaccount input[type="radio"],
+#managestudent input[type="radio"] {
 	width: 25px;
 }
 
 #studentregistration td.label,
 #instituteregistrationrequest td.label,
-#myaccount td.label {
+#myaccount td.label,
+#managestudent td.label {
 	text-align: right;
 	width: 250px;
 }
@@ -876,7 +893,9 @@ select,
 
 #studentregistration input[type="submit"],
 #instituteregistrationrequest input[type="submit"],
-#myaccount input[type="submit"] {
+#myaccount input[type="submit"],
+#controlpanel input[type="submit"],
+#managestudent input[type="submit"] {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-x-system-font: none;
@@ -905,6 +924,10 @@ input[type="submit"]:focus,
 #instituteregistrationrequest input[type="submit"]:hover,
 input[type="submit"]:focus,
 #myaccount input[type="submit"]:hover,
+input[type="submit"]:focus,
+#controlpanel input[type="submit"]:hover,
+input[type="submit"]:focus,
+#managestudent input[type="submit"]:hover,
 input[type="submit"]:focus {
 	background-color: #D5D5D5;
 	background-position: 0 -206px;
@@ -912,12 +935,15 @@ input[type="submit"]:focus {
 	color: #000000;
 }
 
-#myaccount td.accountinformationemailaddress span {
+#myaccount td.accountinformationemailaddress span,
+#managestudent td.accountinformationemailaddress span {
 	font-weight: bold;
 	line-height: 36px;
 }
 
-#requestnewpassword .error, #studentregistration .error, #instituteregistrationrequest .error {
+#requestnewpassword .error,
+#studentregistration .error,
+#instituteregistrationrequest .error {
 	color: rgb(220, 0, 0);
 	font-size: 30pt;
 	line-height: 0;
@@ -925,7 +951,8 @@ input[type="submit"]:focus {
 	vertical-align: middle;
 }
 
-#myaccount .error {
+#myaccount .error,
+#managestudent .error {
 	color: rgb(220, 0, 0);
 	font-size: 30pt;
 	line-height: 0;
@@ -933,7 +960,9 @@ input[type="submit"]:focus {
 	vertical-align: middle;
 }
 
-#studentregistration .inputdateerror, #myaccount .inputdateerror {
+#studentregistration .inputdateerror,
+#myaccount .inputdateerror,
+#managestudent .inputdateerror {
 	color: rgb(220, 0, 0);
 	font-size: 30pt;
 	line-height: 0;
@@ -955,6 +984,28 @@ input[type="submit"]:focus {
 	line-height: 40px;
 	margin-left: 2px;
 	vertical-align: top;
+}
+
+#managestudent #manageusercontrol {
+	font-size: 14px;
+}
+
+#managestudent #manageusercontrol #data {
+	margin-left: 100px;
+	padding: 5px;
+	width: 500px;
+}
+
+#managestudent #manageusercontrol #link {
+	border-top: dashed 1px #DDDDDD;
+	margin-left: 100px;
+	padding: 5px;
+	text-align: right;
+	width: 500px;
+}
+
+#managestudent #manageusercontrol #data span.label {
+	font-weight: bold;
 }
 
 .event_list {
