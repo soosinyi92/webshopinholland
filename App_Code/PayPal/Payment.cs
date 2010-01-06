@@ -294,7 +294,7 @@ namespace EventWebShop.Frontend.PaymentHandlers.PayPal
         /// <param name="signerPfxCertPassword">Password for signer's private key</param>
         public void LoadSignerCredential(string signerPfxCertPath, string signerPfxCertPassword)
         {
-            _signerCert = new X509.X509Certificate2(signerPfxCertPath, signerPfxCertPassword);
+			_signerCert = new X509.X509Certificate2(signerPfxCertPath, signerPfxCertPassword);   
         }
 
         /// <summary>
