@@ -23,7 +23,7 @@ public partial class UserControl_EventBackEnd : System.Web.UI.UserControl
             return;
         }
 
-        Participants.Visible = false;
+        //Participants.Visible = false;
 
         WebshopDataContext dc = new WebshopDataContext();
 
@@ -61,8 +61,19 @@ public partial class UserControl_EventBackEnd : System.Web.UI.UserControl
                                             ev.Price
                                       });
 
-        //BasicEvents.DataSource = basicEvents;
-        //BasicEvents.DataBind();
+        events_list.Items.Add(new ListItem("New Event", "0"));
+
+        int i = 1;
+
+        foreach (var li in basicEvents)
+        {
+            events_list.Items.Add(new ListItem(li.Name, i.ToString()));
+
+            ++i;
+        }
+
+        
+        events_list.DataBind();
     }
 
     protected void BasicEvents_SelectedIndexChanged(Object sender, EventArgs e)
@@ -74,4 +85,20 @@ public partial class UserControl_EventBackEnd : System.Web.UI.UserControl
         //               select new {ev.
     }
 
+    protected void events_list_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (events_list.SelectedItem.Text == "New Event")
+        {
+        }
+        else
+        {
+            WebshopDataContext dc = WebshopDataContext();
+
+            Event eventX = (from ev in dc.Events
+                            where ev.Name.Equals(events_list.SelectedItem.Text)
+                            select ev).FirstOrDefault();
+
+
+        }
+    }
 }
