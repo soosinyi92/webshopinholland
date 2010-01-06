@@ -92,7 +92,7 @@ public partial class UserControl_EventBackEnd : System.Web.UI.UserControl
         }
         else
         {
-            WebshopDataContext dc = WebshopDataContext();
+            WebshopDataContext dc = new WebshopDataContext();
 
             Event eventX = (from ev in dc.Events
                             where ev.Name.Equals(events_list.SelectedItem.Text)

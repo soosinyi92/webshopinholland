@@ -1257,3 +1257,12 @@ ul#institution-list li input[type="image"] {
     position: relative;
     top: 7px;
 }
+
+/* Event Backend */
+div.EventsList {
+    float: left;
+}
+div.EventsProgram {
+    float: left;
+    margin-left: 15px;
+}
