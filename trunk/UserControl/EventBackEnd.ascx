@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="EventBackEnd.ascx.cs" Inherits="UserControl_EventBackEnd" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" EnableViewState="true" CodeFile="EventBackEnd.ascx.cs" Inherits="UserControl_EventBackEnd" %>
 <%--<asp:GridView ID="BasicEvents" runat="server" 
               OnSelectedIndexChanged="BasicEvents_SelectedIndexChanged" >
 </asp:GridView>--%>
@@ -8,7 +8,8 @@
     <div class="EventsList">
         <span class="events_list_title">Events</span>
         <br />
-        <asp:ListBox ID="events_list" runat="server"></asp:ListBox>
+        <asp:ListBox ID="events_list" runat="server" 
+            onselectedindexchanged="events_list_SelectedIndexChanged" AutoPostBack="true" ></asp:ListBox>
     </div>
     <div class="EventsProgram">
         <span class="events_list_title">Event Program</span>
@@ -17,8 +18,8 @@
     </div>
     <div class="clear"></div>
     <div class="EventsButtons">
-        <asp:Button ID="Add" runat="server" Text="Add Event" />
-        <asp:Button ID="Delete" runat="server" Text="Delete Event" />
+        <asp:Button ID="Delete" runat="server" Text="Delete Event" 
+            onclick="Delete_Click" />
     </div>
     <table class="AddEvent">
         <tr>
@@ -57,17 +58,21 @@
         <tr>
             <th><asp:Label ID="lblPrice" runat="server" Text="Price"></asp:Label></th>
             <td><asp:TextBox ID="txtPrice" runat="server"></asp:TextBox></td>
+            <td><asp:Label ID="Label1" runat="server" Text=" euro"></asp:Label></td>
         </tr>
         <tr>
             <th><asp:Label ID="lblDescription" runat="server" Text="Description"></asp:Label></th>
             <td>
                 <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
-                <asp:Label ID="Label1" runat="server" Text=" euro"></asp:Label>
             </td>
         </tr>
         <tr>
             <th><asp:Label ID="lblIsMainEvent" runat="server" Text="Main Event?"></asp:Label></th>
-            <td><asp:CheckBox ID="btnIsMainEvent" runat="server" /></td>
+            <%--<td><asp:CheckBox ID="btnIsMainEvent" runat="server" /></td>--%>
+            <td>
+                <asp:DropDownList ID="ddltIsMainEvent" runat="server">
+                </asp:DropDownList>
+            </td>
         </tr>
         <%--<asp:Label ID="Label13" runat="server" Text="Label"></asp:Label>
         <asp:TextBox ID="TextBox13" runat="server"></asp:TextBox>
@@ -77,4 +82,8 @@
         
         <br />--%>
     </table>
+    <asp:Button ID="Add" runat="server" Text="Add Event" onclick="Add_Click" />
+    <asp:Button ID="Update" runat="server" Text="Update Event" 
+        onclick="Update_Click" />
+        
 </div>

@@ -172,14 +172,6 @@
       <Association Name="Event_DiscountSubEvent" Member="Event" ThisKey="EventID" OtherKey="EventID" Type="Event" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.EventImages" Member="EventImages">
-    <Type Name="EventImage">
-      <Column Name="ImageID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="EventID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="Event_EventImage" Member="Event" ThisKey="EventID" OtherKey="EventID" Type="Event" IsForeignKey="true" />
-      <Association Name="Image_EventImage" Member="Image" ThisKey="ImageID" OtherKey="ImageID" Type="Image" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.EventOrganizations" Member="EventOrganizations">
     <Type Name="EventOrganization">
       <Column Name="EventID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -226,22 +218,13 @@
       <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="isMainEvent" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Event_DiscountSubEvent" Member="DiscountSubEvents" ThisKey="EventID" OtherKey="EventID" Type="DiscountSubEvent" />
-      <Association Name="Event_EventImage" Member="EventImages" ThisKey="EventID" OtherKey="EventID" Type="EventImage" />
       <Association Name="Event_EventOrganization" Member="EventOrganizations" ThisKey="EventID" OtherKey="EventID" Type="EventOrganization" />
       <Association Name="Event_EventOrganizer" Member="EventOrganizers" ThisKey="EventID" OtherKey="EventID" Type="EventOrganizer" />
       <Association Name="Event_EventPlacesToMeet" Member="EventPlacesToMeets" ThisKey="EventID" OtherKey="EventID" Type="EventPlacesToMeet" />
       <Association Name="Event_Event" Member="Events" ThisKey="EventID" OtherKey="ParentEventID" Type="Event" />
       <Association Name="Event_ListsOfParticipant" Member="ListsOfParticipants" ThisKey="EventID" OtherKey="EventID" Type="ListsOfParticipant" />
+      <Association Name="Event_EventImage" Member="EventImages" ThisKey="EventID" OtherKey="EventID" Type="EventImage" />
       <Association Name="Event_Event" Member="Event1" ThisKey="ParentEventID" OtherKey="EventID" Type="Event" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Images" Member="Images">
-    <Type Name="Image">
-      <Column Name="Name" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="URL" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="ImageID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Association Name="Image_EventImage" Member="EventImages" ThisKey="ImageID" OtherKey="ImageID" Type="EventImage" />
     </Type>
   </Table>
   <Table Name="dbo.ListsOfParticipants" Member="ListsOfParticipants">
@@ -285,6 +268,25 @@
       <Column Name="CategoryName" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="CategoryDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="Category_EventCategory" Member="EventCategories" ThisKey="CategoryID" OtherKey="CategoryID" Type="EventCategory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EventImages" Member="EventImages">
+    <Type Name="EventImage">
+      <Column Name="ImageID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EventID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ThumbNail" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Event_EventImage" Member="Event" ThisKey="EventID" OtherKey="EventID" Type="Event" IsForeignKey="true" />
+      <Association Name="Image_EventImage" Member="Image" ThisKey="ImageID" OtherKey="ImageID" Type="Image" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Images" Member="Images">
+    <Type Name="Image">
+      <Column Name="Name" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ThumbURL" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ImageID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Image_EventImage" Member="EventImages" ThisKey="ImageID" OtherKey="ImageID" Type="EventImage" />
     </Type>
   </Table>
 </Database>
