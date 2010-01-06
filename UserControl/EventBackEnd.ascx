@@ -15,6 +15,7 @@
         <br />
         <asp:ListBox ID="events_program" runat="server"></asp:ListBox>
     </div>
+    <div class="clear"></div>
     <div class="EventsButtons">
         <asp:Button ID="Add" runat="server" Text="Add Event" />
         <asp:Button ID="Delete" runat="server" Text="Delete Event" />
