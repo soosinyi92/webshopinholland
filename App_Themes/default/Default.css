@@ -14,7 +14,7 @@ body {
 }
 
 h1 {
-    color:#494949;
+    color:#999;
     display:block;
     font-size:25px;
     font-weight:700;
@@ -406,6 +406,8 @@ a.redbutton:hover span {
     width: 320px;
     -moz-border-radius-bottomleft:5px;
     -moz-border-radius-topleft:5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-top-left-radius: 5px;
     background:#FFF;
     border-color:#CCC;
     border-style:solid;
@@ -783,7 +785,8 @@ textarea,
 select,
 #myaccount input[type="text"],
 input[type="password"],
-select {
+select,
+#institution-table input[type="text"] {
     width: 320px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -1144,3 +1147,43 @@ span.empty_cart {
 /*Check out*/
 #checkOut table tbody tr td{ padding:5px; vertical-align:top; text-align:left;}
 #personal-info tr td{ padding:5px;}
+
+/* Institution Backend */
+#institution-table tbody tr td{ padding:5px; vertical-align:top; text-align:left;}
+#institution-table tr td{ padding:5px;}
+#institution-table input[type="text"],
+#institution-table input[type="password"],
+#institution-table textarea {
+    padding: 2px;
+}
+#institution-table input[type="submit"]:hover,
+#institution-table input[type="submit"]:focus {
+    cursor: pointer;
+}
+#institution-table input[type="submit"] {
+    -moz-border-radius:4px;
+    -webkit-border-radius: 4px;    
+    background:#3399DD ;
+    border:1px solid #3399DD;
+    color:#FFFFFF;
+    font-size:11px;
+    font-weight:bold;
+    margin:0 5px 0 0;
+    padding:4px 10px 5px;
+    min-width: 100px;
+}
+
+ul#institution-list {
+    
+}
+ul#institution-list li {
+    list-style-type: none;
+    padding: 2px;
+    width: 100%;
+    display: block;
+    vertical-align: middle;
+}
+ul#institution-list li input[type="image"] {
+    position: relative;
+    top: 7px;
+}
