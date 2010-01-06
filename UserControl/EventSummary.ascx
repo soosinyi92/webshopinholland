@@ -3,8 +3,8 @@
     <div class="event_preview">
         <%--<asp:ImageButton ID="ImageButton1" runat="server" 
             onclick="ImageButton1_Click" />--%>
-        <object width="100" height="100"><param name="movie" value="http://www.youtube.com/v/B1jYllE0T-k&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/B1jYllE0T-k&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="100" height="100"></embed></object>
-
+        <%--<object width="100" height="100"><param name="movie" value="http://www.youtube.com/v/B1jYllE0T-k&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/B1jYllE0T-k&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="100" height="100"></embed></object>--%>
+        <asp:Image ID="img" ImageUrl="~/img/no_img.jpg" Width="100" Height="100" runat="server" />
     </div>
     
     <div class="event_info_label">

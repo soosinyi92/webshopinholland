@@ -54,6 +54,20 @@ public partial class UserControl_EventDetail : System.Web.UI.UserControl
                 return;
             }
 
+            List<Int64> eveimg = (from tc in dc.EventImages where tc.EventID == eventX.EventID select tc.ImageID).ToList();
+            List<Image> images = (from im in dc.Images where eveimg.Contains(im.ImageID) select im).ToList();
+
+            //List<Image> imgList = eventX.EventImages.ToList();
+            if (images.Count != 0)
+            {
+                rptImages.DataSource = images;
+                rptImages.DataBind();
+            }
+            else
+            {
+                rptImages.Visible = false;
+                defaultimage.Visible = true;
+            }
             lblEventStart.Text = eventX.Name;
             
             lblStartTime.Text = eventX.StsrtDateTime.ToString();
@@ -86,6 +100,13 @@ public partial class UserControl_EventDetail : System.Web.UI.UserControl
 
             lblDescription.Text = eventX.Description;
             lblConditions.Text = eventX.Conditions;
+
+            IEnumerable<Int64> events_programs = (from ev in dc.Events
+                                   where ev.ParentEventID == eventX.EventID
+                                   select ev.EventID);
+
+            EventsProgram.DataSource = events_programs;
+            EventsProgram.DataBind();
 
             //Payment pp_payment = new Payment();
             //string pp_encString = pp_payment.getPPEncryptedString(m_eventID);
@@ -141,6 +162,16 @@ public partial class UserControl_EventDetail : System.Web.UI.UserControl
             
             
             dc.Dispose();
+        }
+    }
+
+    protected void PopulateTopEvents(Object Sender, RepeaterItemEventArgs e)
+    {
+        if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+        {
+            EventControls.UserControl_EventSummary eventSummary = (EventControls.UserControl_EventSummary)e.Item.FindControl("EventSummary");
+
+            eventSummary.FillEvent((Int64)e.Item.DataItem);
         }
     }
 }

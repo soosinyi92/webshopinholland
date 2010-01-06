@@ -10,6 +10,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using System.Collections.Generic;
 
 namespace EventControls
 {
@@ -42,7 +43,15 @@ namespace EventControls
                 return false;
             }
 
-            lblName.Text = eventX.Name;
+            List<Int64> eveimg = (from tc in dc.EventImages where tc.EventID == eventX.EventID select tc.ImageID).ToList();
+            List<Image> images = (from im in dc.Images where eveimg.Contains(im.ImageID) select im).ToList();
+
+            if (images.Count != 0)
+            {
+                img.ImageUrl = images.First().URL;
+            }
+
+            lblName.Text = Utilities.ContinuousString(eventX.Name, 0, 10);
             lblStartTime.Text = eventX.StsrtDateTime.ToShortDateString() +
                                 " " + eventX.StsrtDateTime.ToShortTimeString();
             lblEndTime.Text = eventX.EndDateTime.ToShortDateString() +

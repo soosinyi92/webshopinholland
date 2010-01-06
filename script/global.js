@@ -182,6 +182,51 @@ ws.init = function() {
     }
 };
 
+var imgs = new Array();
+var currImg = 0;
+ws.getImages = function() {
+    var album = ws.dg('album');
+    var count = 0;
+    if (album) {
+        var nodes = album.childNodes;
+        for(var i = 0; i < nodes.length; i ++) {
+            
+            if (nodes[i] && nodes[i].tagName && nodes[i].tagName == 'IMG') {
+                count++;
+                imgs[imgs.length] = nodes[i];
+                if (count > 1) {
+                    
+                    nodes[i].style.display = 'none';
+                }
+            }
+        }
+        if (imgs.length > 1) {
+            var buttons = document.createElement('div');
+            buttons.style.width = '100%';
+            buttons.style.textAlign = 'center';
+            buttons.innerHTML = '<a href="#" onclick="ws.prevImg();return false;">&lt;</a>&nbsp;&nbsp;<a href="#" onclick="ws.nextImg();return false;">&gt;</a>';
+            album.appendChild(buttons);
+        }
+    }
+    
+};
+
+ws.nextImg = function() {
+    if (currImg < imgs.length - 1) {
+        imgs[currImg].style.display = 'none';
+        currImg++;
+        imgs[currImg].style.display = 'block';
+    }
+};
+
+ws.prevImg = function() {
+    if (currImg > 0) {
+        imgs[currImg].style.display = 'none';
+        currImg--;
+        imgs[currImg].style.display = 'block';
+    }
+};
+
 ws.checkBrowserType();
 if (window.onload != undefined) {
     var func = window.onload;
