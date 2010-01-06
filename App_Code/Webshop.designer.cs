@@ -71,9 +71,6 @@ public partial class WebshopDataContext : System.Data.Linq.DataContext
   partial void InsertDiscountSubEvent(DiscountSubEvent instance);
   partial void UpdateDiscountSubEvent(DiscountSubEvent instance);
   partial void DeleteDiscountSubEvent(DiscountSubEvent instance);
-  partial void InsertEventImage(EventImage instance);
-  partial void UpdateEventImage(EventImage instance);
-  partial void DeleteEventImage(EventImage instance);
   partial void InsertEventOrganization(EventOrganization instance);
   partial void UpdateEventOrganization(EventOrganization instance);
   partial void DeleteEventOrganization(EventOrganization instance);
@@ -86,9 +83,6 @@ public partial class WebshopDataContext : System.Data.Linq.DataContext
   partial void InsertEvent(Event instance);
   partial void UpdateEvent(Event instance);
   partial void DeleteEvent(Event instance);
-  partial void InsertImage(Image instance);
-  partial void UpdateImage(Image instance);
-  partial void DeleteImage(Image instance);
   partial void InsertListsOfParticipant(ListsOfParticipant instance);
   partial void UpdateListsOfParticipant(ListsOfParticipant instance);
   partial void DeleteListsOfParticipant(ListsOfParticipant instance);
@@ -104,6 +98,12 @@ public partial class WebshopDataContext : System.Data.Linq.DataContext
   partial void InsertCategory(Category instance);
   partial void UpdateCategory(Category instance);
   partial void DeleteCategory(Category instance);
+  partial void InsertEventImage(EventImage instance);
+  partial void UpdateEventImage(EventImage instance);
+  partial void DeleteEventImage(EventImage instance);
+  partial void InsertImage(Image instance);
+  partial void UpdateImage(Image instance);
+  partial void DeleteImage(Image instance);
   #endregion
 	
 	public WebshopDataContext() : 
@@ -248,14 +248,6 @@ public partial class WebshopDataContext : System.Data.Linq.DataContext
 		}
 	}
 	
-	public System.Data.Linq.Table<EventImage> EventImages
-	{
-		get
-		{
-			return this.GetTable<EventImage>();
-		}
-	}
-	
 	public System.Data.Linq.Table<EventOrganization> EventOrganizations
 	{
 		get
@@ -285,14 +277,6 @@ public partial class WebshopDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<Event>();
-		}
-	}
-	
-	public System.Data.Linq.Table<Image> Images
-	{
-		get
-		{
-			return this.GetTable<Image>();
 		}
 	}
 	
@@ -333,6 +317,22 @@ public partial class WebshopDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<Category>();
+		}
+	}
+	
+	public System.Data.Linq.Table<EventImage> EventImages
+	{
+		get
+		{
+			return this.GetTable<EventImage>();
+		}
+	}
+	
+	public System.Data.Linq.Table<Image> Images
+	{
+		get
+		{
+			return this.GetTable<Image>();
 		}
 	}
 }
@@ -3958,174 +3958,6 @@ public partial class DiscountSubEvent : INotifyPropertyChanging, INotifyProperty
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EventImages")]
-public partial class EventImage : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private long _ImageID;
-	
-	private long _EventID;
-	
-	private EntityRef<Event> _Event;
-	
-	private EntityRef<Image> _Image;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnImageIDChanging(long value);
-    partial void OnImageIDChanged();
-    partial void OnEventIDChanging(long value);
-    partial void OnEventIDChanged();
-    #endregion
-	
-	public EventImage()
-	{
-		this._Event = default(EntityRef<Event>);
-		this._Image = default(EntityRef<Image>);
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-	public long ImageID
-	{
-		get
-		{
-			return this._ImageID;
-		}
-		set
-		{
-			if ((this._ImageID != value))
-			{
-				if (this._Image.HasLoadedOrAssignedValue)
-				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-				}
-				this.OnImageIDChanging(value);
-				this.SendPropertyChanging();
-				this._ImageID = value;
-				this.SendPropertyChanged("ImageID");
-				this.OnImageIDChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-	public long EventID
-	{
-		get
-		{
-			return this._EventID;
-		}
-		set
-		{
-			if ((this._EventID != value))
-			{
-				if (this._Event.HasLoadedOrAssignedValue)
-				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-				}
-				this.OnEventIDChanging(value);
-				this.SendPropertyChanging();
-				this._EventID = value;
-				this.SendPropertyChanged("EventID");
-				this.OnEventIDChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Event_EventImage", Storage="_Event", ThisKey="EventID", OtherKey="EventID", IsForeignKey=true)]
-	public Event Event
-	{
-		get
-		{
-			return this._Event.Entity;
-		}
-		set
-		{
-			Event previousValue = this._Event.Entity;
-			if (((previousValue != value) 
-						|| (this._Event.HasLoadedOrAssignedValue == false)))
-			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._Event.Entity = null;
-					previousValue.EventImages.Remove(this);
-				}
-				this._Event.Entity = value;
-				if ((value != null))
-				{
-					value.EventImages.Add(this);
-					this._EventID = value.EventID;
-				}
-				else
-				{
-					this._EventID = default(long);
-				}
-				this.SendPropertyChanged("Event");
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Image_EventImage", Storage="_Image", ThisKey="ImageID", OtherKey="ImageID", IsForeignKey=true)]
-	public Image Image
-	{
-		get
-		{
-			return this._Image.Entity;
-		}
-		set
-		{
-			Image previousValue = this._Image.Entity;
-			if (((previousValue != value) 
-						|| (this._Image.HasLoadedOrAssignedValue == false)))
-			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._Image.Entity = null;
-					previousValue.EventImages.Remove(this);
-				}
-				this._Image.Entity = value;
-				if ((value != null))
-				{
-					value.EventImages.Add(this);
-					this._ImageID = value.ImageID;
-				}
-				else
-				{
-					this._ImageID = default(long);
-				}
-				this.SendPropertyChanged("Image");
-			}
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-}
-
 [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EventOrganizations")]
 public partial class EventOrganization : INotifyPropertyChanging, INotifyPropertyChanged
 {
@@ -4703,8 +4535,6 @@ public partial class Event : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private EntitySet<DiscountSubEvent> _DiscountSubEvents;
 	
-	private EntitySet<EventImage> _EventImages;
-	
 	private EntitySet<EventOrganization> _EventOrganizations;
 	
 	private EntitySet<EventOrganizer> _EventOrganizers;
@@ -4714,6 +4544,8 @@ public partial class Event : INotifyPropertyChanging, INotifyPropertyChanged
 	private EntitySet<Event> _Events;
 	
 	private EntitySet<ListsOfParticipant> _ListsOfParticipants;
+	
+	private EntitySet<EventImage> _EventImages;
 	
 	private EntityRef<Event> _Event1;
 	
@@ -4760,12 +4592,12 @@ public partial class Event : INotifyPropertyChanging, INotifyPropertyChanged
 	public Event()
 	{
 		this._DiscountSubEvents = new EntitySet<DiscountSubEvent>(new Action<DiscountSubEvent>(this.attach_DiscountSubEvents), new Action<DiscountSubEvent>(this.detach_DiscountSubEvents));
-		this._EventImages = new EntitySet<EventImage>(new Action<EventImage>(this.attach_EventImages), new Action<EventImage>(this.detach_EventImages));
 		this._EventOrganizations = new EntitySet<EventOrganization>(new Action<EventOrganization>(this.attach_EventOrganizations), new Action<EventOrganization>(this.detach_EventOrganizations));
 		this._EventOrganizers = new EntitySet<EventOrganizer>(new Action<EventOrganizer>(this.attach_EventOrganizers), new Action<EventOrganizer>(this.detach_EventOrganizers));
 		this._EventPlacesToMeets = new EntitySet<EventPlacesToMeet>(new Action<EventPlacesToMeet>(this.attach_EventPlacesToMeets), new Action<EventPlacesToMeet>(this.detach_EventPlacesToMeets));
 		this._Events = new EntitySet<Event>(new Action<Event>(this.attach_Events), new Action<Event>(this.detach_Events));
 		this._ListsOfParticipants = new EntitySet<ListsOfParticipant>(new Action<ListsOfParticipant>(this.attach_ListsOfParticipants), new Action<ListsOfParticipant>(this.detach_ListsOfParticipants));
+		this._EventImages = new EntitySet<EventImage>(new Action<EventImage>(this.attach_EventImages), new Action<EventImage>(this.detach_EventImages));
 		this._Event1 = default(EntityRef<Event>);
 		OnCreated();
 	}
@@ -5127,19 +4959,6 @@ public partial class Event : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Event_EventImage", Storage="_EventImages", ThisKey="EventID", OtherKey="EventID")]
-	public EntitySet<EventImage> EventImages
-	{
-		get
-		{
-			return this._EventImages;
-		}
-		set
-		{
-			this._EventImages.Assign(value);
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Event_EventOrganization", Storage="_EventOrganizations", ThisKey="EventID", OtherKey="EventID")]
 	public EntitySet<EventOrganization> EventOrganizations
 	{
@@ -5202,6 +5021,19 @@ public partial class Event : INotifyPropertyChanging, INotifyPropertyChanged
 		set
 		{
 			this._ListsOfParticipants.Assign(value);
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Event_EventImage", Storage="_EventImages", ThisKey="EventID", OtherKey="EventID")]
+	public EntitySet<EventImage> EventImages
+	{
+		get
+		{
+			return this._EventImages;
+		}
+		set
+		{
+			this._EventImages.Assign(value);
 		}
 	}
 	
@@ -5271,18 +5103,6 @@ public partial class Event : INotifyPropertyChanging, INotifyPropertyChanged
 		entity.Event = null;
 	}
 	
-	private void attach_EventImages(EventImage entity)
-	{
-		this.SendPropertyChanging();
-		entity.Event = this;
-	}
-	
-	private void detach_EventImages(EventImage entity)
-	{
-		this.SendPropertyChanging();
-		entity.Event = null;
-	}
-	
 	private void attach_EventOrganizations(EventOrganization entity)
 	{
 		this.SendPropertyChanging();
@@ -5342,167 +5162,17 @@ public partial class Event : INotifyPropertyChanging, INotifyPropertyChanged
 		this.SendPropertyChanging();
 		entity.Event = null;
 	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Images")]
-public partial class Image : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private System.Nullable<int> _Name;
-	
-	private string _URL;
-	
-	private string _Description;
-	
-	private long _ImageID;
-	
-	private EntitySet<EventImage> _EventImages;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnNameChanging(System.Nullable<int> value);
-    partial void OnNameChanged();
-    partial void OnURLChanging(string value);
-    partial void OnURLChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    partial void OnImageIDChanging(long value);
-    partial void OnImageIDChanged();
-    #endregion
-	
-	public Image()
-	{
-		this._EventImages = new EntitySet<EventImage>(new Action<EventImage>(this.attach_EventImages), new Action<EventImage>(this.detach_EventImages));
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="Int")]
-	public System.Nullable<int> Name
-	{
-		get
-		{
-			return this._Name;
-		}
-		set
-		{
-			if ((this._Name != value))
-			{
-				this.OnNameChanging(value);
-				this.SendPropertyChanging();
-				this._Name = value;
-				this.SendPropertyChanged("Name");
-				this.OnNameChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URL", DbType="NVarChar(200)")]
-	public string URL
-	{
-		get
-		{
-			return this._URL;
-		}
-		set
-		{
-			if ((this._URL != value))
-			{
-				this.OnURLChanging(value);
-				this.SendPropertyChanging();
-				this._URL = value;
-				this.SendPropertyChanged("URL");
-				this.OnURLChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(200)")]
-	public string Description
-	{
-		get
-		{
-			return this._Description;
-		}
-		set
-		{
-			if ((this._Description != value))
-			{
-				this.OnDescriptionChanging(value);
-				this.SendPropertyChanging();
-				this._Description = value;
-				this.SendPropertyChanged("Description");
-				this.OnDescriptionChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public long ImageID
-	{
-		get
-		{
-			return this._ImageID;
-		}
-		set
-		{
-			if ((this._ImageID != value))
-			{
-				this.OnImageIDChanging(value);
-				this.SendPropertyChanging();
-				this._ImageID = value;
-				this.SendPropertyChanged("ImageID");
-				this.OnImageIDChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Image_EventImage", Storage="_EventImages", ThisKey="ImageID", OtherKey="ImageID")]
-	public EntitySet<EventImage> EventImages
-	{
-		get
-		{
-			return this._EventImages;
-		}
-		set
-		{
-			this._EventImages.Assign(value);
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
 	
 	private void attach_EventImages(EventImage entity)
 	{
 		this.SendPropertyChanging();
-		entity.Image = this;
+		entity.Event = this;
 	}
 	
 	private void detach_EventImages(EventImage entity)
 	{
 		this.SendPropertyChanging();
-		entity.Image = null;
+		entity.Event = null;
 	}
 }
 
@@ -6351,6 +6021,384 @@ public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		this.SendPropertyChanging();
 		entity.Category = null;
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EventImages")]
+public partial class EventImage : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private long _ImageID;
+	
+	private long _EventID;
+	
+	private bool _ThumbNail;
+	
+	private EntityRef<Event> _Event;
+	
+	private EntityRef<Image> _Image;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnImageIDChanging(long value);
+    partial void OnImageIDChanged();
+    partial void OnEventIDChanging(long value);
+    partial void OnEventIDChanged();
+    partial void OnThumbNailChanging(bool value);
+    partial void OnThumbNailChanged();
+    #endregion
+	
+	public EventImage()
+	{
+		this._Event = default(EntityRef<Event>);
+		this._Image = default(EntityRef<Image>);
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+	public long ImageID
+	{
+		get
+		{
+			return this._ImageID;
+		}
+		set
+		{
+			if ((this._ImageID != value))
+			{
+				if (this._Image.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnImageIDChanging(value);
+				this.SendPropertyChanging();
+				this._ImageID = value;
+				this.SendPropertyChanged("ImageID");
+				this.OnImageIDChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+	public long EventID
+	{
+		get
+		{
+			return this._EventID;
+		}
+		set
+		{
+			if ((this._EventID != value))
+			{
+				if (this._Event.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnEventIDChanging(value);
+				this.SendPropertyChanging();
+				this._EventID = value;
+				this.SendPropertyChanged("EventID");
+				this.OnEventIDChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThumbNail", DbType="Bit NOT NULL")]
+	public bool ThumbNail
+	{
+		get
+		{
+			return this._ThumbNail;
+		}
+		set
+		{
+			if ((this._ThumbNail != value))
+			{
+				this.OnThumbNailChanging(value);
+				this.SendPropertyChanging();
+				this._ThumbNail = value;
+				this.SendPropertyChanged("ThumbNail");
+				this.OnThumbNailChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Event_EventImage", Storage="_Event", ThisKey="EventID", OtherKey="EventID", IsForeignKey=true)]
+	public Event Event
+	{
+		get
+		{
+			return this._Event.Entity;
+		}
+		set
+		{
+			Event previousValue = this._Event.Entity;
+			if (((previousValue != value) 
+						|| (this._Event.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Event.Entity = null;
+					previousValue.EventImages.Remove(this);
+				}
+				this._Event.Entity = value;
+				if ((value != null))
+				{
+					value.EventImages.Add(this);
+					this._EventID = value.EventID;
+				}
+				else
+				{
+					this._EventID = default(long);
+				}
+				this.SendPropertyChanged("Event");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Image_EventImage", Storage="_Image", ThisKey="ImageID", OtherKey="ImageID", IsForeignKey=true)]
+	public Image Image
+	{
+		get
+		{
+			return this._Image.Entity;
+		}
+		set
+		{
+			Image previousValue = this._Image.Entity;
+			if (((previousValue != value) 
+						|| (this._Image.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Image.Entity = null;
+					previousValue.EventImages.Remove(this);
+				}
+				this._Image.Entity = value;
+				if ((value != null))
+				{
+					value.EventImages.Add(this);
+					this._ImageID = value.ImageID;
+				}
+				else
+				{
+					this._ImageID = default(long);
+				}
+				this.SendPropertyChanged("Image");
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Images")]
+public partial class Image : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private System.Nullable<int> _Name;
+	
+	private string _URL;
+	
+	private string _ThumbURL;
+	
+	private string _Description;
+	
+	private long _ImageID;
+	
+	private EntitySet<EventImage> _EventImages;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnNameChanging(System.Nullable<int> value);
+    partial void OnNameChanged();
+    partial void OnURLChanging(string value);
+    partial void OnURLChanged();
+    partial void OnThumbURLChanging(string value);
+    partial void OnThumbURLChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnImageIDChanging(long value);
+    partial void OnImageIDChanged();
+    #endregion
+	
+	public Image()
+	{
+		this._EventImages = new EntitySet<EventImage>(new Action<EventImage>(this.attach_EventImages), new Action<EventImage>(this.detach_EventImages));
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="Int")]
+	public System.Nullable<int> Name
+	{
+		get
+		{
+			return this._Name;
+		}
+		set
+		{
+			if ((this._Name != value))
+			{
+				this.OnNameChanging(value);
+				this.SendPropertyChanging();
+				this._Name = value;
+				this.SendPropertyChanged("Name");
+				this.OnNameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URL", DbType="NVarChar(200)")]
+	public string URL
+	{
+		get
+		{
+			return this._URL;
+		}
+		set
+		{
+			if ((this._URL != value))
+			{
+				this.OnURLChanging(value);
+				this.SendPropertyChanging();
+				this._URL = value;
+				this.SendPropertyChanged("URL");
+				this.OnURLChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThumbURL", DbType="NVarChar(200)")]
+	public string ThumbURL
+	{
+		get
+		{
+			return this._ThumbURL;
+		}
+		set
+		{
+			if ((this._ThumbURL != value))
+			{
+				this.OnThumbURLChanging(value);
+				this.SendPropertyChanging();
+				this._ThumbURL = value;
+				this.SendPropertyChanged("ThumbURL");
+				this.OnThumbURLChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(200)")]
+	public string Description
+	{
+		get
+		{
+			return this._Description;
+		}
+		set
+		{
+			if ((this._Description != value))
+			{
+				this.OnDescriptionChanging(value);
+				this.SendPropertyChanging();
+				this._Description = value;
+				this.SendPropertyChanged("Description");
+				this.OnDescriptionChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public long ImageID
+	{
+		get
+		{
+			return this._ImageID;
+		}
+		set
+		{
+			if ((this._ImageID != value))
+			{
+				this.OnImageIDChanging(value);
+				this.SendPropertyChanging();
+				this._ImageID = value;
+				this.SendPropertyChanged("ImageID");
+				this.OnImageIDChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Image_EventImage", Storage="_EventImages", ThisKey="ImageID", OtherKey="ImageID")]
+	public EntitySet<EventImage> EventImages
+	{
+		get
+		{
+			return this._EventImages;
+		}
+		set
+		{
+			this._EventImages.Assign(value);
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+	
+	private void attach_EventImages(EventImage entity)
+	{
+		this.SendPropertyChanging();
+		entity.Image = this;
+	}
+	
+	private void detach_EventImages(EventImage entity)
+	{
+		this.SendPropertyChanging();
+		entity.Image = null;
 	}
 }
 #pragma warning restore 1591
