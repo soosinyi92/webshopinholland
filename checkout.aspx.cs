@@ -16,17 +16,18 @@ public partial class checkout : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Page.User.Identity.IsAuthenticated && Page.User.IsInRole("User"))
+        if (!Page.User.Identity.IsAuthenticated || !Page.User.IsInRole("User"))
         {
-            txtFirstName.Text = Profile.User.FirstName;
-            txtLastName.Text = Profile.User.LastName;
-            txtAddress.Text = Profile.User.Street + " " + Profile.User.HouseNumber;
-            txtPostalCode.Text = Profile.User.PostalCode;
-            txtCity.Text = Profile.User.City;
-            txtCountry.Text = Profile.User.Country;
-            //txtEmail.Text = Profile.User.Email;
-            //txtPhone.Text = Profile.User.Phone;
+            Response.Redirect("./");
         }
+        txtFirstName.Text = Profile.User.FirstName;
+        txtLastName.Text = Profile.User.LastName;
+        txtAddress.Text = Profile.User.Street + " " + Profile.User.HouseNumber;
+        txtPostalCode.Text = Profile.User.PostalCode;
+        txtCity.Text = Profile.User.City;
+        txtCountry.Text = Profile.User.Country;
+        //txtEmail.Text = Profile.User.Email;
+        //txtPhone.Text = Profile.User.Phone;
     }
 
 
@@ -42,7 +43,7 @@ public partial class checkout : System.Web.UI.Page
         shippingInfo.Email = txtEmail.Text;
         shippingInfo.Phone = txtPhone.Text;
 
-        Profile.ShoppingCart.setShippingInfo(shippingInfo);
+        Profile.User.ShoppingCart.setShippingInfo(shippingInfo);
 		Payment pp_payment = new Payment(this.Page, ltlEncrypted);
 		//pp_payment.registerAndSubmitPPForm(Profile.User.ShoppingCart);
 		
