@@ -815,7 +815,8 @@ select,
 #managestudent input[type="text"],
 input[type="password"],
 select,
-#institution-table input[type="text"] {
+#institution-table input[type="text"],
+.AddEvent input[type="text"] {
     width: 320px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -1266,3 +1267,12 @@ div.EventsProgram {
     float: left;
     margin-left: 15px;
 }
+div.EventsButtons {
+    margin: 10px 0;
+}
+div.EventsButtons input[type="submit"],
+table.AddEvent input[type="text"] {
+    padding: 2px !important;
+}
+table.AddEvent tbody tr td{ padding:5px; vertical-align:top; text-align:left;}
+table.AddEvent tr td{ padding:5px;}
