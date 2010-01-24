@@ -43,7 +43,7 @@ public partial class checkout : System.Web.UI.Page
         shippingInfo.Email = txtEmail.Text;
         shippingInfo.Phone = txtPhone.Text;
 
-        Profile.User.ShoppingCart.setShippingInfo(shippingInfo);
+        Profile.ShoppingCart.setShippingInfo(shippingInfo);
 		Payment pp_payment = new Payment(this.Page, ltlEncrypted);
 		//pp_payment.registerAndSubmitPPForm(Profile.User.ShoppingCart);
 		
