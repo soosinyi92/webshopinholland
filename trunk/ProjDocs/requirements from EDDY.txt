@@ -1,0 +1,43 @@
+Deliverables:
+-------------------------------------------
+I.		The Application
+		--> Task: application stil has to be merged
+				- merge files
+				- transform latest DB to SQL server 2005 compatible
+				- upload it to web
+II.		The Last presentation (of week 7)
+		--> Task: the presentation has to be check and tidied up a bit
+III.	Storage of the application until April (this is NOT a physical deliverable, but a service!!!!)
+		--> Task done, though I am leaving the company, so we have to note Eddy that if he encounters a problem viewing it online, he has to contact us!
+IV.		Report
+			Main considerations for the content of the project:
+			 - about the application
+			 - about the process
+			 
+			 a.) Process: projectplan contrasted with reality (i.e. contrasted  with how the actual project was developed)
+				 goals vs achievements
+				 problems that we did not encounter beforehand
+			 b.) comment on working as a group
+			 c.) reflect on other group members
+					- What could they improve?
+					- Their communication?
+					- Sterngth and weaknesses
+			 d.) loogbook
+
+			 
+V. The application part 
+   Organized version of all previous docs with small introduction and sensible chapter contents 
+   a.) tasks of members, contact data ( give reasons for change if any)
+   b.) project proposal
+   c.) project plan (reflect on what is carried out in relation with the plan)
+   d.) Technical docs
+        - ER diagrams
+		- UML Diagrams
+   e.) first iteration
+   f.) second iteration --> Final (third) iteration
+   g.) Testing documents
+   h.) Application manual
+  -----------------------------------------------------------------------
+  
+  Additional things I remember:
+  Eddy really wants to have a chapter about the difficulties we had along the way. He was emphasizing it, becuse he can learn from it!
